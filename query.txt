@@ -1,0 +1,1 @@
+I want these: .dot,.log,.open-parenthesis,.close-parenthesis,.open-bracket.close-bracket,.dollar,.exclamation,#c,#o1,#n,#s,#o2,#l,#e, .name-input to be able to maintain their current position now, but now be a child of the #marker

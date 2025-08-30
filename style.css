@@ -509,6 +509,61 @@ a{
 
 /* Contact */
 
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: var(--sub-text);
+  width: 30px;
+  text-align: center;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.contact-item a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--hero-text);
+  text-decoration: underline;
+}
+
 @media (max-width: 679px) {
     .hero-content .card-container{
         transform: scale(0.7);
