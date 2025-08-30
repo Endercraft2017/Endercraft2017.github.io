@@ -1,1 +1,94 @@
-I want these: .dot,.log,.open-parenthesis,.close-parenthesis,.open-bracket.close-bracket,.dollar,.exclamation,#c,#o1,#n,#s,#o2,#l,#e, .name-input to be able to maintain their current position now, but now be a child of the #marker
+.dot,.log,.open-parenthesis,.close-parenthesis,.open-bracket.close-bracket,.dollar,.exclamation,#c,#o1,#n,#s,#o2,#l,#e, .name-input
+
+
+/* Initial position */
+.open-bracket{
+    transform: translate(200px, 430px) scale(2);
+}
+
+.close-bracket{
+    transform: translate(600px, 430px) scale(2);
+}
+
+.log{
+    transform: translate(1200px, 580px) scale(3) rotate(180deg);
+}
+
+.hello{
+    transform: translate(4px, 105px) scale(0.5) rotate(-25deg);
+}
+
+.open-parenthesis{
+    transform: translate(1130px, 600px) scale(2.7) rotate(-90deg);
+}
+
+.close-parenthesis{
+    transform: translate(402px, 330px) scale(1.4) rotate(90deg);
+}
+
+.exclamation{
+    transform: translate(640px, 310px) scale(3) rotate(180deg);
+}
+
+.dollar{
+    transform: translate(724px, 180px) scale(2);
+}
+/* Initial position */
+
+
+
+
+
+/* Final position */
+#c{
+    transform: translate(calc(-500px + 20vw),1680px) scale(1);
+}
+#o1{
+    transform: translate(calc(-325px + 20vw),1580px) scale(1);
+}
+#n{
+    transform: translate(calc(-220px + 20vw),1485px) scale(1);
+}
+#s{
+    transform: translate(calc(-584px + 20vw),1580px) scale(1);
+}
+#o2{
+    transform: translate(calc(-205px + 20vw),1485px) scale(1);
+}
+#l{
+    transform: translate(calc(-405px + 20vw),1485px) scale(1);
+}
+#e{
+    transform: translate(calc(-365px + 20vw),1680px) scale(1);
+}
+.dot{
+    transform: translate(calc(305px + 20vw),1795px) scale(0.7);
+}
+.log{
+    transform: translate(calc(340px + 20vw),1765px) scale(2);
+}
+.hello{
+    transform: translate(calc(60px + 20vw),1855px) scale(2);
+}
+.dollar{
+    transform: translate(calc(270px + 20vw),1850px) scale(2);
+}
+.open-bracket{
+    transform: translate(calc(315px + 20vw),1850px) scale(2);
+}
+.name-input{
+    transform: translate(calc(80px + 20vw),1420px) scale(0.8);
+}
+.close-bracket{
+    transform: translate(calc(520px + 20vw),1850px) scale(2);
+}
+.open-parenthesis{
+    transform: translate(calc(25px + 20vw),1850px) scale(2);
+}
+.close-parenthesis{
+    transform: translate(calc(575px + 20vw),1850px) scale(2);
+}
+.exclamation{
+    transform: translate(calc(550px + 20vw),1855px) scale(2);
+}
+/* Final position */

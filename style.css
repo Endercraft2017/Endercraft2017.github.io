@@ -141,6 +141,7 @@ a{
     font-weight: bold;
     line-height: 6rem;
     color: var(--hero-text);
+    z-index: -2;
 }
 
 .hero-main{
@@ -187,6 +188,7 @@ a{
     background: transparent;
     border: var(--hero-text) solid 2px;
     border-radius: var(--radius);
+    z-index: 1;
 }
 
 .name-input:focus{
@@ -219,25 +221,19 @@ a{
     display: inline-block;
 }
 
-@keyframes enlarge {
+/* @keyframes enlarge {
     from { transform: translate(-160px, 400px) scale(1); }
     to { transform: translate(-160px, 445px) scale(20); }
-}
+} */
 
 .dot{
-    width: 20px;
-    height: 20px;
-    position: absolute;
     background: var(--sub-text);
-    border-radius: 50%; /* Creates a circle */
+    border-radius: 50%;
     animation: enlarge 2s;
     animation-fill-mode: forwards;
 }
 
-.open-bracket, .close-bracket{
-    width: 20px;
-    height: 20px;
-    position: absolute;
+.open-bracket{
     transform: translate(200px, 430px) scale(2);
 }
 
@@ -246,16 +242,14 @@ a{
 }
 
 .log{
-    width: 20px;
-    height: 20px;
-    position: absolute;
     transform: translate(1200px, 580px) scale(3) rotate(180deg);
 }
 
-.open-parenthesis, .close-parenthesis{
-    width: 20px;
-    height: 20px;
-    position: absolute;
+.hello{
+    transform: translate(4px, 105px) scale(0.5) rotate(-25deg);
+}
+
+.open-parenthesis{
     transform: translate(1130px, 600px) scale(2.7) rotate(-90deg);
 }
 
@@ -264,21 +258,77 @@ a{
 }
 
 .exclamation{
-    width: 20px;
-    height: 20px;
-    position: absolute;
     transform: translate(640px, 310px) scale(3) rotate(180deg);
 }
 
 .dollar{
+    transform: translate(724px, 180px) scale(2);
+}
+/* Middle position */
+#c{
+    transform: translate(calc(-800px + 20vw),880px) scale(2) rotate(50deg);
+}
+#o1{
+    transform: translate(calc(-505px + 20vw),880px) scale(0.8);
+}
+#n{
+    transform: translate(calc(-420px + 20vw),1060px) scale(1.8) rotate(20deg);
+}
+#s{
+    transform: translate(calc(-690px + 20vw),890px) scale(1) rotate(-20deg);
+}
+#o2{
+    transform: translate(calc(-205px + 20vw),985px) scale(4) rotate(-30deg);
+}
+#l{
+    transform: translate(calc(220px + 20vw),1055px) scale(1.5) rotate(45deg);
+}
+#e{
+    transform: translate(calc(65px + 20vw),880px) scale(0.5) rotate(-60deg);
+}
+.dot{
+    transform: translate(calc(1055px + 20vw),1195px) scale(7);
+}
+.log{
+    transform: translate(calc(840px + 20vw),865px) scale(2) rotate(30deg);
+}
+.hello{
+    transform: translate(calc(-500px + 20vw),1255px) scale(5) rotate(50deg);
+}
+.dollar{
+    transform: translate(calc(450px + 20vw),1000px) scale(4) rotate(-45deg);
+}
+.open-bracket{
+    transform: translate(calc(15px + 20vw),950px) scale(2) rotate(-30deg);
+}
+.name-input{
+    transform: translate(calc(-780px + 20vw),720px) scale(0.8);
+}
+.close-bracket{
+    transform: translate(calc(620px + 20vw),850px) scale(3) rotate(-30deg);
+}
+.open-parenthesis{
+    transform: translate(calc(200px + 20vw),980px) scale(2) rotate(30deg);
+}
+.close-parenthesis{
+    transform: translate(calc(575px + 20vw),1400px) scale(5) rotate(30deg);
+}
+.exclamation{
+    transform: translate(calc(40px + 20vw),800px) scale(4) rotate(50deg);
+}
+/* Middle position */
+#marker{
+    color: transparent;
+}
+
+.hello, .dollar, .dot, .log, .open-parenthesis, .close-parenthesis, .open-bracket, .close-bracket, .exclamation{
     width: 20px;
     height: 20px;
     position: absolute;
-    transform: translate(724px, 180px) scale(2);
     z-index: -1;
 }
 
-.dollar:hover,.log:hover,.open-parenthesis:hover, .close-parenthesis:hover, .open-bracket:hover, .close-bracket:hover, .exclamation:hover{
+.hello:hover,.dollar:hover,.log:hover,.open-parenthesis:hover, .close-parenthesis:hover, .open-bracket:hover, .close-bracket:hover, .exclamation:hover{
     color: var(--hero-text);}
 
 .dot:hover{
@@ -308,7 +358,7 @@ a{
     left: 0;
     width: 100%;
     height: 100%;
-    background: #252c3a88;
+    background: #252c3ae1;
     filter: blur(100px);
     z-index: -1;
 }
@@ -379,6 +429,7 @@ a{
     min-height: 300px;
     border-radius: 20px;
     background: #141e25;
+    z-index: -3;
 }
 
 .programming-box p{
@@ -674,6 +725,10 @@ a{
         transform: translate(300px, 400px) scale(1.5) rotate(180deg);
     }
 
+    .hello{
+        transform: translate(-60px, -200px) scale(0.5) rotate(-25deg);
+    }
+
     .open-parenthesis{
         transform: translate(265px, 415px) scale(1.2) rotate(-90deg);
     }
@@ -780,6 +835,10 @@ a{
         transform: translate(250px, 400px) scale(1) rotate(180deg);
     }
 
+    .hello{
+        transform: translate(-50px, -195px) scale(0.3) rotate(-25deg);
+    }
+
     .open-parenthesis{
         transform: translate(227px, 410px) scale(0.7) rotate(-90deg);
     }
@@ -860,6 +919,10 @@ a{
 
     .log{
         transform: translate(150px, 400px) scale(1) rotate(180deg);
+    }
+
+    .hello{
+        transform: translate(-50px, -150px) scale(0.3) rotate(-25deg);
     }
 
     .open-parenthesis{
