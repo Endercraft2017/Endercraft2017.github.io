@@ -425,7 +425,7 @@ a{
     padding-right: 2vw;
     
 }
-
+/*  */
 .services::before, .services::after{
     position: absolute;
     content: "";
