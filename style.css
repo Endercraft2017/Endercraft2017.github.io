@@ -824,3 +824,103 @@ a{
         min-height: 80px;
     }
 }
+
+@media (max-width: 540px){
+    .hero-main h1{
+        font-size: 80px;
+        scale: .7;
+        height: 200px;
+        line-height: 80px;
+        transform: translateY(-30px);
+    }
+
+    /* Console animation */
+
+    @keyframes enlarge2 {
+        0% {
+          transform: translate(-200px, 350px) scale(0);
+        }
+        100% {
+          transform: translate(-200px, 350px) scale(8);
+        }
+      }
+
+    .dot{
+        animation: enlarge2 2s;
+        animation-fill-mode: forwards;
+    }
+
+    .open-bracket{
+        transform: translate(-140px, 208px) scale(2);
+    }
+
+    .close-bracket{
+        transform: translate(140px, 208px) scale(2);
+    }
+
+    .log{
+        transform: translate(150px, 400px) scale(1) rotate(180deg);
+    }
+
+    .open-parenthesis{
+        transform: translate(127px, 410px) scale(0.7) rotate(-90deg);
+    }
+
+    .close-parenthesis{
+        transform: translate(-55px, 152px) scale(1) rotate(90deg);
+    }
+
+    .exclamation{
+        transform: translate(92px, 138px) scale(1.5) rotate(180deg);
+    }
+
+    .dollar{
+        transform: translate(135px, 65px) scale(1.3);
+        z-index: -1;
+    }
+
+    /* Console animation */
+
+    .dedication h1{
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .programming-box, .hello-text-box{
+        min-width: 300px;
+    }
+
+    #marker{
+        font-size: 18px;
+    }
+
+    #output{
+        font-size: 18px;
+    }
+
+    .services h1{
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .service{
+        max-width: 300px;
+    }
+
+    .service-text h2{
+        font-size: 24px;
+    }
+
+    .contact h1{
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .contact-info{
+        padding: 12px;
+    }
+
+    .contact-item{
+        min-width: 300px;
+    }
+}
