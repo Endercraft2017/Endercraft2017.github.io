@@ -22,20 +22,35 @@ window.addEventListener('scroll', function() {
     // Calculate scroll position in pixels
     const scrollPosition = window.scrollY;
     
-    // Calculate scroll progress as percentage (0% at 90px, 10% at 1650px)
-    const minPosition = 90;
-    const maxPosition = 1650;
-    let scrollPercentage;
+    // Two-phase scroll tracking
+    const phase1Start = 90;
+    const phase1End = 825;
+    const phase2Start = 825;
+    const phase2End = 1650;
     
-    if (scrollPosition <= minPosition) {
+    let scrollPercentage, phase;
+    
+    // Phase 1: 90px to 825px
+    if (scrollPosition <= phase1Start) {
         scrollPercentage = 0;
-    } else if (scrollPosition >= maxPosition) {
+        phase = 1;
+    } else if (scrollPosition >= phase1Start && scrollPosition <= phase1End) {
+        // Map the range [90, 825] to [0, 100] for Phase 1
+        scrollPercentage = Math.round(((scrollPosition - phase1Start) / (phase1End - phase1Start)) * 100);
+        phase = 1;
+    } else if (scrollPosition > phase1End && scrollPosition < phase2Start) {
+        // Transition point (825px) - end of Phase 1
         scrollPercentage = 100;
-    } else {
-        // Map the range [90, 1650] to [0, 100]
-        scrollPercentage = Math.round(((scrollPosition - minPosition) / (maxPosition - minPosition)) * 100);
+        phase = 1;
+    } else if (scrollPosition >= phase2Start && scrollPosition <= phase2End) {
+        // Map the range [825, 1650] to [0, 100] for Phase 2
+        scrollPercentage = Math.round(((scrollPosition - phase2Start) / (phase2End - phase2Start)) * 100);
+        phase = 2;
+    } else if (scrollPosition > phase2End) {
+        scrollPercentage = 100;
+        phase = 2;
     }
     
     // Log scroll information to console
-    console.log(`Scroll Position: ${scrollPosition}px | Scroll Progress: ${scrollPercentage}%`);
+    console.log(`Scroll Position: ${scrollPosition}px | Phase: ${phase} | Scroll Progress: ${scrollPercentage}%`);
 });
