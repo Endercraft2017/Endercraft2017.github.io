@@ -618,16 +618,16 @@ a{
         justify-content: center;
         align-items: center;
         text-align: center;
-        gap: 2vh;
+        gap: 16px;
     }
     
     .hero-main h1 {
         margin-top: 0;
-        margin-bottom: 2vh;
+        margin-bottom: 10px;
     }
 
     .logo {
-        padding-top: 5vh;
+        padding-top: 40px;
         width: 150px;
     }
     
@@ -636,6 +636,14 @@ a{
         justify-content: center;
         align-items: center;
         padding: 0;
+    }
+
+    .name-button{
+        scale: 1.5;
+    }
+
+    .name-button:hover{
+        scale: 1.7;
     }
 
     /* Console animation */
@@ -723,5 +731,96 @@ a{
 
     .contact h1{
         padding: 0 2vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-bar{
+        padding: 0 2vw;
+    }
+
+    .hero-main{
+        gap: 5px
+    }
+
+    .hero-main h1{
+        scale: .7;
+    }
+
+    .logo{
+        padding-top: 20px;
+        height: 150px;
+    }
+
+    /* Console animation */
+
+    @keyframes enlarge2 {
+        0% {
+          transform: translate(-270px, 400px) scale(0);
+        }
+        100% {
+          transform: translate(-270px, 400px) scale(8);
+        }
+      }
+
+    .dot{
+        animation: enlarge2 2s;
+        animation-fill-mode: forwards;
+    }
+
+    .open-bracket{
+        transform: translate(-150px, 255px) scale(2);
+    }
+
+    .close-bracket{
+        transform: translate(150px, 255px) scale(2);
+    }
+
+    .log{
+        transform: translate(250px, 400px) scale(1) rotate(180deg);
+    }
+
+    .open-parenthesis{
+        transform: translate(227px, 410px) scale(0.7) rotate(-90deg);
+    }
+
+    .close-parenthesis{
+        transform: translate(-68px, 172px) scale(1) rotate(90deg);
+    }
+
+    .exclamation{
+        transform: translate(110px, 160px) scale(1.8) rotate(180deg);
+    }
+
+    .dollar{
+        transform: translate(160px, 73px) scale(1.5);
+        z-index: -1;
+    }
+
+    /* Console animation */
+
+    .dedication{
+        margin-top: 180px;
+    }
+
+    .dedication h1{
+        text-align: center;
+        line-height: 64px;
+        margin: 0;
+        padding-bottom: 20px;
+    }
+
+    .hello-world{
+        margin-top: 100px;
+    }
+
+    .services h1{
+        text-align: center;
+        line-height: 72px;
+        margin-bottom: 20px;
+    }
+
+    .contact-item{
+        min-height: 80px;
     }
 }
