@@ -313,3 +313,7 @@ These are their points where it is categorized as their initial position, their 
     transform: translate(calc(550px + 20vw),1855px) scale(2);
 }
 /* Final position */
+
+Starting scroll position 90px
+Mid scroll position886px
+Final Scroll position 1650px 
