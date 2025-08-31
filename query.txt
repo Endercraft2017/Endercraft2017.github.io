@@ -352,8 +352,7 @@ Final Scroll position 1650px
       } */
 
     .dot{
-        /* animation: enlarge2 2s;
-        animation-fill-mode: forwards; */
+        transform: translate(-400px, 400px) scale(13);
     }
 
     .open-bracket{
