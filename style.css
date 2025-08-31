@@ -701,6 +701,14 @@ a{
         z-index: -1;
     }
 
+    .front-tick{
+        transform: translate(-230px, -40px) scale(2) rotate(30deg);
+    }
+
+    .back-tick{
+        transform: translate(275px, 180px) scale(2) rotate(30deg);
+    }
+
     /* Console animation */
 
 
@@ -811,6 +819,14 @@ a{
         z-index: -1;
     }
 
+    .front-tick{
+    transform: translate(-166px, -20px) scale(1.5) rotate(30deg);
+    }
+
+    .back-tick{
+        transform: translate(195px, 133px) scale(1.5) rotate(30deg);
+    }
+
     /* Console animation */
 
     .dedication{
@@ -895,6 +911,14 @@ a{
     .dollar{
         transform: translate(135px, 65px) scale(1.3);
         z-index: -1;
+    }
+
+    .front-tick{
+        transform: translate(-133px, -12px) scale(1) rotate(30deg);
+    }
+
+    .back-tick{
+        transform: translate(160px, 115px) scale(1) rotate(30deg);
     }
 
     /* Console animation */
