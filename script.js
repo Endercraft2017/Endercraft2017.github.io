@@ -7,8 +7,10 @@ const vw = window.innerWidth / 100;
 const vw20 = 20 * vw;
 
 // Define animation configurations for elements using the pre-calculated 20vw value
+// For elements with selectorType: 'class', we'll get the first element with that class
 const animationConfig = {
     'c': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -800 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 880 },
@@ -23,6 +25,7 @@ const animationConfig = {
         }
     },
     'o1': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -505 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 880 },
@@ -37,6 +40,7 @@ const animationConfig = {
         }
     },
     'n': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -420 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 1060 },
@@ -51,6 +55,7 @@ const animationConfig = {
         }
     },
     's': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 890 },
@@ -65,6 +70,7 @@ const animationConfig = {
         }
     },
     'o2': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 985 },
@@ -79,6 +85,7 @@ const animationConfig = {
         }
     },
     'l': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: 220 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 1055 },
@@ -93,6 +100,7 @@ const animationConfig = {
         }
     },
     'e': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: 65 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 880 },
@@ -107,6 +115,7 @@ const animationConfig = {
         }
     },
     'name-input': {
+        selectorType: 'id',
         phase1: {
             translateX: { from: 0, to: -780 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 0, to: 720 },
@@ -119,13 +128,154 @@ const animationConfig = {
             scale: { from: 0.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
         }
+    },
+    // Elements that don't start at (0,0)
+    'dot': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -160, to: 1055 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 400, to: 1195 },
+            scale: { from: 1, to: 7 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 1055 + vw20, to: 305 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1195, to: 1795 },
+            scale: { from: 7, to: 0.7 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'log': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 1200, to: 840 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 580, to: 865 },
+            scale: { from: 3, to: 2 },
+            rotate: { from: 180, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 840 + vw20, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 865, to: 1765 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'hello': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 4, to: -500 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 105, to: 1255 },
+            scale: { from: 0.5, to: 5 },
+            rotate: { from: -25, to: 50 }
+        },
+        phase2: {
+            translateX: { from: -500 + vw20, to: 60 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1255, to: 1855 },
+            scale: { from: 5, to: 2 },
+            rotate: { from: 50, to: 0 }
+        }
+    },
+    'dollar': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 724, to: 450 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 180, to: 1000 },
+            scale: { from: 2, to: 4 },
+            rotate: { from: 0, to: -45 }
+        },
+        phase2: {
+            translateX: { from: 450 + vw20, to: 270 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1000, to: 1850 },
+            scale: { from: 4, to: 2 },
+            rotate: { from: -45, to: 0 }
+        }
+    },
+    'open-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 200, to: 15 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 430, to: 950 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: 15 + vw20, to: 315 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 950, to: 1850 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'close-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 600, to: 620 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 430, to: 850 },
+            scale: { from: 2, to: 3 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: 620 + vw20, to: 520 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 850, to: 1850 },
+            scale: { from: 3, to: 2 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'open-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 1130, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 600, to: 980 },
+            scale: { from: 2.7, to: 2 },
+            rotate: { from: -90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 200 + vw20, to: 25 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 980, to: 1850 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'close-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 402, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 330, to: 1400 },
+            scale: { from: 1.4, to: 5 },
+            rotate: { from: 90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 575 + vw20, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1400, to: 1850 },
+            scale: { from: 5, to: 2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'exclamation': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 640, to: 40 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 310, to: 800 },
+            scale: { from: 3, to: 4 },
+            rotate: { from: 180, to: 50 }
+        },
+        phase2: {
+            translateX: { from: 40 + vw20, to: 550 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 800, to: 1855 },
+            scale: { from: 4, to: 2 },
+            rotate: { from: 50, to: 0 }
+        }
     }
 };
 
 // Get all elements that need animation
 const animatedElements = {};
 for (const elementId in animationConfig) {
-    animatedElements[elementId] = document.getElementById(elementId);
+    const config = animationConfig[elementId];
+    if (config.selectorType === 'class') {
+        animatedElements[elementId] = document.querySelector(`.${elementId}`);
+    } else {
+        animatedElements[elementId] = document.getElementById(elementId);
+    }
 }
 
 // Add scroll event listener to track scroll position
