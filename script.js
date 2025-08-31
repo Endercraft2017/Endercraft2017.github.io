@@ -134,8 +134,8 @@ const animationConfig = {
         selectorType: 'class',
         phase1: {
             translateX: { from: -160, to: 1055 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 400, to: 1195 },
-            scale: { from: 1, to: 7 },
+            translateY: { from: 445, to: 1195 },
+            scale: { from: 20, to: 7 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
@@ -353,6 +353,9 @@ function animateElement(element, elementId, scrollPercentage, phase) {
     const translateY = phaseConfig.translateY.from + (scrollPercentage / 100) * (phaseConfig.translateY.to - phaseConfig.translateY.from);
     const scale = phaseConfig.scale.from + (scrollPercentage / 100) * (phaseConfig.scale.to - phaseConfig.scale.from);
     const rotate = phaseConfig.rotate.from + (scrollPercentage / 100) * (phaseConfig.rotate.to - phaseConfig.rotate.from);
+    
+    // Remove any existing CSS animations that might conflict with our JavaScript animations
+    element.style.animation = 'none';
     
     element.style.transform = `translate(${translateX}, ${translateY}px) scale(${scale}) rotate(${rotate}deg)`;
 }
