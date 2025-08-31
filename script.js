@@ -229,7 +229,7 @@ const animationConfig = {
             rotate: { from: -90, to: 30 }
         },
         phase2: {
-            translateX: { from: 200 + vw20, to: 25 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200 + vw20, to: 15 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 980, to: 1850 },
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -244,7 +244,7 @@ const animationConfig = {
             rotate: { from: 90, to: 30 }
         },
         phase2: {
-            translateX: { from: 575 + vw20, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 575 + vw20, to: 585 + vw20 }, // Use pre-calculated 20vw
             translateY: { from: 1400, to: 1850 },
             scale: { from: 5, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -264,6 +264,36 @@ const animationConfig = {
             scale: { from: 4, to: 2 },
             rotate: { from: 50, to: 0 }
         }
+    },
+    'front-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 220, to: 100 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 50, to: 880 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: 30, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 100 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: 1850 },
+            scale: { from: 2, to: 2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'back-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 800, to: 1010 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 270, to: 880 },
+            scale: { from: 2, to: 5 },
+            rotate: { from: 30, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 1010 + vw20, to: 570 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: 1850 },
+            scale: { from: 5, to: 2 },
+            rotate: { from: 0, to: 0 }
+        }
     }
 };
 
@@ -280,6 +310,13 @@ for (const elementId in animationConfig) {
 
 // Add scroll event listener to track scroll position
 window.addEventListener('scroll', function() {
+    // Check if viewport width is more than 900px
+    if (window.innerWidth <= 900) {
+        // Reset element styles when viewport width is 900px or less
+        resetElements();
+        return;
+    }
+    
     // Calculate scroll position in pixels
     const scrollPosition = window.scrollY;
     
@@ -318,6 +355,31 @@ window.addEventListener('scroll', function() {
     // Animate all elements based on scroll position
     animateElements(scrollPercentage, phase);
 });
+
+// Add resize event listener to handle viewport width changes
+window.addEventListener('resize', function() {
+    // Check if viewport width is more than 900px
+    if (window.innerWidth <= 900) {
+        // Reset element styles when viewport width is 900px or less
+        resetElements();
+    } else {
+        // Re-enable animations when viewport width is more than 900px
+        // Trigger a scroll event to re-calculate the current position and animate elements
+        window.dispatchEvent(new Event('scroll'));
+    }
+});
+
+// Function to reset element styles when viewport width is 900px or less
+function resetElements() {
+    for (const elementId in animationConfig) {
+        const element = animatedElements[elementId];
+        if (element) {
+            // Reset transform and animation styles
+            element.style.transform = '';
+            element.style.animation = '';
+        }
+    }
+}
 
 // Function to animate all elements based on scroll percentage and phase
 function animateElements(scrollPercentage, phase) {

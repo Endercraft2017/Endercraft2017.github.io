@@ -265,18 +265,25 @@ a{
     transform: translate(724px, 180px) scale(2);
 }
 
+.front-tick{
+    transform: translate(220px, 50px) scale(2) rotate(30deg);
+}
+
+.back-tick{
+    transform: translate(800px, 270px) scale(2) rotate(30deg);
+}
+
 #marker{
     color: transparent;
 }
 
-.hello, .dollar, .dot, .log, .open-parenthesis, .close-parenthesis, .open-bracket, .close-bracket, .exclamation{
+.front-tick, .back-tick, .hello, .dollar, .dot, .log, .open-parenthesis, .close-parenthesis, .open-bracket, .close-bracket, .exclamation{
     width: 20px;
     height: 20px;
     position: absolute;
-    z-index: -1;
 }
 
-.hello:hover,.dollar:hover,.log:hover,.open-parenthesis:hover, .close-parenthesis:hover, .open-bracket:hover, .close-bracket:hover, .exclamation:hover{
+.front-tick:hover,.back-tick:hover,.hello:hover,.dollar:hover,.log:hover,.open-parenthesis:hover, .close-parenthesis:hover, .open-bracket:hover, .close-bracket:hover, .exclamation:hover{
     color: var(--hero-text);}
 
 .dot:hover{
