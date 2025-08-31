@@ -642,27 +642,39 @@ window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     
     // Two-phase scroll tracking
-    const phase1Start = 90;
-    const phase1End = 825;
-    const phase2Start = 825;
-    const phase2End = 1650;
+    // Use different scroll points for medium viewport width (700px-900px)
+    let phase1Start, phase1End, phase2Start, phase2End;
+    
+    if (window.innerWidth > 700 && window.innerWidth <= 900) {
+        // For medium viewport width: Phase 1 (90px to 1250px), Phase 2 (1250px to 2000px)
+        phase1Start = 90;
+        phase1End = 1250;
+        phase2Start = 1250;
+        phase2End = 2000;
+    } else {
+        // For other viewport widths: Phase 1 (90px to 825px), Phase 2 (825px to 1650px)
+        phase1Start = 90;
+        phase1End = 825;
+        phase2Start = 825;
+        phase2End = 1650;
+    }
     
     let scrollPercentage, phase;
     
-    // Phase 1: 90px to 825px
+    // Phase 1
     if (scrollPosition <= phase1Start) {
         scrollPercentage = 0;
         phase = 1;
     } else if (scrollPosition >= phase1Start && scrollPosition <= phase1End) {
-        // Map the range [90, 825] to [0, 100] for Phase 1
+        // Map the range [phase1Start, phase1End] to [0, 100] for Phase 1
         scrollPercentage = Math.round(((scrollPosition - phase1Start) / (phase1End - phase1Start)) * 100);
         phase = 1;
     } else if (scrollPosition > phase1End && scrollPosition < phase2Start) {
-        // Transition point (825px) - end of Phase 1
+        // Transition point - end of Phase 1
         scrollPercentage = 100;
         phase = 1;
     } else if (scrollPosition >= phase2Start && scrollPosition <= phase2End) {
-        // Map the range [825, 1650] to [0, 100] for Phase 2
+        // Map the range [phase2Start, phase2End] to [0, 100] for Phase 2
         scrollPercentage = Math.round(((scrollPosition - phase2Start) / (phase2End - phase2Start)) * 100);
         phase = 2;
     } else if (scrollPosition > phase2End) {
