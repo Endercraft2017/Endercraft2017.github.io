@@ -2,92 +2,112 @@
 
 
 /* Initial position */
-.open-bracket{
-    transform: translate(200px, 430px) scale(2);
-}
+    .dot{
+        animation: enlarge2 2s;
+        animation-fill-mode: forwards;
+    }
 
-.close-bracket{
-    transform: translate(600px, 430px) scale(2);
-}
+    .open-bracket{
+        transform: translate(-150px, 280px) scale(2);
+    }
 
-.log{
-    transform: translate(1200px, 580px) scale(3) rotate(180deg);
-}
+    .close-bracket{
+        transform: translate(150px, 280px) scale(2);
+    }
 
-.hello{
-    transform: translate(4px, 105px) scale(0.5) rotate(-25deg);
-}
+    .log{
+        transform: translate(300px, 400px) scale(1.5) rotate(180deg);
+    }
 
-.open-parenthesis{
-    transform: translate(1130px, 600px) scale(2.7) rotate(-90deg);
-}
+    .hello{
+        transform: translate(-60px, -200px) scale(0.5) rotate(-25deg);
+    }
 
-.close-parenthesis{
-    transform: translate(402px, 330px) scale(1.4) rotate(90deg);
-}
+    .open-parenthesis{
+        transform: translate(265px, 415px) scale(1.2) rotate(-90deg);
+    }
 
-.exclamation{
-    transform: translate(640px, 310px) scale(3) rotate(180deg);
-}
+    .close-parenthesis{
+        transform: translate(-97px, 235px) scale(1.4) rotate(90deg);
+    }
 
-.dollar{
-    transform: translate(724px, 180px) scale(2);
-}
+    .exclamation{
+        transform: translate(155px, 220px) scale(2.7) rotate(180deg);
+    }
+
+    .dollar{
+        transform: translate(232px, 95px) scale(2);
+        z-index: -1;
+    }
+
+    .front-tick{
+        transform: translate(-230px, -40px) scale(2) rotate(30deg);
+    }
+
+    .back-tick{
+        transform: translate(275px, 180px) scale(2) rotate(30deg);
+    }
 /* Initial position */
 
 
 /* Middle position */
-#c{
-    transform: translate(calc(-800px + 20vw),880px) scale(2) rotate(50deg);
-}
-#o1{
-    transform: translate(calc(-505px + 20vw),880px) scale(0.8);
-}
-#n{
-    transform: translate(calc(-420px + 20vw),1060px) scale(1.8) rotate(20deg);
-}
-#s{
-    transform: translate(calc(-690px + 20vw),890px) scale(1) rotate(-20deg);
-}
-#o2{
-    transform: translate(calc(-205px + 20vw),985px) scale(4) rotate(-30deg);
-}
-#l{
-    transform: translate(calc(220px + 20vw),1055px) scale(1.5) rotate(45deg);
-}
-#e{
-    transform: translate(calc(65px + 20vw),880px) scale(0.5) rotate(-60deg);
-}
-.dot{
-    transform: translate(calc(1055px + 20vw),1195px) scale(7);
-}
-.log{
-    transform: translate(calc(840px + 20vw),865px) scale(2) rotate(30deg);
-}
-.hello{
-    transform: translate(calc(-500px + 20vw),1255px) scale(5) rotate(50deg);
-}
-.dollar{
-    transform: translate(calc(450px + 20vw),1000px) scale(4) rotate(-45deg);
-}
-.open-bracket{
-    transform: translate(calc(15px + 20vw),950px) scale(2) rotate(-30deg);
-}
-.name-input{
-    transform: translate(calc(-780px + 20vw),720px) scale(0.8);
-}
-.close-bracket{
-    transform: translate(calc(620px + 20vw),850px) scale(3) rotate(-30deg);
-}
-.open-parenthesis{
-    transform: translate(calc(200px + 20vw),980px) scale(2) rotate(30deg);
-}
-.close-parenthesis{
-    transform: translate(calc(575px + 20vw),1400px) scale(5) rotate(30deg);
-}
-.exclamation{
-    transform: translate(calc(40px + 20vw),800px) scale(4) rotate(50deg);
-}
+    #c{
+        transform: translate(calc(-550px + 20vw),890px) scale(2) rotate(50deg);
+    }
+    #o1{
+        transform: translate(calc(405px + 20vw),1380px) scale(2.8);
+    }
+    #n{
+        transform: translate(calc(340px + 20vw),860px) scale(1.8) rotate(20deg);
+    }
+    #s{
+        transform: translate(calc(-690px + 20vw),990px) scale(1) rotate(-20deg);
+    }
+    #o2{
+        transform: translate(calc(-205px + 20vw),985px) scale(4) rotate(-30deg);
+    }
+    #l{
+        transform: translate(calc(120px + 20vw),1055px) scale(1.5) rotate(45deg);
+    }
+    #e{
+        transform: translate(calc(-665px + 20vw),1680px) scale(0.5) rotate(-60deg);
+    }
+    .dot{
+        transform: translate(calc(555px + 20vw),1195px) scale(3);
+    }
+    .log{
+        transform: translate(calc(140px + 20vw),1365px) scale(1) rotate(30deg);
+    }
+    .hello{
+        transform: translate(calc(-600px + 20vw),1255px) scale(5) rotate(50deg);
+    }
+    .dollar{
+        transform: translate(calc(50px + 20vw),1200px) scale(4) rotate(-45deg);
+    }
+    .open-bracket{
+        transform: translate(calc(-405px + 20vw),970px) scale(1) rotate(-30deg);
+    }
+    .name-input{
+        transform: translate(calc(-470px + 20vw),920px) scale(0.2);
+    }
+    .close-bracket{
+        transform: translate(calc(90px + 20vw),810px) scale(1.2) rotate(-30deg);
+    }
+    .open-parenthesis{
+        transform: translate(calc(200px + 20vw),980px) scale(2) rotate(30deg);
+    }
+    .close-parenthesis{
+        transform: translate(calc(575px + 20vw),1400px) scale(5) rotate(30deg);
+    }
+    .exclamation{
+        transform: translate(calc(140px + 20vw),1650px) scale(4) rotate(40deg);
+    }
+    .front-tick{
+        transform: translate(calc(-410px + 20vw), 880px) scale(2) rotate(-30deg);
+    }
+    .back-tick{
+        transform: translate(calc(410px + 20vw), 880px) scale(5) rotate(30deg);
+    }
 /* Middle position */
 
 
@@ -316,4 +336,185 @@ These are their points where it is categorized as their initial position, their 
 
 Starting scroll position 90px
 Mid scroll position886px
-Final Scroll position 1650px 
+Final Scroll position 1650px
+
+<900px
+
+    /* Console animation */
+
+    /* @keyframes enlarge2 {
+        0% {
+          transform: translate(-400px, 400px) scale(0);
+        }
+        100% {
+          transform: translate(-400px, 400px) scale(13);
+        }
+      } */
+
+    .dot{
+        /* animation: enlarge2 2s;
+        animation-fill-mode: forwards; */
+    }
+
+    .open-bracket{
+        transform: translate(-150px, 280px) scale(2);
+    }
+
+    .close-bracket{
+        transform: translate(150px, 280px) scale(2);
+    }
+
+    .log{
+        transform: translate(300px, 400px) scale(1.5) rotate(180deg);
+    }
+
+    .hello{
+        transform: translate(-60px, -200px) scale(0.5) rotate(-25deg);
+    }
+
+    .open-parenthesis{
+        transform: translate(265px, 415px) scale(1.2) rotate(-90deg);
+    }
+
+    .close-parenthesis{
+        transform: translate(-97px, 235px) scale(1.4) rotate(90deg);
+    }
+
+    .exclamation{
+        transform: translate(155px, 220px) scale(2.7) rotate(180deg);
+    }
+
+    .dollar{
+        transform: translate(232px, 95px) scale(2);
+        z-index: -1;
+    }
+
+    .front-tick{
+        transform: translate(-230px, -40px) scale(2) rotate(30deg);
+    }
+
+    .back-tick{
+        transform: translate(275px, 180px) scale(2) rotate(30deg);
+    }
+
+    /* Console animation */
+
+    /* Middle */
+    #c{
+        transform: translate(calc(-550px + 20vw),890px) scale(2) rotate(50deg);
+    }
+    #o1{
+        transform: translate(calc(405px + 20vw),1380px) scale(2.8);
+    }
+    #n{
+        transform: translate(calc(340px + 20vw),860px) scale(1.8) rotate(20deg);
+    }
+    #s{
+        transform: translate(calc(-690px + 20vw),990px) scale(1) rotate(-20deg);
+    }
+    #o2{
+        transform: translate(calc(-205px + 20vw),985px) scale(4) rotate(-30deg);
+    }
+    #l{
+        transform: translate(calc(120px + 20vw),1055px) scale(1.5) rotate(45deg);
+    }
+    #e{
+        transform: translate(calc(-665px + 20vw),1680px) scale(0.5) rotate(-60deg);
+    }
+    .dot{
+        transform: translate(calc(555px + 20vw),1195px) scale(3);
+    }
+    .log{
+        transform: translate(calc(140px + 20vw),1365px) scale(1) rotate(30deg);
+    }
+    .hello{
+        transform: translate(calc(-600px + 20vw),1255px) scale(5) rotate(50deg);
+    }
+    .dollar{
+        transform: translate(calc(50px + 20vw),1200px) scale(4) rotate(-45deg);
+    }
+    .open-bracket{
+        transform: translate(calc(-405px + 20vw),970px) scale(1) rotate(-30deg);
+    }
+    .name-input{
+        transform: translate(calc(-470px + 20vw),920px) scale(0.2);
+    }
+    .close-bracket{
+        transform: translate(calc(90px + 20vw),810px) scale(1.2) rotate(-30deg);
+    }
+    .open-parenthesis{
+        transform: translate(calc(200px + 20vw),980px) scale(2) rotate(30deg);
+    }
+    .close-parenthesis{
+        transform: translate(calc(575px + 20vw),1400px) scale(5) rotate(30deg);
+    }
+    .exclamation{
+        transform: translate(calc(140px + 20vw),1650px) scale(4) rotate(40deg);
+    }
+    .front-tick{
+        transform: translate(calc(-410px + 20vw), 880px) scale(2) rotate(-30deg);
+    }
+    .back-tick{
+        transform: translate(calc(410px + 20vw), 880px) scale(5) rotate(30deg);
+    }
+    /* Middle */
+
+    /* Final */
+    #c{
+        transform: translate(calc(-350px + 20vw),2060px) scale(0.8) rotate(0deg);
+    }
+    #o1{
+        transform: translate(calc(-148px + 20vw),1965px) scale(0.8);
+    }
+    #n{
+        transform: translate(calc(-49px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #s{
+        transform: translate(calc(-434px + 20vw),1965px) scale(0.8) rotate(0deg);
+    }
+    #o2{
+        transform: translate(calc(-56px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #l{
+        transform: translate(calc(-264px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #e{
+        transform: translate(calc(-282px + 20vw),2060px) scale(0.8) rotate(0deg);
+    }
+    .dot{
+        transform: translate(calc(-70px + 20vw),2088px) scale(0.6);
+    }
+    .log{
+        transform: translate(calc(-40px + 20vw),2060px) scale(2) rotate(0deg);
+    }
+    .hello{
+        transform: translate(calc(-325px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .dollar{
+        transform: translate(calc(-165px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .open-bracket{
+        transform: translate(calc(-130px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .name-input{
+        transform: translate(calc(-48px + 20vw),1860px) scale(0.7);
+    }
+    .close-bracket{
+        transform: translate(calc(33px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .open-parenthesis{
+        transform: translate(calc(-370px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .close-parenthesis{
+        transform: translate(calc(92px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .exclamation{
+        transform: translate(calc(55px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .front-tick{
+        transform: translate(calc(-350px + 20vw), 2135px) scale(1.8) rotate(0deg);
+    }
+    .back-tick{
+        transform: translate(calc(70px + 20vw), 2135px) scale(1.8) rotate(0deg);
+    }
+    /* Final */

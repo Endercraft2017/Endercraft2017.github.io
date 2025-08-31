@@ -221,16 +221,16 @@ a{
     display: inline-block;
 }
 
-@keyframes enlarge {
+/* @keyframes enlarge {
     from { transform: translate(-160px, 400px) scale(1); }
     to { transform: translate(-160px, 445px) scale(20); }
-}
+} */
 
 .dot{
     background: var(--sub-text);
     border-radius: 50%;
-    animation: enlarge 2s;
-    animation-fill-mode: forwards;
+    /* animation: enlarge 2s;
+    animation-fill-mode: forwards; */
 }
 
 .open-bracket{
@@ -711,6 +711,125 @@ a{
 
     /* Console animation */
 
+    /* Middle */
+    #c{
+        transform: translate(calc(-550px + 20vw),890px) scale(2) rotate(50deg);
+    }
+    #o1{
+        transform: translate(calc(405px + 20vw),1380px) scale(2.8);
+    }
+    #n{
+        transform: translate(calc(340px + 20vw),860px) scale(1.8) rotate(20deg);
+    }
+    #s{
+        transform: translate(calc(-690px + 20vw),990px) scale(1) rotate(-20deg);
+    }
+    #o2{
+        transform: translate(calc(-205px + 20vw),985px) scale(4) rotate(-30deg);
+    }
+    #l{
+        transform: translate(calc(120px + 20vw),1055px) scale(1.5) rotate(45deg);
+    }
+    #e{
+        transform: translate(calc(-665px + 20vw),1680px) scale(0.5) rotate(-60deg);
+    }
+    .dot{
+        transform: translate(calc(555px + 20vw),1195px) scale(3);
+    }
+    .log{
+        transform: translate(calc(140px + 20vw),1365px) scale(1) rotate(30deg);
+    }
+    .hello{
+        transform: translate(calc(-600px + 20vw),1255px) scale(5) rotate(50deg);
+    }
+    .dollar{
+        transform: translate(calc(50px + 20vw),1200px) scale(4) rotate(-45deg);
+    }
+    .open-bracket{
+        transform: translate(calc(-405px + 20vw),970px) scale(1) rotate(-30deg);
+    }
+    .name-input{
+        transform: translate(calc(-470px + 20vw),920px) scale(0.2);
+    }
+    .close-bracket{
+        transform: translate(calc(90px + 20vw),810px) scale(1.2) rotate(-30deg);
+    }
+    .open-parenthesis{
+        transform: translate(calc(200px + 20vw),980px) scale(2) rotate(30deg);
+    }
+    .close-parenthesis{
+        transform: translate(calc(575px + 20vw),1400px) scale(5) rotate(30deg);
+    }
+    .exclamation{
+        transform: translate(calc(140px + 20vw),1650px) scale(4) rotate(40deg);
+    }
+    .front-tick{
+        transform: translate(calc(-410px + 20vw), 880px) scale(2) rotate(-30deg);
+    }
+    .back-tick{
+        transform: translate(calc(410px + 20vw), 880px) scale(5) rotate(30deg);
+    }
+    /* Middle */
+
+    /* Final */
+    #c{
+        transform: translate(calc(-350px + 20vw),2060px) scale(0.8) rotate(0deg);
+    }
+    #o1{
+        transform: translate(calc(-148px + 20vw),1965px) scale(0.8);
+    }
+    #n{
+        transform: translate(calc(-49px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #s{
+        transform: translate(calc(-434px + 20vw),1965px) scale(0.8) rotate(0deg);
+    }
+    #o2{
+        transform: translate(calc(-56px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #l{
+        transform: translate(calc(-264px + 20vw),1870px) scale(0.8) rotate(0deg);
+    }
+    #e{
+        transform: translate(calc(-282px + 20vw),2060px) scale(0.8) rotate(0deg);
+    }
+    .dot{
+        transform: translate(calc(-70px + 20vw),2088px) scale(0.6);
+    }
+    .log{
+        transform: translate(calc(-40px + 20vw),2060px) scale(2) rotate(0deg);
+    }
+    .hello{
+        transform: translate(calc(-325px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .dollar{
+        transform: translate(calc(-165px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .open-bracket{
+        transform: translate(calc(-130px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .name-input{
+        transform: translate(calc(-48px + 20vw),1860px) scale(0.7);
+    }
+    .close-bracket{
+        transform: translate(calc(33px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .open-parenthesis{
+        transform: translate(calc(-370px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .close-parenthesis{
+        transform: translate(calc(92px + 20vw),2140px) scale(1.8) rotate(0deg);
+    }
+    .exclamation{
+        transform: translate(calc(55px + 20vw),2145px) scale(1.8) rotate(0deg);
+    }
+    .front-tick{
+        transform: translate(calc(-350px + 20vw), 2135px) scale(1.8) rotate(0deg);
+    }
+    .back-tick{
+        transform: translate(calc(70px + 20vw), 2135px) scale(1.8) rotate(0deg);
+    }
+    /* Final */
 
     /* Services section changes */
     .services-container {
@@ -922,6 +1041,14 @@ a{
     }
 
     /* Console animation */
+
+    /* Middle */
+
+    /* Middle */
+
+    /* Final */
+
+    /* Final */
 
     .dedication h1{
         font-size: 50px;
