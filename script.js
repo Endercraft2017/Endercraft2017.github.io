@@ -1,6 +1,290 @@
+// Global variables to store positions
+let PROGRAMMING_BOX_CENTER_Y = 0;
+let C_BOTTOM_Y = 0;
+let O1_BOTTOM_Y = 0;
+let N_BOTTOM_Y = 0;
+let S_BOTTOM_Y = 0;
+let O2_BOTTOM_Y = 0;
+let L_BOTTOM_Y = 0;
+let E_BOTTOM_Y = 0;
+let NAME_INPUT_BOTTOM_Y = 0;
+let TEST_MARKER_BOTTOM_Y = 0;
+
+// Object to hold constants
+const ELEMENT_POSITIONS = {
+    programmingBox: {
+        center: {
+            y: 0
+        }
+    },
+    c: {
+        bottom: {
+            y: 0
+        }
+    },
+    o1: {
+        bottom: {
+            y: 0
+        }
+    },
+    n: {
+        bottom: {
+            y: 0
+        }
+    },
+    s: {
+        bottom: {
+            y: 0
+        }
+    },
+    o2: {
+        bottom: {
+            y: 0
+        }
+    },
+    l: {
+        bottom: {
+            y: 0
+        }
+    },
+    e: {
+        bottom: {
+            y: 0
+        }
+    },
+    nameInput: {
+        bottom: {
+            y: 0
+        }
+    },
+    testMarker: {
+        bottom: {
+            y: 0
+        }
+    }
+};
+
+// Function to calculate and print positions of elements from the top of the page
+function calculateElementPositions() {
+    // Calculate center of .programming-box
+    const programmingBox = document.querySelector('.programming-box');
+    if (programmingBox) {
+        // Get the element's position relative to the viewport
+        const rect = programmingBox.getBoundingClientRect();
+        
+        // Calculate the center of the element from the top of the page
+        const centerFromTop = rect.top + window.scrollY + (rect.height / 2);
+        
+        // Store the center position in the global variable
+        PROGRAMMING_BOX_CENTER_Y = centerFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.programmingBox.center.y = centerFromTop;
+        
+        // Print the center position to the console
+        console.log('Center of .programming-box from top of page: ' + centerFromTop + 'px');
+    } else {
+        console.log('Could not find .programming-box element');
+    }
+    
+    // Calculate bottom of #c
+    const cElement = document.getElementById('c');
+    if (cElement) {
+        // Get the element's position relative to the viewport
+        const rect = cElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        C_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.c.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #c from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #c element');
+    }
+    
+    // Calculate bottom of #o1
+    const o1Element = document.getElementById('o1');
+    if (o1Element) {
+        // Get the element's position relative to the viewport
+        const rect = o1Element.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        O1_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.o1.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #o1 from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #o1 element');
+    }
+    
+    // Calculate bottom of #n
+    const nElement = document.getElementById('n');
+    if (nElement) {
+        // Get the element's position relative to the viewport
+        const rect = nElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        N_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.n.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #n from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #n element');
+    }
+    
+    // Calculate bottom of #s
+    const sElement = document.getElementById('s');
+    if (sElement) {
+        // Get the element's position relative to the viewport
+        const rect = sElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        S_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.s.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #s from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #s element');
+    }
+    
+    // Calculate bottom of #o2
+    const o2Element = document.getElementById('o2');
+    if (o2Element) {
+        // Get the element's position relative to the viewport
+        const rect = o2Element.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        O2_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.o2.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #o2 from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #o2 element');
+    }
+    
+    // Calculate bottom of #l
+    const lElement = document.getElementById('l');
+    if (lElement) {
+        // Get the element's position relative to the viewport
+        const rect = lElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        L_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.l.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #l from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #l element');
+    }
+    
+    // Calculate bottom of #e
+    const eElement = document.getElementById('e');
+    if (eElement) {
+        // Get the element's position relative to the viewport
+        const rect = eElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        E_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.e.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #e from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #e element');
+    }
+    
+    // Calculate bottom of .name-input
+    const nameInputElement = document.querySelector('.name-input');
+    if (nameInputElement) {
+        // Get the element's position relative to the viewport
+        const rect = nameInputElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        NAME_INPUT_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.nameInput.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of .name-input from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find .name-input element');
+    }
+    
+    // Calculate bottom of #test-marker
+    const testMarkerElement = document.getElementById('test-marker');
+    if (testMarkerElement) {
+        // Get the element's position relative to the viewport
+        const rect = testMarkerElement.getBoundingClientRect();
+        
+        // Calculate the bottom of the element from the top of the page
+        const bottomFromTop = rect.bottom + window.scrollY;
+        
+        // Store the bottom position in the global variable
+        TEST_MARKER_BOTTOM_Y = bottomFromTop;
+        
+        // Also store in the constants object
+        ELEMENT_POSITIONS.testMarker.bottom.y = bottomFromTop;
+        
+        // Print the bottom position to the console
+        console.log('Bottom of #test-marker from top of page: ' + bottomFromTop + 'px');
+    } else {
+        console.log('Could not find #test-marker element');
+    }
+}
+
+// Call the function when the page loads
+window.addEventListener('load', calculateElementPositions);
+calculateElementPositions();
 // Get the name button and hello-world section elements
 const nameButton = document.querySelector('.name-button');
 const helloWorldSection = document.getElementById('hello-world');
+
+
 
 // Calculate and store the 20vw value at the start
 const vw = window.innerWidth / 100;
@@ -20,7 +304,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -800 + vw20, to: -500 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 1680 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y},
             scale: { from: 2, to: 1 },
             rotate: { from: 50, to: 0 }
         }
@@ -35,7 +319,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -505 + vw20, to: -325 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 1580 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y },
             scale: { from: 0.8, to: 1 },
             rotate: { from: 0, to: 0 }
         }
@@ -50,7 +334,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -420 + vw20, to: -220 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1060, to: 1485 },
+            translateY: { from: 1060, to: PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y },
             scale: { from: 1.8, to: 1 },
             rotate: { from: 20, to: 0 }
         }
@@ -65,7 +349,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -690 + vw20, to: -584 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 890, to: 1580 },
+            translateY: { from: 890, to: PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y },
             scale: { from: 1, to: 1 },
             rotate: { from: -20, to: 0 }
         }
@@ -80,7 +364,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -205 + vw20, to: -205 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 985, to: 1485 },
+            translateY: { from: 985, to: PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y },
             scale: { from: 4, to: 1 },
             rotate: { from: -30, to: 0 }
         }
@@ -95,7 +379,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 220 + vw20, to: -405 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1055, to: 1485 },
+            translateY: { from: 1055, to: PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y },
             scale: { from: 1.5, to: 1 },
             rotate: { from: 45, to: 0 }
         }
@@ -110,7 +394,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 65 + vw20, to: -365 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 1680 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y },
             scale: { from: 0.5, to: 1 },
             rotate: { from: -60, to: 0 }
         }
@@ -125,7 +409,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -780 + vw20, to: 80 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 720, to: 1420 },
+            translateY: { from: 720, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 75},
             scale: { from: 0.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
         }
@@ -141,7 +425,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 1055 + vw20, to: 305 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1195, to: 1795 },
+            translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 10},
             scale: { from: 7, to: 0.7 },
             rotate: { from: 0, to: 0 }
         }
@@ -156,7 +440,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 840 + vw20, to: 340 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 865, to: 1765 },
+            translateY: { from: 865, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 35},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
         }
@@ -171,7 +455,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: -500 + vw20, to: 60 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1255, to: 1855 },
+            translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 50, to: 0 }
         }
@@ -186,7 +470,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 450 + vw20, to: 270 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1000, to: 1850 },
+            translateY: { from: 1000, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 4, to: 2 },
             rotate: { from: -45, to: 0 }
         }
@@ -201,7 +485,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 15 + vw20, to: 315 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 950, to: 1850 },
+            translateY: { from: 950, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: -30, to: 0 }
         }
@@ -216,7 +500,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 620 + vw20, to: 520 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 850, to: 1850 },
+            translateY: { from: 850, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 3, to: 2 },
             rotate: { from: -30, to: 0 }
         }
@@ -231,7 +515,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 200 + vw20, to: 15 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 980, to: 1850 },
+            translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
         }
@@ -246,7 +530,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 575 + vw20, to: 585 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1400, to: 1850 },
+            translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 30, to: 0 }
         }
@@ -261,7 +545,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 40 + vw20, to: 550 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 800, to: 1855 },
+            translateY: { from: 800, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 4, to: 2 },
             rotate: { from: 50, to: 0 }
         }
@@ -276,7 +560,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 100 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 1850 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
         }
@@ -291,7 +575,7 @@ const animationConfigWide = {
         },
         phase2: {
             translateX: { from: 1010 + vw20, to: 570 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 1850 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 0, to: 0 }
         }
@@ -310,7 +594,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -550 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 890, to: 2060 },
+            translateY: { from: 890, to: PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y },
             scale: { from: 2, to: 0.8 },
             rotate: { from: 50, to: 0 }
         }
@@ -325,7 +609,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 405 + vw20, to: -148 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1380, to: 1965 },
+            translateY: { from: 1380, to: PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y },
             scale: { from: 2.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
         }
@@ -340,7 +624,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 340 + vw20, to: -49 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 860, to: 1870 },
+            translateY: { from: 860, to: PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y },
             scale: { from: 1.8, to: 0.8 },
             rotate: { from: 20, to: 0 }
         }
@@ -355,7 +639,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -690 + vw20, to: -434 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 990, to: 1965 },
+            translateY: { from: 990, to: PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y },
             scale: { from: 1, to: 0.8 },
             rotate: { from: -20, to: 0 }
         }
@@ -370,7 +654,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -205 + vw20, to: -56 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 985, to: 1870 },
+            translateY: { from: 985, to: PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y },
             scale: { from: 4, to: 0.8 },
             rotate: { from: -30, to: 0 }
         }
@@ -385,7 +669,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 120 + vw20, to: -264 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1055, to: 1870 },
+            translateY: { from: 1055, to: PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y },
             scale: { from: 1.5, to: 0.8 },
             rotate: { from: 45, to: 0 }
         }
@@ -400,7 +684,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -665 + vw20, to: -282 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1680, to: 2060 },
+            translateY: { from: 1680, to: PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y },
             scale: { from: 0.5, to: 0.8 },
             rotate: { from: -60, to: 0 }
         }
@@ -416,7 +700,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 555 + vw20, to: -70 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1195, to: 2088 },
+            translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 10 },
             scale: { from: 3, to: 0.6 },
             rotate: { from: 0, to: 0 }
         }
@@ -431,7 +715,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -405 + vw20, to: -130 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 970, to: 2140 },
+            translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: -30, to: 0 }
         }
@@ -446,7 +730,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 90 + vw20, to: 33 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 810, to: 2140 },
+            translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1.2, to: 1.8 },
             rotate: { from: -30, to: 0 }
         }
@@ -461,7 +745,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 140 + vw20, to: -40 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1365, to: 2060 },
+            translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 40 },
             scale: { from: 1, to: 2 },
             rotate: { from: 30, to: 0 }
         }
@@ -476,7 +760,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -600 + vw20, to: -325 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1255, to: 2145 },
+            translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 50, to: 0 }
         }
@@ -491,7 +775,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 200 + vw20, to: -370 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 980, to: 2140 },
+            translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.8 },
             rotate: { from: 30, to: 0 }
         }
@@ -506,7 +790,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 575 + vw20, to: 92 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1400, to: 2140 },
+            translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 30, to: 0 }
         }
@@ -521,7 +805,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 140 + vw20, to: 55 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1650, to: 2145 },
+            translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.8 },
             rotate: { from: 40, to: 0 }
         }
@@ -536,7 +820,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 50 + vw20, to: -165 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 1200, to: 2145 },
+            translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.8 },
             rotate: { from: -45, to: 0 }
         }
@@ -551,7 +835,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -470 + vw20, to: -48 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 920, to: 1860 },
+            translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 70},
             scale: { from: 0.2, to: 0.7 },
             rotate: { from: 0, to: 0 }
         }
@@ -566,7 +850,7 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: -410 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 2135 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.8 },
             rotate: { from: -30, to: 0 }
         }
@@ -581,11 +865,16 @@ const animationConfigMedium = {
         },
         phase2: {
             translateX: { from: 410 + vw20, to: 70 + vw20 }, // Use pre-calculated 20vw
-            translateY: { from: 880, to: 2135 },
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 30, to: 0 }
         }
     }
+};
+
+// This configuration is for viewport width between 540px and 700px
+const animationConfigSmall = {
+    // Will be populated later
 };
 
 
@@ -612,17 +901,34 @@ for (const elementId in animationConfigMedium) {
         animatedElements[elementId] = document.getElementById(elementId);
     }
 }
+// Get elements for small viewport configuration
+for (const elementId in animationConfigSmall) {
+    // Skip if already got this element
+    if (animatedElements[elementId]) continue;
+    
+    const config = animationConfigSmall[elementId];
+    if (config.selectorType === 'class') {
+        animatedElements[elementId] = document.querySelector(`.${elementId}`);
+    } else {
+        animatedElements[elementId] = document.getElementById(elementId);
+    }
+}
 
 // Function to get the appropriate animation configuration based on viewport width
 function getAnimationConfig() {
     const width = window.innerWidth;
-    if (width > 900) {
-        return animationConfigWide;
-    } else if (width > 700 && width <= 900) {
-        return animationConfigMedium;
-    } else {
-        // For viewport width <= 700px, return an empty configuration
-        return {};
+    
+    // Use switch statement to handle different viewport width ranges
+    switch (true) {
+        case width > 900:
+            return animationConfigWide;
+        case width > 700 && width <= 900:
+            return animationConfigMedium;
+        case width > 540 && width <= 700:
+            return animationConfigSmall;
+        default:
+            // For viewport width <= 540px, return an empty configuration
+            return {};
     }
 }
 
@@ -633,7 +939,7 @@ window.addEventListener('scroll', function() {
     
     // Check if there's an animation configuration for the current viewport width
     if (Object.keys(animationConfig).length === 0) {
-        // Reset element styles when viewport width is 700px or less
+        // Reset element styles when viewport width is 540px or less
         resetElements();
         return;
     }
@@ -642,44 +948,67 @@ window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     
     // Two-phase scroll tracking
-    // Use different scroll points for medium viewport width (700px-900px)
+    // Use switch statement to handle different viewport width ranges
     let phase1Start, phase1End, phase2Start, phase2End;
     
-    if (window.innerWidth > 700 && window.innerWidth <= 900) {
-        // For medium viewport width: Phase 1 (90px to 1250px), Phase 2 (1250px to 2000px)
-        phase1Start = 90;
-        phase1End = 1250;
-        phase2Start = 1250;
-        phase2End = 2000;
-    } else {
-        // For other viewport widths: Phase 1 (90px to 825px), Phase 2 (825px to 1650px)
-        phase1Start = 90;
-        phase1End = 825;
-        phase2Start = 825;
-        phase2End = 1650;
+    switch (true) {
+        case window.innerWidth > 900:
+            // For wide viewport width (> 900px): Phase 1 (90px to 825px), Phase 2 (825px to 1650px)
+            phase1Start = 90;
+            phase1End = 825;
+            phase2Start = 825;
+            phase2End = 1650;
+            break;
+        case window.innerWidth > 700 && window.innerWidth <= 900:
+            // For medium viewport width (700px-900px): Phase 1 (90px to 1250px), Phase 2 (1250px to 2000px)
+            phase1Start = 90;
+            phase1End = 1250;
+            phase2Start = 1250;
+            phase2End = 2000;
+            break;
+        case window.innerWidth > 540 && window.innerWidth <= 700:
+            // For small viewport width (540px-700px): Will be populated later
+            phase1Start = 90;
+            phase1End = 825;
+            phase2Start = 825;
+            phase2End = 1650;
+            break;
+        default:
+            // For viewport width <= 540px, return without animating
+            return;
     }
     
     let scrollPercentage, phase;
     
-    // Phase 1
-    if (scrollPosition <= phase1Start) {
-        scrollPercentage = 0;
-        phase = 1;
-    } else if (scrollPosition >= phase1Start && scrollPosition <= phase1End) {
-        // Map the range [phase1Start, phase1End] to [0, 100] for Phase 1
-        scrollPercentage = Math.round(((scrollPosition - phase1Start) / (phase1End - phase1Start)) * 100);
-        phase = 1;
-    } else if (scrollPosition > phase1End && scrollPosition < phase2Start) {
-        // Transition point - end of Phase 1
-        scrollPercentage = 100;
-        phase = 1;
-    } else if (scrollPosition >= phase2Start && scrollPosition <= phase2End) {
-        // Map the range [phase2Start, phase2End] to [0, 100] for Phase 2
-        scrollPercentage = Math.round(((scrollPosition - phase2Start) / (phase2End - phase2Start)) * 100);
-        phase = 2;
-    } else if (scrollPosition > phase2End) {
-        scrollPercentage = 100;
-        phase = 2;
+    // Use switch statement to handle different scroll positions
+    switch (true) {
+        // Phase 1
+        case scrollPosition <= phase1Start:
+            scrollPercentage = 0;
+            phase = 1;
+            break;
+        case scrollPosition >= phase1Start && scrollPosition <= phase1End:
+            // Map the range [phase1Start, phase1End] to [0, 100] for Phase 1
+            scrollPercentage = Math.round(((scrollPosition - phase1Start) / (phase1End - phase1Start)) * 100);
+            phase = 1;
+            break;
+        case scrollPosition > phase1End && scrollPosition < phase2Start:
+            // Transition point - end of Phase 1
+            scrollPercentage = 100;
+            phase = 1;
+            break;
+        case scrollPosition >= phase2Start && scrollPosition <= phase2End:
+            // Map the range [phase2Start, phase2End] to [0, 100] for Phase 2
+            scrollPercentage = Math.round(((scrollPosition - phase2Start) / (phase2End - phase2Start)) * 100);
+            phase = 2;
+            break;
+        case scrollPosition > phase2End:
+            scrollPercentage = 100;
+            phase = 2;
+            break;
+        default:
+            scrollPercentage = 0;
+            phase = 1;
     }
     
     // Log scroll information to console
@@ -735,9 +1064,175 @@ function updateAnimationConfigurations(vw20) {
         }
     }
     
+    // Example of using element positions in animation configurations
+    // Update specific elements with the calculated positions if needed
+    if (PROGRAMMING_BOX_CENTER_Y > 0) {
+        // Example: Update the 'c' element's phase 1 translateY 'to' value with the center position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['c'] && animationConfigWide['c'].phase1) {
+        //     animationConfigWide['c'].phase1.translateY.to = PROGRAMMING_BOX_CENTER_Y;
+        // }
+        
+        // Example: Update the 'o1' element's phase 2 translateY 'from' value with the center position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['o1'] && animationConfigWide['o1'].phase2) {
+        //     animationConfigWide['o1'].phase2.translateY.from = PROGRAMMING_BOX_CENTER_Y;
+        // }
+    }
+    
+    // Example of using C_BOTTOM_Y in animation configurations
+    if (C_BOTTOM_Y > 0) {
+        // Example: Update the 'c' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['c'] && animationConfigWide['c'].phase2) {
+        //     animationConfigWide['c'].phase2.translateY.to = ELEMENT_POSITIONS.c.bottom.y - C_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using O1_BOTTOM_Y in animation configurations
+    if (O1_BOTTOM_Y > 0) {
+        // Example: Update the 'o1' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['o1'] && animationConfigWide['o1'].phase2) {
+        //     animationConfigWide['o1'].phase2.translateY.to = ELEMENT_POSITIONS.o1.bottom.y - O1_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using N_BOTTOM_Y in animation configurations
+    if (N_BOTTOM_Y > 0) {
+        // Example: Update the 'n' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['n'] && animationConfigWide['n'].phase2) {
+        //     animationConfigWide['n'].phase2.translateY.to = ELEMENT_POSITIONS.n.bottom.y - N_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using S_BOTTOM_Y in animation configurations
+    if (S_BOTTOM_Y > 0) {
+        // Example: Update the 's' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['s'] && animationConfigWide['s'].phase2) {
+        //     animationConfigWide['s'].phase2.translateY.to = ELEMENT_POSITIONS.s.bottom.y - S_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using O2_BOTTOM_Y in animation configurations
+    if (O2_BOTTOM_Y > 0) {
+        // Example: Update the 'o2' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['o2'] && animationConfigWide['o2'].phase2) {
+        //     animationConfigWide['o2'].phase2.translateY.to = ELEMENT_POSITIONS.o2.bottom.y - O2_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using L_BOTTOM_Y in animation configurations
+    if (L_BOTTOM_Y > 0) {
+        // Example: Update the 'l' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['l'] && animationConfigWide['l'].phase2) {
+        //     animationConfigWide['l'].phase2.translateY.to = ELEMENT_POSITIONS.l.bottom.y - L_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using E_BOTTOM_Y in animation configurations
+    if (E_BOTTOM_Y > 0) {
+        // Example: Update the 'e' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['e'] && animationConfigWide['e'].phase2) {
+        //     animationConfigWide['e'].phase2.translateY.to = ELEMENT_POSITIONS.e.bottom.y - E_BOTTOM_Y;
+        // }
+    }
+    
+    // Example of using NAME_INPUT_BOTTOM_Y in animation configurations
+    if (NAME_INPUT_BOTTOM_Y > 0) {
+        // Example: Update the 'name-input' element's phase 2 translateY 'to' value with the bottom position
+        // Uncomment and modify the following lines as needed:
+        // if (animationConfigWide['name-input'] && animationConfigWide['name-input'].phase2) {
+        //     animationConfigWide['name-input'].phase2.translateY.to = ELEMENT_POSITIONS.nameInput.bottom.y - NAME_INPUT_BOTTOM_Y;
+        // }
+    }
+    
     // Update medium viewport configuration
     for (const elementId in animationConfigMedium) {
         const config = animationConfigMedium[elementId];
+        // Skip elements that don't use 20vw in their calculations
+        if (!config || !config.phase1) continue;
+        
+        // Update phase 1
+        if (config.phase1.translateX) {
+            // Check if the 'to' value uses 20vw
+            if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
+                config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
+            }
+        }
+        if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
+            // Check if the 'from' value uses 20vw
+            // For most elements, 'from' is 0, so we don't need to update it
+        }
+        
+        // Update phase 2
+        if (config.phase2.translateX) {
+            // Check if the 'to' value uses 20vw
+            if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
+                config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
+            }
+            // Check if the 'from' value uses 20vw
+            if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
+                config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
+            }
+        }
+        
+        // Update phase 2 translateY 'to' value with the bottom position if needed
+        if (config.phase2.translateY) {
+            // Check if this is one of our target elements
+            switch (elementId) {
+                case 'c':
+                    if (C_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.c.bottom.y - C_BOTTOM_Y;
+                    }
+                    break;
+                case 'o1':
+                    if (O1_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.o1.bottom.y - O1_BOTTOM_Y;
+                    }
+                    break;
+                case 'n':
+                    if (N_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.n.bottom.y - N_BOTTOM_Y;
+                    }
+                    break;
+                case 's':
+                    if (S_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.s.bottom.y - S_BOTTOM_Y;
+                    }
+                    break;
+                case 'o2':
+                    if (O2_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.o2.bottom.y - O2_BOTTOM_Y;
+                    }
+                    break;
+                case 'l':
+                    if (L_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.l.bottom.y - L_BOTTOM_Y;
+                    }
+                    break;
+                case 'e':
+                    if (E_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.e.bottom.y - E_BOTTOM_Y;
+                    }
+                    break;
+                case 'name-input':
+                    if (NAME_INPUT_BOTTOM_Y > 0) {
+                        config.phase2.translateY.to = ELEMENT_POSITIONS.nameInput.bottom.y - NAME_INPUT_BOTTOM_Y;
+                    }
+                    break;
+            }
+        }
+    }
+    
+    // Update small viewport configuration
+    for (const elementId in animationConfigSmall) {
+        const config = animationConfigSmall[elementId];
         // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
