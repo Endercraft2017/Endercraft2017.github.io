@@ -284,6 +284,54 @@ calculateElementPositions();
 const nameButton = document.querySelector('.name-button');
 const helloWorldSection = document.getElementById('hello-world');
 
+// Function to animate scrolling to a target position with custom speed
+function smoothScrollTo(targetPosition, duration = 5000) {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Ease-out function for smooth deceleration
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        window.scrollTo(0, startPosition + distance * easeOut);
+        
+        if (progress < 1) {
+            requestAnimationFrame(animation);
+        }
+    }
+    
+    requestAnimationFrame(animation);
+}
+
+// Add event listener to the start button
+if (nameButton) {
+    nameButton.addEventListener('click', function() {
+        // Recalculate the center of the programming box to ensure it's up to date
+        const programmingBox = document.querySelector('.programming-box');
+        if (programmingBox) {
+            // Get the element's position relative to the viewport
+            const rect = programmingBox.getBoundingClientRect();
+            
+            // Calculate the center of the element from the top of the page
+            const centerFromTop = rect.top + window.scrollY + (rect.height / 2);
+            
+            // Calculate target scroll position: center of programming-box + half viewport height
+            const targetPosition = centerFromTop - (window.innerHeight / 3);
+            
+            // Scroll to the target position with custom speed
+            // Adjust the duration value (in milliseconds) to control scroll speed:
+            // - Lower values (e.g., 500) = faster scroll
+            // - Higher values (e.g., 2000) = slower scroll
+            smoothScrollTo(targetPosition, 3000); // 1000ms = 1 second
+        }
+    });
+}
+
 
 
 // Calculate and store the 20vw value at the start
@@ -1609,6 +1657,23 @@ window.addEventListener('scroll', function() {
     // Log scroll information to console
     console.log(`Scroll Position: ${scrollPosition}px | Phase: ${phase} | Scroll Progress: ${scrollPercentage}%`);
     
+    const nameInputElement = document.querySelector('.name-input');
+    const outputtext = document.getElementById("output");
+    const userInput = document.getElementById("name-input");
+    if (scrollPosition >= 250){
+        nameInputElement.style.zIndex = -2;
+    }
+    else{
+        nameInputElement.style.zIndex = 1;
+    }
+
+    if (scrollPercentage >= 90){
+        outputtext.innerHTML = `Hello ${userInput.value}!`;
+    }
+    else{
+        outputtext.innerHTML = "Hello Guest!";
+    }
+
     // Animate all elements based on scroll position
     animateElements(scrollPercentage, phase, animationConfig);
 });

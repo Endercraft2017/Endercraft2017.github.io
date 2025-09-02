@@ -432,12 +432,10 @@ a{
 /* Services */
 .services{
     width: 100%;
-    overflow-x: hidden;
     position: relative;
     color: var(--bg);
     background-color: #75ff53;
-    padding-right: 2vw;
-    
+    padding-right: 2vw;    
 }
 /*  */
 .services::before, .services::after{
@@ -577,6 +575,10 @@ a{
   text-decoration: underline;
 }
 
+#test-marker{
+    color: transparent;
+}
+
 @media (max-width: 679px) {
     .hero-content .card-container{
         transform: scale(0.7);
@@ -662,19 +664,19 @@ a{
 
     /* Console animation */
 
-    /* @keyframes enlarge2 {
+    @keyframes enlarge2 {
         0% {
           transform: translate(-400px, 400px) scale(0);
         }
         100% {
           transform: translate(-400px, 400px) scale(13);
         }
-      } */
+      }
 
-    /* .dot{
+    .dot{
         animation: enlarge2 2s;
         animation-fill-mode: forwards;
-    } */
+    }
 
     .open-bracket{
         transform: translate(-150px, 280px) scale(2);
@@ -783,20 +785,18 @@ a{
 
     /* Console animation */
 
-    /* @keyframes enlarge2 {
+    @keyframes enlarge2 {
         0% {
           transform: translate(-270px, 400px) scale(0);
         }
         100% {
           transform: translate(-270px, 400px) scale(8);
         }
-      } */
+      }
 
     .dot{
-        /* animation: enlarge2 2s;
-        animation-fill-mode: forwards; */
-
-        transform: translate(-270px, 400px) scale(8);
+        animation: enlarge2 2s;
+        animation-fill-mode: forwards;
     }
 
     .open-bracket{
@@ -879,19 +879,18 @@ a{
 
     /* Console animation */
 
-    /* @keyframes enlarge2 {
+    @keyframes enlarge2 {
         0% {
           transform: translate(-200px, 350px) scale(0);
         }
         100% {
           transform: translate(-200px, 350px) scale(8);
         }
-      } */
+      }
 
     .dot{
-        /* animation: enlarge2 2s;
-        animation-fill-mode: forwards; */
-        transform: translate(-200px, 350px) scale(8);
+        animation: enlarge2 2s;
+        animation-fill-mode: forwards;
     }
 
     .open-bracket{
