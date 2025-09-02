@@ -871,10 +871,584 @@ const animationConfigMedium = {
         }
     }
 };
-
 // This configuration is for viewport width between 540px and 700px
 const animationConfigSmall = {
-    // Will be populated later
+    'c': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -550 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 890 },
+            scale: { from: 1, to: 2 },
+            rotate: { from: 0, to: 50 }
+        },
+        phase2: {
+            translateX: { from: -550 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 890, to: (PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y) * 1.4 },
+            scale: { from: 2, to: 0.8 },
+            rotate: { from: 50, to: 0 }
+        }
+    },
+    'o1': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 405 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1380 },
+            scale: { from: 1, to: 2.8 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 405 + vw20, to: -148 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1380, to: (PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y) * 1.4 },
+            scale: { from: 2.8, to: 0.8 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'n': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 860 },
+            scale: { from: 1, to: 1.8 },
+            rotate: { from: 0, to: 20 }
+        },
+        phase2: {
+            translateX: { from: 340 + vw20, to: -49 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 860, to: (PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y) * 1.4 },
+            scale: { from: 1.8, to: 0.8 },
+            rotate: { from: 20, to: 0 }
+        }
+    },
+    's': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 990 },
+            scale: { from: 1, to: 1 },
+            rotate: { from: 0, to: -20 }
+        },
+        phase2: {
+            translateX: { from: -690 + vw20, to: -434 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 990, to: (PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y) * 1.4 },
+            scale: { from: 1, to: 0.8 },
+            rotate: { from: -20, to: 0 }
+        }
+    },
+    'o2': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 985 },
+            scale: { from: 1, to: 4 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -205 + vw20, to: -56 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 985, to: (PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y) * 1.4 },
+            scale: { from: 4, to: 0.8 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'l': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 120 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1055 },
+            scale: { from: 1, to: 1.5 },
+            rotate: { from: 0, to: 45 }
+        },
+        phase2: {
+            translateX: { from: 120 + vw20, to: -264 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1055, to: (PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y) * 1.4 },
+            scale: { from: 1.5, to: 0.8 },
+            rotate: { from: 45, to: 0 }
+        }
+    },
+    'e': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -665 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1680 },
+            scale: { from: 1, to: 0.5 },
+            rotate: { from: 0, to: -60 }
+        },
+        phase2: {
+            translateX: { from: -665 + vw20, to: -282 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1680, to: (PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y) * 1.4 },
+            scale: { from: 0.5, to: 0.8 },
+            rotate: { from: -60, to: 0 }
+        }
+    },
+    // Additional elements
+    'dot': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -270, to: 555 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 400, to: 1195 },
+            scale: { from: 8, to: 3 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 555 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 45 },
+            scale: { from: 3, to: 0.5 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'open-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -150, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 255, to: 970 },
+            scale: { from: 2, to: 1 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -405 + vw20, to: -125 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 1, to: 1.5 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'close-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 150, to: 90 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 255, to: 810 },
+            scale: { from: 2, to: 1.2 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: 90 + vw20, to: 28 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 1.2, to: 1.5 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'log': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 300, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 400, to: 1365 },
+            scale: { from: 1.5, to: 1 },
+            rotate: { from: 180, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 140 + vw20, to: -55 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 70 },
+            scale: { from: 1, to: 1.8 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'hello': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -50, to: -600 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: -195, to: 1255 },
+            scale: { from: 0.3, to: 5 },
+            rotate: { from: -25, to: 50 }
+        },
+        phase2: {
+            translateX: { from: -600 + vw20, to: -295 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.5 },
+            rotate: { from: 50, to: 0 }
+        }
+    },
+    'open-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 265, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 415, to: 980 },
+            scale: { from: 1.2, to: 2 },
+            rotate: { from: -90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 200 + vw20, to: -340 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 2, to: 1.5 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'close-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -68, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 172, to: 1400 },
+            scale: { from: 1, to: 5 },
+            rotate: { from: 90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 575 + vw20, to: 82 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.5 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'exclamation': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 110, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 160, to: 1650 },
+            scale: { from: 1.8, to: 4 },
+            rotate: { from: 180, to: 40 }
+        },
+        phase2: {
+            translateX: { from: 140 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 4, to: 1.5 },
+            rotate: { from: 40, to: 0 }
+        }
+    },
+    'dollar': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 160, to: 50 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 73, to: 1200 },
+            scale: { from: 1.5, to: 4 },
+            rotate: { from: 0, to: -45 }
+        },
+        phase2: {
+            translateX: { from: 50 + vw20, to: -155 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 4, to: 1.5 },
+            rotate: { from: -45, to: 0 }
+        }
+    },
+    'name-input': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -470 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 920 },
+            scale: { from: 1, to: 0.2 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: -470 + vw20, to: -48 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 70},
+            scale: { from: 0.2, to: 0.6 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'front-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -166, to: -410 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: -20, to: 880 },
+            scale: { from: 1.5, to: 2 },
+            rotate: { from: 30, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -410 + vw20, to: -320 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 2, to: 1.5 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'back-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 195, to: 410 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 133, to: 880 },
+            scale: { from: 1.5, to: 5 },
+            rotate: { from: 30, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 410 + vw20, to: 60 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.5 },
+            rotate: { from: 30, to: 0 }
+        }
+    }
+};
+
+// This configuration is for viewport width 540px and below
+const animationConfigThin = {
+    'c': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -550 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 890 },
+            scale: { from: 1, to: 2 },
+            rotate: { from: 0, to: 50 }
+        },
+        phase2: {
+            translateX: { from: -550 + vw20, to: -250 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 890, to: (PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y) * 1.4 },
+            scale: { from: 2, to: 0.8 },
+            rotate: { from: 50, to: 0 }
+        }
+    },
+    'o1': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 405 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1380 },
+            scale: { from: 1, to: 2.8 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 405 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1380, to: (PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y) * 1.4 },
+            scale: { from: 2.8, to: 0.8 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'n': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 860 },
+            scale: { from: 1, to: 1.8 },
+            rotate: { from: 0, to: 20 }
+        },
+        phase2: {
+            translateX: { from: 340 + vw20, to: 2 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 860, to: (PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y ) * 1.4 },
+            scale: { from: 1.8, to: 0.8 },
+            rotate: { from: 20, to: 0 }
+        }
+    },
+    's': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 990 },
+            scale: { from: 1, to: 1 },
+            rotate: { from: 0, to: -20 }
+        },
+        phase2: {
+            translateX: { from: -690 + vw20, to: -320 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 990, to: (PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y) * 1.4 },
+            scale: { from: 1, to: 0.8 },
+            rotate: { from: -20, to: 0 }
+        }
+    },
+    'o2': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 985 },
+            scale: { from: 1, to: 4 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -205 + vw20, to: -5 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 985, to: (PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y) * 1.4 },
+            scale: { from: 4, to: 0.8 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'l': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: 120 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1055 },
+            scale: { from: 1, to: 1.5 },
+            rotate: { from: 0, to: 45 }
+        },
+        phase2: {
+            translateX: { from: 120 + vw20, to: -178 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1055, to: (PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y) * 1.4 },
+            scale: { from: 1.5, to: 0.8 },
+            rotate: { from: 45, to: 0 }
+        }
+    },
+    'e': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -665 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 1680 },
+            scale: { from: 1, to: 0.5 },
+            rotate: { from: 0, to: -60 }
+        },
+        phase2: {
+            translateX: { from: -665 + vw20, to: -192 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1680, to: (PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y) * 1.4 },
+            scale: { from: 0.5, to: 0.8 },
+            rotate: { from: -60, to: 0 }
+        }
+    },
+    // Additional elements
+    'dot': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -200, to: 555 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 350, to: 1195 },
+            scale: { from: 8, to: 3 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: 555 + vw20, to: -30 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 30 },
+            scale: { from: 3, to: 0.4 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'open-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -140, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 208, to: 970 },
+            scale: { from: 2, to: 1 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -405 + vw20, to: -58 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 1, to: 1.2 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'close-bracket': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 140, to: 90 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 208, to: 810 },
+            scale: { from: 2, to: 1.2 },
+            rotate: { from: 0, to: -30 }
+        },
+        phase2: {
+            translateX: { from: 90 + vw20, to: 30 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 1.2, to: 1.2 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'log': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 150, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 400, to: 1365 },
+            scale: { from: 1, to: 1 },
+            rotate: { from: 180, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 140 + vw20, to: -8 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 52 },
+            scale: { from: 1, to: 1.4 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'hello': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -50, to: -600 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: -150, to: 1255 },
+            scale: { from: 0.3, to: 5 },
+            rotate: { from: -25, to: 50 }
+        },
+        phase2: {
+            translateX: { from: -600 + vw20, to: -182 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.2 },
+            rotate: { from: 50, to: 0 }
+        }
+    },
+    'open-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 127, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 410, to: 980 },
+            scale: { from: 0.7, to: 2 },
+            rotate: { from: -90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 200 + vw20, to: -210 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 2, to: 1.2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'close-parenthesis': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -55, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 152, to: 1400 },
+            scale: { from: 1, to: 5 },
+            rotate: { from: 90, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 575 + vw20, to: 68 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.2 },
+            rotate: { from: 30, to: 0 }
+        }
+    },
+    'exclamation': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 92, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 138, to: 1650 },
+            scale: { from: 1.5, to: 2 },
+            rotate: { from: 180, to: 40 }
+        },
+        phase2: {
+            translateX: { from: 140 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 4, to: 1.4 },
+            rotate: { from: 40, to: 0 }
+        }
+    },
+    'dollar': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 135, to: 50 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 65, to: 1200 },
+            scale: { from: 1.3, to: 4 },
+            rotate: { from: 0, to: -45 }
+        },
+        phase2: {
+            translateX: { from: 50 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 4, to: 1.2 },
+            rotate: { from: -45, to: 0 }
+        }
+    },
+    'name-input': {
+        selectorType: 'id',
+        phase1: {
+            translateX: { from: 0, to: -470 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 0, to: 920 },
+            scale: { from: 1, to: 0.2 },
+            rotate: { from: 0, to: 0 }
+        },
+        phase2: {
+            translateX: { from: -470 + vw20, to: -13 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 64},
+            scale: { from: 0.2, to: 0.4 },
+            rotate: { from: 0, to: 0 }
+        }
+    },
+    'front-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: -133, to: -410 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: -12, to: 880 },
+            scale: { from: 1, to: 2 },
+            rotate: { from: 30, to: -30 }
+        },
+        phase2: {
+            translateX: { from: -410 + vw20, to: -198 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 2, to: 1.2 },
+            rotate: { from: -30, to: 0 }
+        }
+    },
+    'back-tick': {
+        selectorType: 'class',
+        phase1: {
+            translateX: { from: 160, to: 410 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 115, to: 880 },
+            scale: { from: 1, to: 5 },
+            rotate: { from: 30, to: 30 }
+        },
+        phase2: {
+            translateX: { from: 410 + vw20, to: 55 + vw20 }, // Use pre-calculated 20vw
+            translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
+            scale: { from: 5, to: 1.2 },
+            rotate: { from: 30, to: 0 }
+        }
+    }
 };
 
 
@@ -913,6 +1487,18 @@ for (const elementId in animationConfigSmall) {
         animatedElements[elementId] = document.getElementById(elementId);
     }
 }
+// Get elements for thin viewport configuration
+for (const elementId in animationConfigThin) {
+    // Skip if already got this element
+    if (animatedElements[elementId]) continue;
+    
+    const config = animationConfigThin[elementId];
+    if (config.selectorType === 'class') {
+        animatedElements[elementId] = document.querySelector(`.${elementId}`);
+    } else {
+        animatedElements[elementId] = document.getElementById(elementId);
+    }
+}
 
 // Function to get the appropriate animation configuration based on viewport width
 function getAnimationConfig() {
@@ -926,9 +1512,11 @@ function getAnimationConfig() {
             return animationConfigMedium;
         case width > 540 && width <= 700:
             return animationConfigSmall;
+        case width <= 540:
+            return animationConfigThin;
         default:
-            // For viewport width <= 540px, return an empty configuration
-            return {};
+            // For viewport width <= 540px, return the thin configuration
+            return animationConfigThin;
     }
 }
 
@@ -967,7 +1555,14 @@ window.addEventListener('scroll', function() {
             phase2End = 2000;
             break;
         case window.innerWidth > 540 && window.innerWidth <= 700:
-            // For small viewport width (540px-700px): Will be populated later
+            // For small viewport width (540px-700px): Phase 1 (90px to 825px), Phase 2 (825px to 1650px)
+            phase1Start = 90;
+            phase1End = 825;
+            phase2Start = 825;
+            phase2End = 1650;
+            break;
+        case window.innerWidth <= 540:
+            // For thin viewport width (<= 540px): Phase 1 (90px to 825px), Phase 2 (825px to 1650px)
             phase1Start = 90;
             phase1End = 825;
             phase2Start = 825;
@@ -1233,6 +1828,37 @@ function updateAnimationConfigurations(vw20) {
     // Update small viewport configuration
     for (const elementId in animationConfigSmall) {
         const config = animationConfigSmall[elementId];
+        // Skip elements that don't use 20vw in their calculations
+        if (!config || !config.phase1) continue;
+        
+        // Update phase 1
+        if (config.phase1.translateX) {
+            // Check if the 'to' value uses 20vw
+            if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
+                config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
+            }
+        }
+        if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
+            // Check if the 'from' value uses 20vw
+            // For most elements, 'from' is 0, so we don't need to update it
+        }
+        
+        // Update phase 2
+        if (config.phase2.translateX) {
+            // Check if the 'to' value uses 20vw
+            if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
+                config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
+            }
+            // Check if the 'from' value uses 20vw
+            if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
+                config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
+            }
+        }
+    }
+    
+    // Update thin viewport configuration
+    for (const elementId in animationConfigThin) {
+        const config = animationConfigThin[elementId];
         // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
