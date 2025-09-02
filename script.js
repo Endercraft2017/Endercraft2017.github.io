@@ -1,4 +1,3 @@
-// Global variables to store positions
 let PROGRAMMING_BOX_CENTER_Y = 0;
 let C_BOTTOM_Y = 0;
 let O1_BOTTOM_Y = 0;
@@ -10,7 +9,6 @@ let E_BOTTOM_Y = 0;
 let NAME_INPUT_BOTTOM_Y = 0;
 let TEST_MARKER_BOTTOM_Y = 0;
 
-// Object to hold constants
 const ELEMENT_POSITIONS = {
     programmingBox: {
         center: {
@@ -64,227 +62,93 @@ const ELEMENT_POSITIONS = {
     }
 };
 
-// Function to calculate and print positions of elements from the top of the page
 function calculateElementPositions() {
-    // Calculate center of .programming-box
     const programmingBox = document.querySelector('.programming-box');
     if (programmingBox) {
-        // Get the element's position relative to the viewport
         const rect = programmingBox.getBoundingClientRect();
-        
-        // Calculate the center of the element from the top of the page
         const centerFromTop = rect.top + window.scrollY + (rect.height / 2);
-        
-        // Store the center position in the global variable
         PROGRAMMING_BOX_CENTER_Y = centerFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.programmingBox.center.y = centerFromTop;
-        
-        // Print the center position to the console
-        console.log('Center of .programming-box from top of page: ' + centerFromTop + 'px');
-    } else {
-        console.log('Could not find .programming-box element');
     }
     
-    // Calculate bottom of #c
     const cElement = document.getElementById('c');
     if (cElement) {
-        // Get the element's position relative to the viewport
         const rect = cElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         C_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.c.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #c from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #c element');
     }
     
-    // Calculate bottom of #o1
     const o1Element = document.getElementById('o1');
     if (o1Element) {
-        // Get the element's position relative to the viewport
         const rect = o1Element.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         O1_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.o1.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #o1 from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #o1 element');
     }
     
-    // Calculate bottom of #n
     const nElement = document.getElementById('n');
     if (nElement) {
-        // Get the element's position relative to the viewport
         const rect = nElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         N_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.n.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #n from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #n element');
     }
     
-    // Calculate bottom of #s
     const sElement = document.getElementById('s');
     if (sElement) {
-        // Get the element's position relative to the viewport
         const rect = sElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         S_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.s.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #s from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #s element');
     }
     
-    // Calculate bottom of #o2
     const o2Element = document.getElementById('o2');
     if (o2Element) {
-        // Get the element's position relative to the viewport
         const rect = o2Element.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         O2_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.o2.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #o2 from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #o2 element');
     }
     
-    // Calculate bottom of #l
     const lElement = document.getElementById('l');
     if (lElement) {
-        // Get the element's position relative to the viewport
         const rect = lElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         L_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.l.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #l from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #l element');
     }
     
-    // Calculate bottom of #e
     const eElement = document.getElementById('e');
     if (eElement) {
-        // Get the element's position relative to the viewport
         const rect = eElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         E_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.e.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #e from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #e element');
     }
     
-    // Calculate bottom of .name-input
     const nameInputElement = document.querySelector('.name-input');
     if (nameInputElement) {
-        // Get the element's position relative to the viewport
         const rect = nameInputElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         NAME_INPUT_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.nameInput.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of .name-input from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find .name-input element');
     }
     
-    // Calculate bottom of #test-marker
     const testMarkerElement = document.getElementById('test-marker');
     if (testMarkerElement) {
-        // Get the element's position relative to the viewport
         const rect = testMarkerElement.getBoundingClientRect();
-        
-        // Calculate the bottom of the element from the top of the page
         const bottomFromTop = rect.bottom + window.scrollY;
-        
-        // Store the bottom position in the global variable
         TEST_MARKER_BOTTOM_Y = bottomFromTop;
-        
-        // Also store in the constants object
         ELEMENT_POSITIONS.testMarker.bottom.y = bottomFromTop;
-        
-        // Print the bottom position to the console
-        console.log('Bottom of #test-marker from top of page: ' + bottomFromTop + 'px');
-    } else {
-        console.log('Could not find #test-marker element');
     }
 }
 
-// Call the function when the page loads
 window.addEventListener('load', calculateElementPositions);
 calculateElementPositions();
-// Get the name button and hello-world section elements
 const nameButton = document.querySelector('.name-button');
 const helloWorldSection = document.getElementById('hello-world');
 
-// Function to animate scrolling to a target position with custom speed
 function smoothScrollTo(targetPosition, duration = 5000) {
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
@@ -295,7 +159,6 @@ function smoothScrollTo(targetPosition, duration = 5000) {
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
         
-        // Ease-out function for smooth deceleration
         const easeOut = 1 - Math.pow(1 - progress, 3);
         
         window.scrollTo(0, startPosition + distance * easeOut);
@@ -308,50 +171,32 @@ function smoothScrollTo(targetPosition, duration = 5000) {
     requestAnimationFrame(animation);
 }
 
-// Add event listener to the start button
 if (nameButton) {
     nameButton.addEventListener('click', function() {
-        // Recalculate the center of the programming box to ensure it's up to date
         const programmingBox = document.querySelector('.programming-box');
         if (programmingBox) {
-            // Get the element's position relative to the viewport
             const rect = programmingBox.getBoundingClientRect();
-            
-            // Calculate the center of the element from the top of the page
             const centerFromTop = rect.top + window.scrollY + (rect.height / 2);
-            
-            // Calculate target scroll position: center of programming-box + half viewport height
             const targetPosition = centerFromTop - (window.innerHeight / 3);
-            
-            // Scroll to the target position with custom speed
-            // Adjust the duration value (in milliseconds) to control scroll speed:
-            // - Lower values (e.g., 500) = faster scroll
-            // - Higher values (e.g., 2000) = slower scroll
             smoothScrollTo(targetPosition, 3000); // 1000ms = 1 second
         }
     });
 }
 
-
-
-// Calculate and store the 20vw value at the start
 const vw = window.innerWidth / 100;
 const vw20 = 20 * vw;
 
-// Define animation configurations for elements using the pre-calculated 20vw value
-// For elements with selectorType: 'class', we'll get the first element with that class
-// This configuration is for viewport width > 900px
 const animationConfigWide = {
     'c': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -800 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -800 + vw20 }, 
             translateY: { from: 0, to: 880 },
             scale: { from: 1, to: 2 },
             rotate: { from: 0, to: 50 }
         },
         phase2: {
-            translateX: { from: -800 + vw20, to: -500 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -800 + vw20, to: -500 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y},
             scale: { from: 2, to: 1 },
             rotate: { from: 50, to: 0 }
@@ -360,13 +205,13 @@ const animationConfigWide = {
     'o1': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -505 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -505 + vw20 }, 
             translateY: { from: 0, to: 880 },
             scale: { from: 1, to: 0.8 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: -505 + vw20, to: -325 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -505 + vw20, to: -325 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y },
             scale: { from: 0.8, to: 1 },
             rotate: { from: 0, to: 0 }
@@ -375,13 +220,13 @@ const animationConfigWide = {
     'n': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -420 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -420 + vw20 }, 
             translateY: { from: 0, to: 1060 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: 0, to: 20 }
         },
         phase2: {
-            translateX: { from: -420 + vw20, to: -220 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -420 + vw20, to: -220 + vw20 }, 
             translateY: { from: 1060, to: PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y },
             scale: { from: 1.8, to: 1 },
             rotate: { from: 20, to: 0 }
@@ -390,13 +235,13 @@ const animationConfigWide = {
     's': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -690 + vw20 }, 
             translateY: { from: 0, to: 890 },
             scale: { from: 1, to: 1 },
             rotate: { from: 0, to: -20 }
         },
         phase2: {
-            translateX: { from: -690 + vw20, to: -584 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -690 + vw20, to: -584 + vw20 }, 
             translateY: { from: 890, to: PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y },
             scale: { from: 1, to: 1 },
             rotate: { from: -20, to: 0 }
@@ -405,13 +250,13 @@ const animationConfigWide = {
     'o2': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -205 + vw20 }, 
             translateY: { from: 0, to: 985 },
             scale: { from: 1, to: 4 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -205 + vw20, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -205 + vw20, to: -205 + vw20 }, 
             translateY: { from: 985, to: PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y },
             scale: { from: 4, to: 1 },
             rotate: { from: -30, to: 0 }
@@ -420,13 +265,13 @@ const animationConfigWide = {
     'l': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 220 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 220 + vw20 }, 
             translateY: { from: 0, to: 1055 },
             scale: { from: 1, to: 1.5 },
             rotate: { from: 0, to: 45 }
         },
         phase2: {
-            translateX: { from: 220 + vw20, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 220 + vw20, to: -405 + vw20 }, 
             translateY: { from: 1055, to: PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y },
             scale: { from: 1.5, to: 1 },
             rotate: { from: 45, to: 0 }
@@ -435,13 +280,13 @@ const animationConfigWide = {
     'e': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 65 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 65 + vw20 }, 
             translateY: { from: 0, to: 880 },
             scale: { from: 1, to: 0.5 },
             rotate: { from: 0, to: -60 }
         },
         phase2: {
-            translateX: { from: 65 + vw20, to: -365 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 65 + vw20, to: -365 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y },
             scale: { from: 0.5, to: 1 },
             rotate: { from: -60, to: 0 }
@@ -450,13 +295,13 @@ const animationConfigWide = {
     'name-input': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -780 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -780 + vw20 }, 
             translateY: { from: 0, to: 720 },
             scale: { from: 1, to: 0.8 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: -780 + vw20, to: 80 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -780 + vw20, to: 80 + vw20 }, 
             translateY: { from: 720, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 75},
             scale: { from: 0.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
@@ -466,13 +311,13 @@ const animationConfigWide = {
     'dot': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -160, to: 1055 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -160, to: 1055 + vw20 }, 
             translateY: { from: 445, to: 1195 },
             scale: { from: 20, to: 7 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 1055 + vw20, to: 305 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 1055 + vw20, to: 305 + vw20 }, 
             translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 10},
             scale: { from: 7, to: 0.7 },
             rotate: { from: 0, to: 0 }
@@ -481,13 +326,13 @@ const animationConfigWide = {
     'log': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 1200, to: 840 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 1200, to: 840 + vw20 }, 
             translateY: { from: 580, to: 865 },
             scale: { from: 3, to: 2 },
             rotate: { from: 180, to: 30 }
         },
         phase2: {
-            translateX: { from: 840 + vw20, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 840 + vw20, to: 340 + vw20 }, 
             translateY: { from: 865, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 35},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -496,13 +341,13 @@ const animationConfigWide = {
     'hello': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 4, to: -500 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 4, to: -500 + vw20 }, 
             translateY: { from: 105, to: 1255 },
             scale: { from: 0.5, to: 5 },
             rotate: { from: -25, to: 50 }
         },
         phase2: {
-            translateX: { from: -500 + vw20, to: 60 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -500 + vw20, to: 60 + vw20 }, 
             translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 50, to: 0 }
@@ -511,13 +356,13 @@ const animationConfigWide = {
     'dollar': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 724, to: 450 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 724, to: 450 + vw20 }, 
             translateY: { from: 180, to: 1000 },
             scale: { from: 2, to: 4 },
             rotate: { from: 0, to: -45 }
         },
         phase2: {
-            translateX: { from: 450 + vw20, to: 270 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 450 + vw20, to: 270 + vw20 }, 
             translateY: { from: 1000, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 4, to: 2 },
             rotate: { from: -45, to: 0 }
@@ -526,13 +371,13 @@ const animationConfigWide = {
     'open-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 200, to: 15 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200, to: 15 + vw20 }, 
             translateY: { from: 430, to: 950 },
             scale: { from: 2, to: 2 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: 15 + vw20, to: 315 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 15 + vw20, to: 315 + vw20 }, 
             translateY: { from: 950, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: -30, to: 0 }
@@ -541,13 +386,13 @@ const animationConfigWide = {
     'close-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 600, to: 620 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 600, to: 620 + vw20 }, 
             translateY: { from: 430, to: 850 },
             scale: { from: 2, to: 3 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: 620 + vw20, to: 520 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 620 + vw20, to: 520 + vw20 }, 
             translateY: { from: 850, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 3, to: 2 },
             rotate: { from: -30, to: 0 }
@@ -556,13 +401,13 @@ const animationConfigWide = {
     'open-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 1130, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 1130, to: 200 + vw20 }, 
             translateY: { from: 600, to: 980 },
             scale: { from: 2.7, to: 2 },
             rotate: { from: -90, to: 30 }
         },
         phase2: {
-            translateX: { from: 200 + vw20, to: 15 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200 + vw20, to: 15 + vw20 }, 
             translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -571,13 +416,13 @@ const animationConfigWide = {
     'close-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 402, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 402, to: 575 + vw20 }, 
             translateY: { from: 330, to: 1400 },
             scale: { from: 1.4, to: 5 },
             rotate: { from: 90, to: 30 }
         },
         phase2: {
-            translateX: { from: 575 + vw20, to: 585 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 575 + vw20, to: 585 + vw20 }, 
             translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -586,13 +431,13 @@ const animationConfigWide = {
     'exclamation': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 640, to: 40 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 640, to: 40 + vw20 }, 
             translateY: { from: 310, to: 800 },
             scale: { from: 3, to: 4 },
             rotate: { from: 180, to: 50 }
         },
         phase2: {
-            translateX: { from: 40 + vw20, to: 550 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 40 + vw20, to: 550 + vw20 }, 
             translateY: { from: 800, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 4, to: 2 },
             rotate: { from: 50, to: 0 }
@@ -601,13 +446,13 @@ const animationConfigWide = {
     'front-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 220, to: 100 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 220, to: 100 + vw20 }, 
             translateY: { from: 50, to: 880 },
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 30 }
         },
         phase2: {
-            translateX: { from: 100 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 100 + vw20, to: 45 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -616,13 +461,13 @@ const animationConfigWide = {
     'back-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 800, to: 1010 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 800, to: 1010 + vw20 }, 
             translateY: { from: 270, to: 880 },
             scale: { from: 2, to: 5 },
             rotate: { from: 30, to: 0 }
         },
         phase2: {
-            translateX: { from: 1010 + vw20, to: 570 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 1010 + vw20, to: 570 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40},
             scale: { from: 5, to: 2 },
             rotate: { from: 0, to: 0 }
@@ -635,13 +480,13 @@ const animationConfigMedium = {
     'c': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -550 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -550 + vw20 }, 
             translateY: { from: 0, to: 890 },
             scale: { from: 1, to: 2 },
             rotate: { from: 0, to: 50 }
         },
         phase2: {
-            translateX: { from: -550 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -550 + vw20, to: -350 + vw20 }, 
             translateY: { from: 890, to: PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y },
             scale: { from: 2, to: 0.8 },
             rotate: { from: 50, to: 0 }
@@ -650,13 +495,13 @@ const animationConfigMedium = {
     'o1': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 405 + vw20 }, 
             translateY: { from: 0, to: 1380 },
             scale: { from: 1, to: 2.8 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 405 + vw20, to: -148 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 405 + vw20, to: -148 + vw20 }, 
             translateY: { from: 1380, to: PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y },
             scale: { from: 2.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
@@ -665,13 +510,13 @@ const animationConfigMedium = {
     'n': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 340 + vw20 }, 
             translateY: { from: 0, to: 860 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: 0, to: 20 }
         },
         phase2: {
-            translateX: { from: 340 + vw20, to: -49 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 340 + vw20, to: -49 + vw20 }, 
             translateY: { from: 860, to: PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y },
             scale: { from: 1.8, to: 0.8 },
             rotate: { from: 20, to: 0 }
@@ -680,13 +525,13 @@ const animationConfigMedium = {
     's': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -690 + vw20 }, 
             translateY: { from: 0, to: 990 },
             scale: { from: 1, to: 1 },
             rotate: { from: 0, to: -20 }
         },
         phase2: {
-            translateX: { from: -690 + vw20, to: -434 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -690 + vw20, to: -434 + vw20 }, 
             translateY: { from: 990, to: PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y },
             scale: { from: 1, to: 0.8 },
             rotate: { from: -20, to: 0 }
@@ -695,13 +540,13 @@ const animationConfigMedium = {
     'o2': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -205 + vw20 }, 
             translateY: { from: 0, to: 985 },
             scale: { from: 1, to: 4 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -205 + vw20, to: -56 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -205 + vw20, to: -56 + vw20 }, 
             translateY: { from: 985, to: PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y },
             scale: { from: 4, to: 0.8 },
             rotate: { from: -30, to: 0 }
@@ -710,13 +555,13 @@ const animationConfigMedium = {
     'l': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 120 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 120 + vw20 }, 
             translateY: { from: 0, to: 1055 },
             scale: { from: 1, to: 1.5 },
             rotate: { from: 0, to: 45 }
         },
         phase2: {
-            translateX: { from: 120 + vw20, to: -264 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 120 + vw20, to: -264 + vw20 }, 
             translateY: { from: 1055, to: PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y },
             scale: { from: 1.5, to: 0.8 },
             rotate: { from: 45, to: 0 }
@@ -725,13 +570,13 @@ const animationConfigMedium = {
     'e': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -665 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -665 + vw20 }, 
             translateY: { from: 0, to: 1680 },
             scale: { from: 1, to: 0.5 },
             rotate: { from: 0, to: -60 }
         },
         phase2: {
-            translateX: { from: -665 + vw20, to: -282 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -665 + vw20, to: -282 + vw20 }, 
             translateY: { from: 1680, to: PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y },
             scale: { from: 0.5, to: 0.8 },
             rotate: { from: -60, to: 0 }
@@ -741,13 +586,13 @@ const animationConfigMedium = {
     'dot': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -400, to: 555 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -400, to: 555 + vw20 }, 
             translateY: { from: 400, to: 1195 },
             scale: { from: 13, to: 3 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 555 + vw20, to: -70 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 555 + vw20, to: -70 + vw20 }, 
             translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 10 },
             scale: { from: 3, to: 0.6 },
             rotate: { from: 0, to: 0 }
@@ -756,13 +601,13 @@ const animationConfigMedium = {
     'open-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -150, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -150, to: -405 + vw20 }, 
             translateY: { from: 280, to: 970 },
             scale: { from: 2, to: 1 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -405 + vw20, to: -130 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -405 + vw20, to: -130 + vw20 }, 
             translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: -30, to: 0 }
@@ -771,13 +616,13 @@ const animationConfigMedium = {
     'close-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 150, to: 90 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 150, to: 90 + vw20 }, 
             translateY: { from: 280, to: 810 },
             scale: { from: 2, to: 1.2 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: 90 + vw20, to: 33 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 90 + vw20, to: 33 + vw20 }, 
             translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1.2, to: 1.8 },
             rotate: { from: -30, to: 0 }
@@ -786,13 +631,13 @@ const animationConfigMedium = {
     'log': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 300, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 300, to: 140 + vw20 }, 
             translateY: { from: 400, to: 1365 },
             scale: { from: 1.5, to: 1 },
             rotate: { from: 180, to: 30 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: -40 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: -40 + vw20 }, 
             translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 40 },
             scale: { from: 1, to: 2 },
             rotate: { from: 30, to: 0 }
@@ -801,13 +646,13 @@ const animationConfigMedium = {
     'hello': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -60, to: -600 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -60, to: -600 + vw20 }, 
             translateY: { from: -200, to: 1255 },
             scale: { from: 0.5, to: 5 },
             rotate: { from: -25, to: 50 }
         },
         phase2: {
-            translateX: { from: -600 + vw20, to: -325 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -600 + vw20, to: -325 + vw20 }, 
             translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 50, to: 0 }
@@ -816,13 +661,13 @@ const animationConfigMedium = {
     'open-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 265, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 265, to: 200 + vw20 }, 
             translateY: { from: 415, to: 980 },
             scale: { from: 1.2, to: 2 },
             rotate: { from: -90, to: 30 }
         },
         phase2: {
-            translateX: { from: 200 + vw20, to: -370 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200 + vw20, to: -370 + vw20 }, 
             translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.8 },
             rotate: { from: 30, to: 0 }
@@ -831,13 +676,13 @@ const animationConfigMedium = {
     'close-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -97, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -97, to: 575 + vw20 }, 
             translateY: { from: 235, to: 1400 },
             scale: { from: 1.4, to: 5 },
             rotate: { from: 90, to: 30 }
         },
         phase2: {
-            translateX: { from: 575 + vw20, to: 92 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 575 + vw20, to: 92 + vw20 }, 
             translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 30, to: 0 }
@@ -846,13 +691,13 @@ const animationConfigMedium = {
     'exclamation': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 155, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 155, to: 140 + vw20 }, 
             translateY: { from: 220, to: 1650 },
             scale: { from: 2.7, to: 4 },
             rotate: { from: 180, to: 40 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: 55 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: 55 + vw20 }, 
             translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.8 },
             rotate: { from: 40, to: 0 }
@@ -861,13 +706,13 @@ const animationConfigMedium = {
     'dollar': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 232, to: 50 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 232, to: 50 + vw20 }, 
             translateY: { from: 95, to: 1200 },
             scale: { from: 2, to: 4 },
             rotate: { from: 0, to: -45 }
         },
         phase2: {
-            translateX: { from: 50 + vw20, to: -165 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 50 + vw20, to: -165 + vw20 }, 
             translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.8 },
             rotate: { from: -45, to: 0 }
@@ -876,13 +721,13 @@ const animationConfigMedium = {
     'name-input': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -470 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -470 + vw20 }, 
             translateY: { from: 0, to: 920 },
             scale: { from: 1, to: 0.2 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: -470 + vw20, to: -48 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -470 + vw20, to: -48 + vw20 }, 
             translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 70},
             scale: { from: 0.2, to: 0.7 },
             rotate: { from: 0, to: 0 }
@@ -891,13 +736,13 @@ const animationConfigMedium = {
     'front-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -230, to: -410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -230, to: -410 + vw20 }, 
             translateY: { from: -40, to: 880 },
             scale: { from: 2, to: 2 },
             rotate: { from: 30, to: -30 }
         },
         phase2: {
-            translateX: { from: -410 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -410 + vw20, to: -350 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.8 },
             rotate: { from: -30, to: 0 }
@@ -906,13 +751,13 @@ const animationConfigMedium = {
     'back-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 275, to: 410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 275, to: 410 + vw20 }, 
             translateY: { from: 180, to: 880 },
             scale: { from: 2, to: 5 },
             rotate: { from: 30, to: 30 }
         },
         phase2: {
-            translateX: { from: 410 + vw20, to: 70 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 410 + vw20, to: 70 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.8 },
             rotate: { from: 30, to: 0 }
@@ -924,13 +769,13 @@ const animationConfigSmall = {
     'c': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -550 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -550 + vw20 }, 
             translateY: { from: 0, to: 890 },
             scale: { from: 1, to: 2 },
             rotate: { from: 0, to: 50 }
         },
         phase2: {
-            translateX: { from: -550 + vw20, to: -350 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -550 + vw20, to: -350 + vw20 }, 
             translateY: { from: 890, to: (PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y) * 1.4 },
             scale: { from: 2, to: 0.8 },
             rotate: { from: 50, to: 0 }
@@ -939,13 +784,13 @@ const animationConfigSmall = {
     'o1': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 405 + vw20 }, 
             translateY: { from: 0, to: 1380 },
             scale: { from: 1, to: 2.8 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 405 + vw20, to: -148 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 405 + vw20, to: -148 + vw20 }, 
             translateY: { from: 1380, to: (PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y) * 1.4 },
             scale: { from: 2.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
@@ -954,13 +799,13 @@ const animationConfigSmall = {
     'n': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 340 + vw20 }, 
             translateY: { from: 0, to: 860 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: 0, to: 20 }
         },
         phase2: {
-            translateX: { from: 340 + vw20, to: -49 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 340 + vw20, to: -49 + vw20 }, 
             translateY: { from: 860, to: (PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y) * 1.4 },
             scale: { from: 1.8, to: 0.8 },
             rotate: { from: 20, to: 0 }
@@ -969,13 +814,13 @@ const animationConfigSmall = {
     's': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -690 + vw20 }, 
             translateY: { from: 0, to: 990 },
             scale: { from: 1, to: 1 },
             rotate: { from: 0, to: -20 }
         },
         phase2: {
-            translateX: { from: -690 + vw20, to: -434 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -690 + vw20, to: -434 + vw20 }, 
             translateY: { from: 990, to: (PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y) * 1.4 },
             scale: { from: 1, to: 0.8 },
             rotate: { from: -20, to: 0 }
@@ -984,13 +829,13 @@ const animationConfigSmall = {
     'o2': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -205 + vw20 }, 
             translateY: { from: 0, to: 985 },
             scale: { from: 1, to: 4 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -205 + vw20, to: -56 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -205 + vw20, to: -56 + vw20 }, 
             translateY: { from: 985, to: (PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y) * 1.4 },
             scale: { from: 4, to: 0.8 },
             rotate: { from: -30, to: 0 }
@@ -999,13 +844,13 @@ const animationConfigSmall = {
     'l': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 120 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 120 + vw20 }, 
             translateY: { from: 0, to: 1055 },
             scale: { from: 1, to: 1.5 },
             rotate: { from: 0, to: 45 }
         },
         phase2: {
-            translateX: { from: 120 + vw20, to: -264 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 120 + vw20, to: -264 + vw20 }, 
             translateY: { from: 1055, to: (PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y) * 1.4 },
             scale: { from: 1.5, to: 0.8 },
             rotate: { from: 45, to: 0 }
@@ -1014,13 +859,13 @@ const animationConfigSmall = {
     'e': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -665 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -665 + vw20 }, 
             translateY: { from: 0, to: 1680 },
             scale: { from: 1, to: 0.5 },
             rotate: { from: 0, to: -60 }
         },
         phase2: {
-            translateX: { from: -665 + vw20, to: -282 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -665 + vw20, to: -282 + vw20 }, 
             translateY: { from: 1680, to: (PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y) * 1.4 },
             scale: { from: 0.5, to: 0.8 },
             rotate: { from: -60, to: 0 }
@@ -1030,13 +875,13 @@ const animationConfigSmall = {
     'dot': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -270, to: 555 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -270, to: 555 + vw20 }, 
             translateY: { from: 400, to: 1195 },
             scale: { from: 8, to: 3 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 555 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 555 + vw20, to: -80 + vw20 }, 
             translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 45 },
             scale: { from: 3, to: 0.5 },
             rotate: { from: 0, to: 0 }
@@ -1045,13 +890,13 @@ const animationConfigSmall = {
     'open-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -150, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -150, to: -405 + vw20 }, 
             translateY: { from: 255, to: 970 },
             scale: { from: 2, to: 1 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -405 + vw20, to: -125 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -405 + vw20, to: -125 + vw20 }, 
             translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1, to: 1.5 },
             rotate: { from: -30, to: 0 }
@@ -1060,13 +905,13 @@ const animationConfigSmall = {
     'close-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 150, to: 90 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 150, to: 90 + vw20 }, 
             translateY: { from: 255, to: 810 },
             scale: { from: 2, to: 1.2 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: 90 + vw20, to: 28 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 90 + vw20, to: 28 + vw20 }, 
             translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1.2, to: 1.5 },
             rotate: { from: -30, to: 0 }
@@ -1075,13 +920,13 @@ const animationConfigSmall = {
     'log': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 300, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 300, to: 140 + vw20 }, 
             translateY: { from: 400, to: 1365 },
             scale: { from: 1.5, to: 1 },
             rotate: { from: 180, to: 30 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: -55 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: -55 + vw20 }, 
             translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 70 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: 30, to: 0 }
@@ -1090,13 +935,13 @@ const animationConfigSmall = {
     'hello': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -50, to: -600 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -50, to: -600 + vw20 }, 
             translateY: { from: -195, to: 1255 },
             scale: { from: 0.3, to: 5 },
             rotate: { from: -25, to: 50 }
         },
         phase2: {
-            translateX: { from: -600 + vw20, to: -295 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -600 + vw20, to: -295 + vw20 }, 
             translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.5 },
             rotate: { from: 50, to: 0 }
@@ -1105,13 +950,13 @@ const animationConfigSmall = {
     'open-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 265, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 265, to: 200 + vw20 }, 
             translateY: { from: 415, to: 980 },
             scale: { from: 1.2, to: 2 },
             rotate: { from: -90, to: 30 }
         },
         phase2: {
-            translateX: { from: 200 + vw20, to: -340 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200 + vw20, to: -340 + vw20 }, 
             translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.5 },
             rotate: { from: 30, to: 0 }
@@ -1120,13 +965,13 @@ const animationConfigSmall = {
     'close-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -68, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -68, to: 575 + vw20 }, 
             translateY: { from: 172, to: 1400 },
             scale: { from: 1, to: 5 },
             rotate: { from: 90, to: 30 }
         },
         phase2: {
-            translateX: { from: 575 + vw20, to: 82 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 575 + vw20, to: 82 + vw20 }, 
             translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.5 },
             rotate: { from: 30, to: 0 }
@@ -1135,13 +980,13 @@ const animationConfigSmall = {
     'exclamation': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 110, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 110, to: 140 + vw20 }, 
             translateY: { from: 160, to: 1650 },
             scale: { from: 1.8, to: 4 },
             rotate: { from: 180, to: 40 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: 45 + vw20 }, 
             translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.5 },
             rotate: { from: 40, to: 0 }
@@ -1150,13 +995,13 @@ const animationConfigSmall = {
     'dollar': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 160, to: 50 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 160, to: 50 + vw20 }, 
             translateY: { from: 73, to: 1200 },
             scale: { from: 1.5, to: 4 },
             rotate: { from: 0, to: -45 }
         },
         phase2: {
-            translateX: { from: 50 + vw20, to: -155 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 50 + vw20, to: -155 + vw20 }, 
             translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.5 },
             rotate: { from: -45, to: 0 }
@@ -1165,13 +1010,13 @@ const animationConfigSmall = {
     'name-input': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -470 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -470 + vw20 }, 
             translateY: { from: 0, to: 920 },
             scale: { from: 1, to: 0.2 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: -470 + vw20, to: -48 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -470 + vw20, to: -48 + vw20 }, 
             translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 70},
             scale: { from: 0.2, to: 0.6 },
             rotate: { from: 0, to: 0 }
@@ -1180,13 +1025,13 @@ const animationConfigSmall = {
     'front-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -166, to: -410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -166, to: -410 + vw20 }, 
             translateY: { from: -20, to: 880 },
             scale: { from: 1.5, to: 2 },
             rotate: { from: 30, to: -30 }
         },
         phase2: {
-            translateX: { from: -410 + vw20, to: -320 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -410 + vw20, to: -320 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.5 },
             rotate: { from: -30, to: 0 }
@@ -1195,13 +1040,13 @@ const animationConfigSmall = {
     'back-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 195, to: 410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 195, to: 410 + vw20 }, 
             translateY: { from: 133, to: 880 },
             scale: { from: 1.5, to: 5 },
             rotate: { from: 30, to: 30 }
         },
         phase2: {
-            translateX: { from: 410 + vw20, to: 60 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 410 + vw20, to: 60 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.5 },
             rotate: { from: 30, to: 0 }
@@ -1214,13 +1059,13 @@ const animationConfigThin = {
     'c': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -550 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -550 + vw20 }, 
             translateY: { from: 0, to: 890 },
             scale: { from: 1, to: 2 },
             rotate: { from: 0, to: 50 }
         },
         phase2: {
-            translateX: { from: -550 + vw20, to: -250 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -550 + vw20, to: -250 + vw20 }, 
             translateY: { from: 890, to: (PROGRAMMING_BOX_CENTER_Y - C_BOTTOM_Y) * 1.4 },
             scale: { from: 2, to: 0.8 },
             rotate: { from: 50, to: 0 }
@@ -1229,13 +1074,13 @@ const animationConfigThin = {
     'o1': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 405 + vw20 }, 
             translateY: { from: 0, to: 1380 },
             scale: { from: 1, to: 2.8 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 405 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 405 + vw20, to: -80 + vw20 }, 
             translateY: { from: 1380, to: (PROGRAMMING_BOX_CENTER_Y - O1_BOTTOM_Y) * 1.4 },
             scale: { from: 2.8, to: 0.8 },
             rotate: { from: 0, to: 0 }
@@ -1244,13 +1089,13 @@ const animationConfigThin = {
     'n': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 340 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 340 + vw20 }, 
             translateY: { from: 0, to: 860 },
             scale: { from: 1, to: 1.8 },
             rotate: { from: 0, to: 20 }
         },
         phase2: {
-            translateX: { from: 340 + vw20, to: 2 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 340 + vw20, to: 2 + vw20 }, 
             translateY: { from: 860, to: (PROGRAMMING_BOX_CENTER_Y - N_BOTTOM_Y ) * 1.4 },
             scale: { from: 1.8, to: 0.8 },
             rotate: { from: 20, to: 0 }
@@ -1259,13 +1104,13 @@ const animationConfigThin = {
     's': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -690 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -690 + vw20 }, 
             translateY: { from: 0, to: 990 },
             scale: { from: 1, to: 1 },
             rotate: { from: 0, to: -20 }
         },
         phase2: {
-            translateX: { from: -690 + vw20, to: -320 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -690 + vw20, to: -320 + vw20 }, 
             translateY: { from: 990, to: (PROGRAMMING_BOX_CENTER_Y - S_BOTTOM_Y) * 1.4 },
             scale: { from: 1, to: 0.8 },
             rotate: { from: -20, to: 0 }
@@ -1274,13 +1119,13 @@ const animationConfigThin = {
     'o2': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -205 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -205 + vw20 }, 
             translateY: { from: 0, to: 985 },
             scale: { from: 1, to: 4 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -205 + vw20, to: -5 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -205 + vw20, to: -5 + vw20 }, 
             translateY: { from: 985, to: (PROGRAMMING_BOX_CENTER_Y - O2_BOTTOM_Y) * 1.4 },
             scale: { from: 4, to: 0.8 },
             rotate: { from: -30, to: 0 }
@@ -1289,13 +1134,13 @@ const animationConfigThin = {
     'l': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: 120 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: 120 + vw20 }, 
             translateY: { from: 0, to: 1055 },
             scale: { from: 1, to: 1.5 },
             rotate: { from: 0, to: 45 }
         },
         phase2: {
-            translateX: { from: 120 + vw20, to: -178 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 120 + vw20, to: -178 + vw20 }, 
             translateY: { from: 1055, to: (PROGRAMMING_BOX_CENTER_Y - L_BOTTOM_Y) * 1.4 },
             scale: { from: 1.5, to: 0.8 },
             rotate: { from: 45, to: 0 }
@@ -1304,13 +1149,13 @@ const animationConfigThin = {
     'e': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -665 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -665 + vw20 }, 
             translateY: { from: 0, to: 1680 },
             scale: { from: 1, to: 0.5 },
             rotate: { from: 0, to: -60 }
         },
         phase2: {
-            translateX: { from: -665 + vw20, to: -192 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -665 + vw20, to: -192 + vw20 }, 
             translateY: { from: 1680, to: (PROGRAMMING_BOX_CENTER_Y - E_BOTTOM_Y) * 1.4 },
             scale: { from: 0.5, to: 0.8 },
             rotate: { from: -60, to: 0 }
@@ -1320,13 +1165,13 @@ const animationConfigThin = {
     'dot': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -200, to: 555 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -200, to: 555 + vw20 }, 
             translateY: { from: 350, to: 1195 },
             scale: { from: 8, to: 3 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: 555 + vw20, to: -30 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 555 + vw20, to: -30 + vw20 }, 
             translateY: { from: 1195, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 30 },
             scale: { from: 3, to: 0.4 },
             rotate: { from: 0, to: 0 }
@@ -1335,13 +1180,13 @@ const animationConfigThin = {
     'open-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -140, to: -405 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -140, to: -405 + vw20 }, 
             translateY: { from: 208, to: 970 },
             scale: { from: 2, to: 1 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: -405 + vw20, to: -58 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -405 + vw20, to: -58 + vw20 }, 
             translateY: { from: 970, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1, to: 1.2 },
             rotate: { from: -30, to: 0 }
@@ -1350,13 +1195,13 @@ const animationConfigThin = {
     'close-bracket': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 140, to: 90 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140, to: 90 + vw20 }, 
             translateY: { from: 208, to: 810 },
             scale: { from: 2, to: 1.2 },
             rotate: { from: 0, to: -30 }
         },
         phase2: {
-            translateX: { from: 90 + vw20, to: 30 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 90 + vw20, to: 30 + vw20 }, 
             translateY: { from: 810, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 1.2, to: 1.2 },
             rotate: { from: -30, to: 0 }
@@ -1365,13 +1210,13 @@ const animationConfigThin = {
     'log': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 150, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 150, to: 140 + vw20 }, 
             translateY: { from: 400, to: 1365 },
             scale: { from: 1, to: 1 },
             rotate: { from: 180, to: 30 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: -8 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: -8 + vw20 }, 
             translateY: { from: 1365, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y - 52 },
             scale: { from: 1, to: 1.4 },
             rotate: { from: 30, to: 0 }
@@ -1380,13 +1225,13 @@ const animationConfigThin = {
     'hello': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -50, to: -600 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -50, to: -600 + vw20 }, 
             translateY: { from: -150, to: 1255 },
             scale: { from: 0.3, to: 5 },
             rotate: { from: -25, to: 50 }
         },
         phase2: {
-            translateX: { from: -600 + vw20, to: -182 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -600 + vw20, to: -182 + vw20 }, 
             translateY: { from: 1255, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.2 },
             rotate: { from: 50, to: 0 }
@@ -1395,13 +1240,13 @@ const animationConfigThin = {
     'open-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 127, to: 200 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 127, to: 200 + vw20 }, 
             translateY: { from: 410, to: 980 },
             scale: { from: 0.7, to: 2 },
             rotate: { from: -90, to: 30 }
         },
         phase2: {
-            translateX: { from: 200 + vw20, to: -210 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 200 + vw20, to: -210 + vw20 }, 
             translateY: { from: 980, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.2 },
             rotate: { from: 30, to: 0 }
@@ -1410,13 +1255,13 @@ const animationConfigThin = {
     'close-parenthesis': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -55, to: 575 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -55, to: 575 + vw20 }, 
             translateY: { from: 152, to: 1400 },
             scale: { from: 1, to: 5 },
             rotate: { from: 90, to: 30 }
         },
         phase2: {
-            translateX: { from: 575 + vw20, to: 68 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 575 + vw20, to: 68 + vw20 }, 
             translateY: { from: 1400, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.2 },
             rotate: { from: 30, to: 0 }
@@ -1425,13 +1270,13 @@ const animationConfigThin = {
     'exclamation': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 92, to: 140 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 92, to: 140 + vw20 }, 
             translateY: { from: 138, to: 1650 },
             scale: { from: 1.5, to: 2 },
             rotate: { from: 180, to: 40 }
         },
         phase2: {
-            translateX: { from: 140 + vw20, to: 45 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 140 + vw20, to: 45 + vw20 }, 
             translateY: { from: 1650, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.4 },
             rotate: { from: 40, to: 0 }
@@ -1440,13 +1285,13 @@ const animationConfigThin = {
     'dollar': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 135, to: 50 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 135, to: 50 + vw20 }, 
             translateY: { from: 65, to: 1200 },
             scale: { from: 1.3, to: 4 },
             rotate: { from: 0, to: -45 }
         },
         phase2: {
-            translateX: { from: 50 + vw20, to: -80 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 50 + vw20, to: -80 + vw20 }, 
             translateY: { from: 1200, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 4, to: 1.2 },
             rotate: { from: -45, to: 0 }
@@ -1455,13 +1300,13 @@ const animationConfigThin = {
     'name-input': {
         selectorType: 'id',
         phase1: {
-            translateX: { from: 0, to: -470 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 0, to: -470 + vw20 }, 
             translateY: { from: 0, to: 920 },
             scale: { from: 1, to: 0.2 },
             rotate: { from: 0, to: 0 }
         },
         phase2: {
-            translateX: { from: -470 + vw20, to: -13 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -470 + vw20, to: -13 + vw20 }, 
             translateY: { from: 920, to: PROGRAMMING_BOX_CENTER_Y - NAME_INPUT_BOTTOM_Y + 64},
             scale: { from: 0.2, to: 0.4 },
             rotate: { from: 0, to: 0 }
@@ -1470,13 +1315,13 @@ const animationConfigThin = {
     'front-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: -133, to: -410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -133, to: -410 + vw20 }, 
             translateY: { from: -12, to: 880 },
             scale: { from: 1, to: 2 },
             rotate: { from: 30, to: -30 }
         },
         phase2: {
-            translateX: { from: -410 + vw20, to: -198 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: -410 + vw20, to: -198 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 2, to: 1.2 },
             rotate: { from: -30, to: 0 }
@@ -1485,13 +1330,13 @@ const animationConfigThin = {
     'back-tick': {
         selectorType: 'class',
         phase1: {
-            translateX: { from: 160, to: 410 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 160, to: 410 + vw20 }, 
             translateY: { from: 115, to: 880 },
             scale: { from: 1, to: 5 },
             rotate: { from: 30, to: 30 }
         },
         phase2: {
-            translateX: { from: 410 + vw20, to: 55 + vw20 }, // Use pre-calculated 20vw
+            translateX: { from: 410 + vw20, to: 55 + vw20 }, 
             translateY: { from: 880, to: PROGRAMMING_BOX_CENTER_Y - TEST_MARKER_BOTTOM_Y + 40 },
             scale: { from: 5, to: 1.2 },
             rotate: { from: 30, to: 0 }
@@ -1500,9 +1345,7 @@ const animationConfigThin = {
 };
 
 
-// Get all elements that need animation
 const animatedElements = {};
-// Get elements for wide viewport configuration
 for (const elementId in animationConfigWide) {
     const config = animationConfigWide[elementId];
     if (config.selectorType === 'class') {
@@ -1511,9 +1354,7 @@ for (const elementId in animationConfigWide) {
         animatedElements[elementId] = document.getElementById(elementId);
     }
 }
-// Get elements for medium viewport configuration
 for (const elementId in animationConfigMedium) {
-    // Skip if already got this element
     if (animatedElements[elementId]) continue;
     
     const config = animationConfigMedium[elementId];
@@ -1523,9 +1364,7 @@ for (const elementId in animationConfigMedium) {
         animatedElements[elementId] = document.getElementById(elementId);
     }
 }
-// Get elements for small viewport configuration
 for (const elementId in animationConfigSmall) {
-    // Skip if already got this element
     if (animatedElements[elementId]) continue;
     
     const config = animationConfigSmall[elementId];
@@ -1535,9 +1374,7 @@ for (const elementId in animationConfigSmall) {
         animatedElements[elementId] = document.getElementById(elementId);
     }
 }
-// Get elements for thin viewport configuration
 for (const elementId in animationConfigThin) {
-    // Skip if already got this element
     if (animatedElements[elementId]) continue;
     
     const config = animationConfigThin[elementId];
@@ -1552,7 +1389,6 @@ for (const elementId in animationConfigThin) {
 function getAnimationConfig() {
     const width = window.innerWidth;
     
-    // Use switch statement to handle different viewport width ranges
     switch (true) {
         case width > 900:
             return animationConfigWide;
@@ -1563,22 +1399,18 @@ function getAnimationConfig() {
         case width <= 540:
             return animationConfigThin;
         default:
-            // For viewport width <= 540px, return the thin configuration
             return animationConfigThin;
     }
 }
 // Typing animation function
 function typeText(element, text, speed = 50) {
-    // Clear the element first
     element.innerHTML = '';
     
-    // Create a cursor element
     const cursor = document.createElement('span');
     cursor.className = 'typing-cursor';
     cursor.innerHTML = '|';
     element.appendChild(cursor);
     
-    // Add CSS for blinking cursor
     if (!document.getElementById('typing-cursor-style')) {
         const style = document.createElement('style');
         style.id = 'typing-cursor-style';
@@ -1596,10 +1428,8 @@ function typeText(element, text, speed = 50) {
         document.head.appendChild(style);
     }
     
-    // Index to track current character
     let i = 0;
     
-    // Function to type each character
     function typeCharacter() {
         if (i < text.length) {
             // Remove cursor temporarily if it exists
@@ -1607,42 +1437,30 @@ function typeText(element, text, speed = 50) {
                 element.removeChild(element.lastChild);
             }
             
-            // Add next character
             element.innerHTML += text.charAt(i);
-            
-            // Add cursor back
             element.appendChild(cursor);
-            
-            // Move to next character
             i++;
             
-            // Continue typing
             setTimeout(typeCharacter, speed);
         } else {
-            // Remove cursor when finished if it exists
             if (element.lastChild && element.lastChild.className === 'typing-cursor') {
                 element.removeChild(element.lastChild);
             }
             
-            // Set the animation running flag to false when finished
             if (typeof window.typingAnimationRunning !== 'undefined') {
                 window.typingAnimationRunning = false;
             }
         }
     }
     
-    // Start typing
     typeCharacter();
 }
 
-// Text erasing function
 function eraseText(element, speed = 30) {
-    // Create a cursor element
     const cursor = document.createElement('span');
     cursor.className = 'typing-cursor';
     cursor.innerHTML = '|';
     
-    // Add CSS for blinking cursor if not already added
     if (!document.getElementById('typing-cursor-style')) {
         const style = document.createElement('style');
         style.id = 'typing-cursor-style';
@@ -1660,58 +1478,45 @@ function eraseText(element, speed = 30) {
         document.head.appendChild(style);
     }
     
-    // Get current text (without cursor if it exists)
     let text = element.innerHTML;
     if (element.lastChild && element.lastChild.className === 'typing-cursor') {
         text = text.substring(0, text.length - element.lastChild.outerHTML.length);
     }
     let i = text.length;
     
-    // Function to erase each character
     function eraseCharacter() {
         if (i > 0) {
-            // Remove cursor temporarily if it exists
             if (element.lastChild && element.lastChild.className === 'typing-cursor') {
                 element.removeChild(element.lastChild);
             }
             
-            // Remove last character
             text = text.substring(0, text.length - 1);
             element.innerHTML = text;
             
-            // Add cursor back
             element.appendChild(cursor);
             
-            // Move to previous character
             i--;
             
-            // Continue erasing
             setTimeout(eraseCharacter, speed);
         } else {
-            // Remove cursor when finished if it exists
             if (element.lastChild && element.lastChild.className === 'typing-cursor') {
                 element.removeChild(element.lastChild);
             }
             
-            // Set the animation running flag to false when finished
             if (typeof window.typingAnimationRunning !== 'undefined') {
                 window.typingAnimationRunning = false;
             }
         }
     }
     
-    // Start erasing
     eraseCharacter();
 }
 
-// Combined function to erase and then type new text
 function eraseAndType(element, newText, eraseSpeed = 30, typeSpeed = 50) {
-    // Create a cursor element
     const cursor = document.createElement('span');
     cursor.className = 'typing-cursor';
     cursor.innerHTML = '|';
     
-    // Add CSS for blinking cursor if not already added
     if (!document.getElementById('typing-cursor-style')) {
         const style = document.createElement('style');
         style.id = 'typing-cursor-style';
@@ -1729,40 +1534,31 @@ function eraseAndType(element, newText, eraseSpeed = 30, typeSpeed = 50) {
         document.head.appendChild(style);
     }
     
-    // Get current text (without cursor if it exists)
     let text = element.innerHTML;
     if (element.lastChild && element.lastChild.className === 'typing-cursor') {
         text = text.substring(0, text.length - element.lastChild.outerHTML.length);
     }
     let i = text.length;
     
-    // Function to erase each character
     function eraseCharacter() {
         if (i > 0) {
-            // Remove cursor temporarily if it exists
             if (element.lastChild && element.lastChild.className === 'typing-cursor') {
                 element.removeChild(element.lastChild);
             }
             
-            // Remove last character
             text = text.substring(0, text.length - 1);
             element.innerHTML = text;
             
-            // Add cursor back
             element.appendChild(cursor);
             
-            // Move to previous character
             i--;
             
-            // Continue erasing
             setTimeout(eraseCharacter, eraseSpeed);
         } else {
-            // Remove cursor when finished erasing if it exists
             if (element.lastChild && element.lastChild.className === 'typing-cursor') {
                 element.removeChild(element.lastChild);
             }
             
-            // Start typing new text
             typeText(element, newText, typeSpeed);
         }
     }
@@ -1783,11 +1579,8 @@ window.addEventListener('scroll', function() {
         return;
     }
     
-    // Calculate scroll position in pixels
     const scrollPosition = window.scrollY;
     
-    // Two-phase scroll tracking
-    // Use switch statement to handle different viewport width ranges
     let phase1Start, phase1End, phase2Start, phase2End;
     
     switch (true) {
@@ -1826,25 +1619,20 @@ window.addEventListener('scroll', function() {
     
     let scrollPercentage, phase;
     
-    // Use switch statement to handle different scroll positions
     switch (true) {
-        // Phase 1
         case scrollPosition <= phase1Start:
             scrollPercentage = 0;
             phase = 1;
             break;
         case scrollPosition >= phase1Start && scrollPosition <= phase1End:
-            // Map the range [phase1Start, phase1End] to [0, 100] for Phase 1
             scrollPercentage = Math.round(((scrollPosition - phase1Start) / (phase1End - phase1Start)) * 100);
             phase = 1;
             break;
         case scrollPosition > phase1End && scrollPosition < phase2Start:
-            // Transition point - end of Phase 1
             scrollPercentage = 100;
             phase = 1;
             break;
         case scrollPosition >= phase2Start && scrollPosition <= phase2End:
-            // Map the range [phase2Start, phase2End] to [0, 100] for Phase 2
             scrollPercentage = Math.round(((scrollPosition - phase2Start) / (phase2End - phase2Start)) * 100);
             phase = 2;
             break;
@@ -1857,7 +1645,6 @@ window.addEventListener('scroll', function() {
             phase = 1;
     }
     
-    // Log scroll information to console
     console.log(`Scroll Position: ${scrollPosition}px | Phase: ${phase} | Scroll Progress: ${scrollPercentage}%`);
     
     const nameInputElement = document.querySelector('.name-input');
@@ -1870,7 +1657,6 @@ window.addEventListener('scroll', function() {
         nameInputElement.style.zIndex = 1;
     }
 
-    // Add flags to track if the animation has been triggered and if an animation is currently running
     if (typeof window.typingAnimationTriggered === 'undefined') {
         window.typingAnimationTriggered = false;
     }
@@ -1880,200 +1666,107 @@ window.addEventListener('scroll', function() {
     }
     
     if (scrollPercentage >= 90){
-        // Only trigger the animation if it hasn't been triggered before and no animation is currently running
         if (!window.typingAnimationTriggered && !window.typingAnimationRunning) {
-            // Set flags to prevent further animations
             window.typingAnimationTriggered = true;
             window.typingAnimationRunning = true;
             
-            // Use the eraseAndType function to create the typing animation with correct speed parameters
             eraseAndType(outputtext, `Hello ${userInput.value}!`, 30, 50);
         }
     }
     else{
-        // Reset the flag when scrollPercentage is less than 90
         if (window.typingAnimationTriggered) {
-            // Only trigger the animation if no animation is currently running
             if (!window.typingAnimationRunning) {
                 window.typingAnimationRunning = true;
-                // Use the eraseAndType function to create the typing animation with correct speed parameters
                 eraseAndType(outputtext, "Hello Guest!", 30, 50);
             }
             window.typingAnimationTriggered = false;
         }
     }
 
-    // Animate all elements based on scroll position
     animateElements(scrollPercentage, phase, animationConfig);
 });
 
-// Add resize event listener to handle viewport width changes
 window.addEventListener('resize', function() {
-    // Re-calculate the 20vw value
     const vw = window.innerWidth / 100;
     const vw20 = 20 * vw;
     
-    // Update the animation configurations with the new 20vw value
     updateAnimationConfigurations(vw20);
     
-    // Trigger a scroll event to re-calculate the current position and animate elements
     window.dispatchEvent(new Event('scroll'));
 });
 
-// Function to update animation configurations with the new 20vw value
 function updateAnimationConfigurations(vw20) {
-    // Update wide viewport configuration
     for (const elementId in animationConfigWide) {
         const config = animationConfigWide[elementId];
-        // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
-        // Update phase 1
         if (config.phase1.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
                 config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
         if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
-            // Check if the 'from' value uses 20vw
-            // For most elements, 'from' is 0, so we don't need to update it
         }
         
-        // Update phase 2
         if (config.phase2.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
                 config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
-            // Check if the 'from' value uses 20vw
             if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
                 config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
     }
     
-    // Example of using element positions in animation configurations
-    // Update specific elements with the calculated positions if needed
     if (PROGRAMMING_BOX_CENTER_Y > 0) {
-        // Example: Update the 'c' element's phase 1 translateY 'to' value with the center position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['c'] && animationConfigWide['c'].phase1) {
-        //     animationConfigWide['c'].phase1.translateY.to = PROGRAMMING_BOX_CENTER_Y;
-        // }
-        
-        // Example: Update the 'o1' element's phase 2 translateY 'from' value with the center position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['o1'] && animationConfigWide['o1'].phase2) {
-        //     animationConfigWide['o1'].phase2.translateY.from = PROGRAMMING_BOX_CENTER_Y;
-        // }
     }
     
-    // Example of using C_BOTTOM_Y in animation configurations
     if (C_BOTTOM_Y > 0) {
-        // Example: Update the 'c' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['c'] && animationConfigWide['c'].phase2) {
-        //     animationConfigWide['c'].phase2.translateY.to = ELEMENT_POSITIONS.c.bottom.y - C_BOTTOM_Y;
-        // }
     }
     
-    // Example of using O1_BOTTOM_Y in animation configurations
     if (O1_BOTTOM_Y > 0) {
-        // Example: Update the 'o1' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['o1'] && animationConfigWide['o1'].phase2) {
-        //     animationConfigWide['o1'].phase2.translateY.to = ELEMENT_POSITIONS.o1.bottom.y - O1_BOTTOM_Y;
-        // }
     }
     
-    // Example of using N_BOTTOM_Y in animation configurations
     if (N_BOTTOM_Y > 0) {
-        // Example: Update the 'n' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['n'] && animationConfigWide['n'].phase2) {
-        //     animationConfigWide['n'].phase2.translateY.to = ELEMENT_POSITIONS.n.bottom.y - N_BOTTOM_Y;
-        // }
     }
     
-    // Example of using S_BOTTOM_Y in animation configurations
     if (S_BOTTOM_Y > 0) {
-        // Example: Update the 's' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['s'] && animationConfigWide['s'].phase2) {
-        //     animationConfigWide['s'].phase2.translateY.to = ELEMENT_POSITIONS.s.bottom.y - S_BOTTOM_Y;
-        // }
     }
     
-    // Example of using O2_BOTTOM_Y in animation configurations
     if (O2_BOTTOM_Y > 0) {
-        // Example: Update the 'o2' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['o2'] && animationConfigWide['o2'].phase2) {
-        //     animationConfigWide['o2'].phase2.translateY.to = ELEMENT_POSITIONS.o2.bottom.y - O2_BOTTOM_Y;
-        // }
     }
     
-    // Example of using L_BOTTOM_Y in animation configurations
     if (L_BOTTOM_Y > 0) {
-        // Example: Update the 'l' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['l'] && animationConfigWide['l'].phase2) {
-        //     animationConfigWide['l'].phase2.translateY.to = ELEMENT_POSITIONS.l.bottom.y - L_BOTTOM_Y;
-        // }
     }
     
-    // Example of using E_BOTTOM_Y in animation configurations
     if (E_BOTTOM_Y > 0) {
-        // Example: Update the 'e' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['e'] && animationConfigWide['e'].phase2) {
-        //     animationConfigWide['e'].phase2.translateY.to = ELEMENT_POSITIONS.e.bottom.y - E_BOTTOM_Y;
-        // }
     }
     
-    // Example of using NAME_INPUT_BOTTOM_Y in animation configurations
     if (NAME_INPUT_BOTTOM_Y > 0) {
-        // Example: Update the 'name-input' element's phase 2 translateY 'to' value with the bottom position
-        // Uncomment and modify the following lines as needed:
-        // if (animationConfigWide['name-input'] && animationConfigWide['name-input'].phase2) {
-        //     animationConfigWide['name-input'].phase2.translateY.to = ELEMENT_POSITIONS.nameInput.bottom.y - NAME_INPUT_BOTTOM_Y;
-        // }
     }
     
-    // Update medium viewport configuration
     for (const elementId in animationConfigMedium) {
         const config = animationConfigMedium[elementId];
-        // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
-        // Update phase 1
         if (config.phase1.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
                 config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
         if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
-            // Check if the 'from' value uses 20vw
-            // For most elements, 'from' is 0, so we don't need to update it
         }
         
-        // Update phase 2
         if (config.phase2.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
                 config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
-            // Check if the 'from' value uses 20vw
             if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
                 config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
         
-        // Update phase 2 translateY 'to' value with the bottom position if needed
         if (config.phase2.translateY) {
-            // Check if this is one of our target elements
             switch (elementId) {
                 case 'c':
                     if (C_BOTTOM_Y > 0) {
@@ -2119,62 +1812,44 @@ function updateAnimationConfigurations(vw20) {
         }
     }
     
-    // Update small viewport configuration
     for (const elementId in animationConfigSmall) {
         const config = animationConfigSmall[elementId];
-        // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
-        // Update phase 1
         if (config.phase1.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
                 config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
         if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
-            // Check if the 'from' value uses 20vw
-            // For most elements, 'from' is 0, so we don't need to update it
         }
         
-        // Update phase 2
         if (config.phase2.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
                 config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
-            // Check if the 'from' value uses 20vw
             if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
                 config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
     }
     
-    // Update thin viewport configuration
     for (const elementId in animationConfigThin) {
         const config = animationConfigThin[elementId];
-        // Skip elements that don't use 20vw in their calculations
         if (!config || !config.phase1) continue;
         
-        // Update phase 1
         if (config.phase1.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase1.translateX.to === 'number' && config.phase1.translateX.to !== 0) {
                 config.phase1.translateX.to = config.phase1.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
         }
         if (config.phase1.translateX && typeof config.phase1.translateX.from === 'number' && config.phase1.translateX.from !== 0) {
-            // Check if the 'from' value uses 20vw
-            // For most elements, 'from' is 0, so we don't need to update it
         }
         
-        // Update phase 2
         if (config.phase2.translateX) {
-            // Check if the 'to' value uses 20vw
             if (typeof config.phase2.translateX.to === 'number' && config.phase2.translateX.to !== 0) {
                 config.phase2.translateX.to = config.phase2.translateX.to - (20 * (window.innerWidth / 100)) + vw20;
             }
-            // Check if the 'from' value uses 20vw
             if (typeof config.phase2.translateX.from === 'number' && config.phase2.translateX.from !== 0) {
                 config.phase2.translateX.from = config.phase2.translateX.from - (20 * (window.innerWidth / 100)) + vw20;
             }
@@ -2182,7 +1857,6 @@ function updateAnimationConfigurations(vw20) {
     }
 }
 
-// Function to reset element styles when viewport width is 700px or less, or when animations are disabled
 function resetElements() {
     for (const elementId in animatedElements) {
         const element = animatedElements[elementId];
@@ -2194,7 +1868,6 @@ function resetElements() {
     }
 }
 
-// Function to animate all elements based on scroll percentage and phase
 function animateElements(scrollPercentage, phase, animationConfig) {
     for (const elementId in animationConfig) {
         const element = animatedElements[elementId];
@@ -2204,23 +1877,17 @@ function animateElements(scrollPercentage, phase, animationConfig) {
     }
 }
 
-// Function to animate a specific element based on scroll percentage and phase
 function animateElement(element, elementId, scrollPercentage, phase, animationConfig) {
-    // Get the animation configuration for this element
     const config = animationConfig[elementId];
     
     if (!config) return; // No configuration for this element
     
-    // Get the phase-specific configuration
     const phaseConfig = phase === 1 ? config.phase1 : config.phase2;
     
-    // Calculate intermediate values
     let translateX;
     if (phase === 1 && scrollPercentage === 0) {
-        // For phase 1 at 0% scroll, use the initial position without any calculation
         translateX = `${phaseConfig.translateX.from}px`;
     } else {
-        // For all other cases, interpolate between from and to values
         const translateXValue = phaseConfig.translateX.from + (scrollPercentage / 100) * (phaseConfig.translateX.to - phaseConfig.translateX.from);
         translateX = `${translateXValue}px`;
     }
@@ -2229,7 +1896,6 @@ function animateElement(element, elementId, scrollPercentage, phase, animationCo
     const scale = phaseConfig.scale.from + (scrollPercentage / 100) * (phaseConfig.scale.to - phaseConfig.scale.from);
     const rotate = phaseConfig.rotate.from + (scrollPercentage / 100) * (phaseConfig.rotate.to - phaseConfig.rotate.from);
     
-    // Remove any existing CSS animations that might conflict with our JavaScript animations
     element.style.animation = 'none';
     
     element.style.transform = `translate(${translateX}, ${translateY}px) scale(${scale}) rotate(${rotate}deg)`;
