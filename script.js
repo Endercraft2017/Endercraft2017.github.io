@@ -1567,6 +1567,209 @@ function getAnimationConfig() {
             return animationConfigThin;
     }
 }
+// Typing animation function
+function typeText(element, text, speed = 50) {
+    // Clear the element first
+    element.innerHTML = '';
+    
+    // Create a cursor element
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.innerHTML = '|';
+    element.appendChild(cursor);
+    
+    // Add CSS for blinking cursor
+    if (!document.getElementById('typing-cursor-style')) {
+        const style = document.createElement('style');
+        style.id = 'typing-cursor-style';
+        style.innerHTML = `
+            .typing-cursor {
+                animation: blink 1s infinite;
+                margin-left: 2px;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Index to track current character
+    let i = 0;
+    
+    // Function to type each character
+    function typeCharacter() {
+        if (i < text.length) {
+            // Remove cursor temporarily if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Add next character
+            element.innerHTML += text.charAt(i);
+            
+            // Add cursor back
+            element.appendChild(cursor);
+            
+            // Move to next character
+            i++;
+            
+            // Continue typing
+            setTimeout(typeCharacter, speed);
+        } else {
+            // Remove cursor when finished if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Set the animation running flag to false when finished
+            if (typeof window.typingAnimationRunning !== 'undefined') {
+                window.typingAnimationRunning = false;
+            }
+        }
+    }
+    
+    // Start typing
+    typeCharacter();
+}
+
+// Text erasing function
+function eraseText(element, speed = 30) {
+    // Create a cursor element
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.innerHTML = '|';
+    
+    // Add CSS for blinking cursor if not already added
+    if (!document.getElementById('typing-cursor-style')) {
+        const style = document.createElement('style');
+        style.id = 'typing-cursor-style';
+        style.innerHTML = `
+            .typing-cursor {
+                animation: blink 1s infinite;
+                margin-left: 2px;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Get current text (without cursor if it exists)
+    let text = element.innerHTML;
+    if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+        text = text.substring(0, text.length - element.lastChild.outerHTML.length);
+    }
+    let i = text.length;
+    
+    // Function to erase each character
+    function eraseCharacter() {
+        if (i > 0) {
+            // Remove cursor temporarily if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Remove last character
+            text = text.substring(0, text.length - 1);
+            element.innerHTML = text;
+            
+            // Add cursor back
+            element.appendChild(cursor);
+            
+            // Move to previous character
+            i--;
+            
+            // Continue erasing
+            setTimeout(eraseCharacter, speed);
+        } else {
+            // Remove cursor when finished if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Set the animation running flag to false when finished
+            if (typeof window.typingAnimationRunning !== 'undefined') {
+                window.typingAnimationRunning = false;
+            }
+        }
+    }
+    
+    // Start erasing
+    eraseCharacter();
+}
+
+// Combined function to erase and then type new text
+function eraseAndType(element, newText, eraseSpeed = 30, typeSpeed = 50) {
+    // Create a cursor element
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.innerHTML = '|';
+    
+    // Add CSS for blinking cursor if not already added
+    if (!document.getElementById('typing-cursor-style')) {
+        const style = document.createElement('style');
+        style.id = 'typing-cursor-style';
+        style.innerHTML = `
+            .typing-cursor {
+                animation: blink 1s infinite;
+                margin-left: 2px;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Get current text (without cursor if it exists)
+    let text = element.innerHTML;
+    if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+        text = text.substring(0, text.length - element.lastChild.outerHTML.length);
+    }
+    let i = text.length;
+    
+    // Function to erase each character
+    function eraseCharacter() {
+        if (i > 0) {
+            // Remove cursor temporarily if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Remove last character
+            text = text.substring(0, text.length - 1);
+            element.innerHTML = text;
+            
+            // Add cursor back
+            element.appendChild(cursor);
+            
+            // Move to previous character
+            i--;
+            
+            // Continue erasing
+            setTimeout(eraseCharacter, eraseSpeed);
+        } else {
+            // Remove cursor when finished erasing if it exists
+            if (element.lastChild && element.lastChild.className === 'typing-cursor') {
+                element.removeChild(element.lastChild);
+            }
+            
+            // Start typing new text
+            typeText(element, newText, typeSpeed);
+        }
+    }
+    
+    // Start erasing
+    eraseCharacter();
+}
 
 // Add scroll event listener to track scroll position
 window.addEventListener('scroll', function() {
@@ -1667,11 +1870,37 @@ window.addEventListener('scroll', function() {
         nameInputElement.style.zIndex = 1;
     }
 
+    // Add flags to track if the animation has been triggered and if an animation is currently running
+    if (typeof window.typingAnimationTriggered === 'undefined') {
+        window.typingAnimationTriggered = false;
+    }
+    
+    if (typeof window.typingAnimationRunning === 'undefined') {
+        window.typingAnimationRunning = false;
+    }
+    
     if (scrollPercentage >= 90){
-        outputtext.innerHTML = `Hello ${userInput.value}!`;
+        // Only trigger the animation if it hasn't been triggered before and no animation is currently running
+        if (!window.typingAnimationTriggered && !window.typingAnimationRunning) {
+            // Set flags to prevent further animations
+            window.typingAnimationTriggered = true;
+            window.typingAnimationRunning = true;
+            
+            // Use the eraseAndType function to create the typing animation with correct speed parameters
+            eraseAndType(outputtext, `Hello ${userInput.value}!`, 30, 50);
+        }
     }
     else{
-        outputtext.innerHTML = "Hello Guest!";
+        // Reset the flag when scrollPercentage is less than 90
+        if (window.typingAnimationTriggered) {
+            // Only trigger the animation if no animation is currently running
+            if (!window.typingAnimationRunning) {
+                window.typingAnimationRunning = true;
+                // Use the eraseAndType function to create the typing animation with correct speed parameters
+                eraseAndType(outputtext, "Hello Guest!", 30, 50);
+            }
+            window.typingAnimationTriggered = false;
+        }
     }
 
     // Animate all elements based on scroll position
