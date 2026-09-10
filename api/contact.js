@@ -9,7 +9,7 @@
  * never in this repo:
  *   RESEND_API_KEY              Resend API key (https://resend.com/api-keys)          [required]
  *   INQUIRY_TO                  Where inquiries land       e.g. contact@afkcube.com   [optional]
- *   INQUIRY_FROM                Verified sender e.g. "AFK3 Website <inbox@afk3.solutions>"
+ *   INQUIRY_FROM                Verified sender e.g. "AFK3 Website <inbox@afkcube.com>"
  *                               (use "onboarding@resend.dev" until a domain is verified) [optional]
  *   AI_GATEWAY_API_KEY          Vercel AI Gateway key — enables the AI triage block   [optional]
  *   AI_MODEL                    Gateway model slug (default "openai/gpt-4o-mini")     [optional]

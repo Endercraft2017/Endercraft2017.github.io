@@ -45,7 +45,7 @@ Set these in **Vercel → your project → Settings → Environment Variables** 
 | Variable | Unlocks | Priority | Where it comes from |
 | --- | --- | --- | --- |
 | `RESEND_API_KEY` | Sending the inquiry email | **Required** — form is inert without it | [resend.com](https://resend.com) → API Keys |
-| `INQUIRY_TO` | Which inbox receives inquiries | Recommended (default `hello@afk3.solutions`) | your address |
+| `INQUIRY_TO` | Which inbox receives inquiries | Recommended (default `contact@afkcube.com`) | your address |
 | `INQUIRY_FROM` | The `From:` line | Recommended | must sit on a domain **verified in Resend**; use `onboarding@resend.dev` to start |
 | `AI_GATEWAY_API_KEY` | AI triage block appended to the email | Optional | Vercel → **AI Gateway → API Keys** |
 | `AI_MODEL` | Which model triages | Optional (default `openai/gpt-4o-mini`) | any slug from the AI Gateway model list |
@@ -63,7 +63,7 @@ After changing env vars, **redeploy** (or `vercel env pull` + restart `vercel de
 ## 2. Email — Resend (required)
 
 1. Create a [Resend](https://resend.com) account.
-2. **Domains** → add `afk3.solutions` and complete the DNS records it gives you. This is what
+2. **Domains** → add `afkcube.com` and complete the DNS records it gives you. This is what
    makes mail actually land in inboxes. (Skip for now by sending from `onboarding@resend.dev`.)
 3. **API Keys** → create one (`re_…`).
 4. Set `RESEND_API_KEY`, `INQUIRY_TO`, `INQUIRY_FROM` (see the table). Redeploy.
@@ -173,10 +173,10 @@ API keys live only in Vercel env vars (or the AI Gateway dashboard). `.env*` fil
 
 ## Before launch — checklist
 
-1. **Domain** — replace every `https://afk3.solutions` URL in the `.html` files (including the `<link rel="canonical">` tags and the `application/ld+json` blocks), `robots.txt` and `sitemap.xml` with the real one.
-2. **Email address** — `hello@afk3.solutions` is used as a placeholder throughout; set your real inbox (and the `INQUIRY_*` env vars).
+1. **Domain** — absolute URLs (canonical, OG, `application/ld+json`, `robots.txt`, `sitemap.xml`) now use `https://afkcube.com`, matching `/CNAME`. If the production domain changes, do a project-wide find/replace of `afkcube.com` and keep `/CNAME` in sync.
+2. **Email address** — `contact@afkcube.com` is used site-wide (footers, `contact.html`, the home-page JSON-LD `contactPoint`, `.env.example`, the function default); confirm that inbox exists and set the `INQUIRY_*` env vars to match.
 3. **Social image** — `assets/og-image.svg` works and is referenced at its real `1200×630` size; export a matching PNG and point `og:image` / `twitter:image` at it for widest crawler support (many platforms don't render SVG previews).
-4. **LinkedIn** — the footer link and the `sameAs` in the home-page JSON-LD both point at `https://www.linkedin.com/`; swap for the company page.
+4. **Social profiles** — once the LinkedIn / X / GitHub company profiles exist, add their URLs as `sameAs` in the home-page JSON-LD `Organization` (and to the footer if social links are added).
 5. **Legal** — `privacy.html` / `terms.html` are generic templates; review against Australian Privacy Principles and applicable US state law.
 6. **Work section** — only "AFK³ Client Work" cards imply commercial delivery. Keep "Founder & Team Experience" clearly labelled; never add fake metrics, logos or testimonials.
 7. **Search consoles** — after launch, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools, and validate a page in the [Rich Results Test](https://search.google.com/test/rich-results).

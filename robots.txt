@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 
 # Update to your real domain before launch:
-Sitemap: https://afk3.solutions/sitemap.xml
+Sitemap: https://afkcube.com/sitemap.xml
