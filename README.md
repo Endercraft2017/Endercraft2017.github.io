@@ -173,12 +173,22 @@ API keys live only in Vercel env vars (or the AI Gateway dashboard). `.env*` fil
 
 ## Before launch — checklist
 
-1. **Domain** — replace every `https://afk3.solutions` URL in the `.html` files, `robots.txt`, `sitemap.xml` with the real one.
+1. **Domain** — replace every `https://afk3.solutions` URL in the `.html` files (including the `<link rel="canonical">` tags and the `application/ld+json` blocks), `robots.txt` and `sitemap.xml` with the real one.
 2. **Email address** — `hello@afk3.solutions` is used as a placeholder throughout; set your real inbox (and the `INQUIRY_*` env vars).
-3. **Social image** — `assets/og-image.svg` works; export a 1200×630 PNG and point `og:image` / `twitter:image` at it for widest crawler support.
-4. **Footer LinkedIn** link points at `https://www.linkedin.com/` — swap for the company page.
+3. **Social image** — `assets/og-image.svg` works and is referenced at its real `1200×630` size; export a matching PNG and point `og:image` / `twitter:image` at it for widest crawler support (many platforms don't render SVG previews).
+4. **LinkedIn** — the footer link and the `sameAs` in the home-page JSON-LD both point at `https://www.linkedin.com/`; swap for the company page.
 5. **Legal** — `privacy.html` / `terms.html` are generic templates; review against Australian Privacy Principles and applicable US state law.
 6. **Work section** — only "AFK³ Client Work" cards imply commercial delivery. Keep "Founder & Team Experience" clearly labelled; never add fake metrics, logos or testimonials.
+7. **Search consoles** — after launch, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools, and validate a page in the [Rich Results Test](https://search.google.com/test/rich-results).
+
+## SEO
+
+Everything is server-render-free static HTML, so it's crawlable as-is.
+
+- **Per page:** a unique `<title>` and `<meta name="description">`, a self-referential `<link rel="canonical">`, and a `robots` directive allowing `max-image-preview:large`. `404.html` is `noindex`.
+- **Social:** Open Graph + Twitter card tags on every content page (`og:locale` `en_AU`, `og:image` 1200×630 with alt text). `assets/og-image.svg` — swap for a PNG before launch (checklist #3).
+- **Structured data** (`application/ld+json`): `Organization` + `WebSite` on the home page, `BreadcrumbList` on every inner page, an `ItemList` of `Service`s on `services.html`, and `AboutPage` / `ContactPage` nodes. Test with Google's [Rich Results Test](https://search.google.com/test/rich-results).
+- **Crawl:** `robots.txt` allows everything except `/api/` and points at `sitemap.xml`; `sitemap.xml` lists all eight public pages with `<lastmod>` — bump those dates when a page's content changes. `.nojekyll` keeps the host from reprocessing the files.
 
 ## Accessibility & motion
 

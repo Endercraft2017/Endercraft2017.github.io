@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#080B12" />
 <!-- Set every https://afk3.solutions URL below to your real deployed domain before launch. -->
 <link rel="canonical" href="https://afk3.solutions/" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <script>document.documentElement.classList.add('js');</script>
 
 <meta property="og:type" content="website" />
@@ -15,11 +16,16 @@
 <meta property="og:title" content="AFK³ Solutions — Helping businesses operate while you're AFK" />
 <meta property="og:description" content="Custom software, automation & AI, and managed operations for businesses that have outgrown manual workflows." />
 <meta property="og:url" content="https://afk3.solutions/" />
+<meta property="og:locale" content="en_AU" />
 <meta property="og:image" content="https://afk3.solutions/assets/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AFK³ Solutions — Helping businesses operate while you're AFK" />
 <meta name="twitter:description" content="Custom software, automation & AI, and managed operations for growing businesses." />
 <meta name="twitter:image" content="https://afk3.solutions/assets/og-image.svg" />
+<meta name="twitter:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="assets/favicon.svg" />
@@ -32,15 +38,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "AFK³ Solutions",
-  "alternateName": "Automated Flow Kinetics",
-  "url": "https://afk3.solutions/",
-  "logo": "https://afk3.solutions/assets/favicon.svg",
-  "slogan": "Helping businesses operate while you're AFK.",
-  "description": "AFK³ Solutions builds custom software, automates workflows, and provides managed operations for growing businesses.",
-  "areaServed": ["AU", "US", "PH"],
-  "knowsAbout": ["Custom Software", "MVP Development", "Workflow Automation", "AI Integration", "System Integration", "Managed Operations"]
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://afk3.solutions/#organization",
+      "name": "AFK³ Solutions",
+      "alternateName": "Automated Flow Kinetics",
+      "url": "https://afk3.solutions/",
+      "logo": "https://afk3.solutions/assets/favicon.svg",
+      "image": "https://afk3.solutions/assets/og-image.svg",
+      "slogan": "Helping businesses operate while you're AFK.",
+      "description": "AFK³ Solutions builds custom software, automates workflows, and provides managed operations for growing businesses.",
+      "areaServed": ["AU", "US", "PH"],
+      "knowsAbout": ["Custom Software", "MVP Development", "Workflow Automation", "AI Integration", "System Integration", "Managed Operations"],
+      "sameAs": ["https://www.linkedin.com/"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "hello@afk3.solutions",
+        "url": "https://afk3.solutions/contact.html",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://afk3.solutions/#website",
+      "url": "https://afk3.solutions/",
+      "name": "AFK³ Solutions",
+      "description": "Custom software, automation & AI, and managed operations for growing businesses.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://afk3.solutions/#organization" }
+    }
+  ]
 }
 </script>
 </head>
