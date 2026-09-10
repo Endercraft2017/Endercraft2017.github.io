@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discuss a Project — AFK³ Solutions</title>
+<meta name="description" content="Tell AFK³ Solutions how your process works today. We'll help determine what should happen next — software, automation, people, or a mix." />
+<meta name="theme-color" content="#080B12" />
+<link rel="canonical" href="https://afk3.solutions/contact.html" />
+<script>document.documentElement.classList.add('js');</script>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AFK³ Solutions" />
+<meta property="og:title" content="Discuss a Project — AFK³ Solutions" />
+<meta property="og:description" content="What is slowing your business down?" />
+<meta property="og:url" content="https://afk3.solutions/contact.html" />
+<meta property="og:image" content="https://afk3.solutions/assets/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Discuss a Project — AFK³ Solutions" />
+<meta name="twitter:description" content="What is slowing your business down?" />
+<meta name="twitter:image" content="https://afk3.solutions/assets/og-image.svg" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader" data-nav>
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="AFK³ Solutions — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__word">AFK<sup class="brand__cube" tabindex="0" role="img" aria-label="cubed">3
+        <span class="brand__nodes" aria-hidden="true"><i></i><i></i><i></i></span>
+      </sup></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav__cta-item"><a class="btn btn--primary btn--sm" href="contact.html" aria-current="page">Discuss a Project <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container contact">
+      <div class="contact__intro reveal">
+        <p class="eyebrow">Project inquiry</p>
+        <h1 class="section__title" id="contact-title">What is slowing your business down?</h1>
+        <p class="section__lead">Tell us how the process works today. We'll help determine what should happen next.</p>
+        <div class="contact__aside">
+          <span class="status-dot"></span>
+          <p>Typical first reply within one business day. Nothing you send here is shared outside AFK³.</p>
+        </div>
+      </div>
+
+      <!-- Posts to the Vercel function at /api/contact, which emails via Resend.
+           Without JS it still submits and the function redirects back to ?sent=1. -->
+      <form class="form reveal" id="inquiryForm" action="/api/contact" method="POST" novalidate>
+        <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
+        <input type="text" name="company_url" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form__row">
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+            <p class="field__error" data-error-for="f-name"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Business email <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required />
+            <p class="field__error" data-error-for="f-email"></p>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="f-company">Company <span class="req">*</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" required />
+            <p class="field__error" data-error-for="f-company"></p>
+          </div>
+          <div class="field">
+            <label for="f-website">Company website</label>
+            <input id="f-website" name="website" type="url" autocomplete="url" placeholder="https://" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-country">Country</label>
+          <select id="f-country" name="country">
+            <option value="">Select…</option>
+            <option>Australia</option>
+            <option>United States</option>
+            <option>Philippines</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <fieldset class="field">
+          <legend>What do you need?</legend>
+          <div class="pills">
+            <label class="pill"><input type="checkbox" name="need" value="Custom Software" /><span>Custom Software</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="MVP Development" /><span>MVP Development</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="Automation / AI" /><span>Automation / AI</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="System Integration" /><span>System Integration</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="Web Application" /><span>Web Application</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="Managed Operations" /><span>Managed Operations</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="Remote Talent" /><span>Remote Talent</span></label>
+            <label class="pill"><input type="checkbox" name="need" value="Not Sure Yet" /><span>Not Sure Yet</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="f-problem">Tell us about the problem <span class="req">*</span></label>
+          <textarea id="f-problem" name="problem" rows="4" required></textarea>
+          <p class="field__error" data-error-for="f-problem"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-today">How do you handle it today?</label>
+          <textarea id="f-today" name="today" rows="3"></textarea>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="f-timeline">Target timeline</label>
+            <select id="f-timeline" name="timeline">
+              <option value="">Select…</option>
+              <option>ASAP</option>
+              <option>1–2 months</option>
+              <option>3–6 months</option>
+              <option>Exploring</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-budget">Approximate budget</label>
+            <select id="f-budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option>Under $2,500</option>
+              <option>$2,500–$5,000</option>
+              <option>$5,000–$12,000</option>
+              <option>$12,000–$25,000</option>
+              <option>$25,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full">Submit Project Inquiry <span class="btn__arrow" aria-hidden="true">→</span></button>
+        <p class="form__note">By submitting you agree we can contact you about your inquiry.</p>
+        <p class="form__message" id="formMessage" role="alert" hidden></p>
+        <p class="form__alt">Prefer email? <a href="mailto:contact@afkcube.com">contact@afkcube.com</a> &nbsp;·&nbsp; <a href="tel:+639913257591">+(63) 9913 257 591</a></p>
+
+        <div class="form__success" id="formSuccess" role="status" aria-live="polite" tabindex="-1" hidden>
+          <svg class="flow-mascot" viewBox="0 0 120 60" aria-hidden="true">
+            <line x1="8" y1="30" x2="112" y2="30" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+            <line class="flow-mascot__fill" x1="8" y1="30" x2="112" y2="30" stroke="#63E6BE" stroke-width="2"/>
+            <circle cx="8" cy="30" r="4" fill="#36D7FF"/>
+            <circle cx="60" cy="30" r="4" fill="#36D7FF"/>
+            <circle cx="112" cy="30" r="4" fill="#63E6BE"/>
+            <g class="flow-mascot__bot">
+              <rect x="50" y="14" width="20" height="20" rx="6" fill="#151E2C" stroke="#36D7FF" stroke-width="1.5"/>
+              <circle cx="56" cy="24" r="2" fill="#36D7FF"/><circle cx="64" cy="24" r="2" fill="#36D7FF"/>
+            </g>
+          </svg>
+          <p><strong>Received.</strong> We'll review the problem and determine the right next step.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="brand" href="index.html" aria-label="AFK³ Solutions — home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__word">AFK<sup class="brand__cube">3</sup></span>
+      </a>
+      <p class="footer__legal">AFK³ Solutions — Automated Flow Kinetics</p>
+      <p class="footer__tag">Helping businesses operate while you're AFK.</p>
+      <svg class="footer__line" viewBox="0 0 220 12" aria-hidden="true">
+        <line x1="6" y1="6" x2="214" y2="6" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+        <line class="footer__trace" x1="6" y1="6" x2="214" y2="6"/>
+        <circle cx="6" cy="6" r="4" fill="#36D7FF"/><circle cx="110" cy="6" r="4" fill="#36D7FF"/><circle cx="214" cy="6" r="4" fill="#36D7FF"/>
+        <circle class="footer__pulse" cx="6" cy="6" r="4" fill="#63E6BE"/>
+      </svg>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html#solutions">Solutions</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <nav class="footer__nav" aria-label="Legal &amp; contact">
+      <h2>More</h2>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="mailto:contact@afkcube.com">contact@afkcube.com</a></li>
+        <li><a href="tel:+639913257591">+(63) 9913 257 591</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year">2026</span> AFK³ Solutions. All rights reserved.</p>
+    <button type="button" class="afk-toggle" id="afkToggle">Go AFK</button>
+  </div>
+</footer>
+
+<div class="afk-toast" id="afkToast" role="status" aria-live="polite" hidden>Still moving.</div>
+<script src="script.js" defer></script>
+</body>
+</html>

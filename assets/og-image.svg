@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="'Manrope','Segoe UI',sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="72%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#153244"/>
+      <stop offset="100%" stop-color="#080B12"/>
+    </radialGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F5F7FA"/>
+      <stop offset="100%" stop-color="#36D7FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <path d="M0 158H1200M0 315H1200M0 472H1200M200 0V630M400 0V630M600 0V630M800 0V630M1000 0V630"/>
+  </g>
+  <g transform="translate(90,250)">
+    <text font-size="30" letter-spacing="6" fill="#36D7FF" font-weight="700">SOFTWARE &#160;&#8226;&#160; AUTOMATION &#160;&#8226;&#160; OPERATIONS</text>
+    <text y="90" font-size="76" font-weight="800" fill="url(#ink)">Helping businesses operate</text>
+    <text y="176" font-size="76" font-weight="800" fill="url(#ink)">while you&#8217;re AFK.</text>
+    <text y="250" font-size="28" fill="#AAB5C4">AFK&#179; Solutions &#8212; custom software, automation &amp; managed operations.</text>
+  </g>
+  <g transform="translate(880,300)" fill="none" stroke="#36D7FF" stroke-width="4" stroke-linecap="round">
+    <path d="M0 90h70l50-120 50 190 50-140h70" opacity="0.9"/>
+    <circle cx="0" cy="90" r="9" fill="#36D7FF" stroke="none"/>
+    <circle cx="290" cy="20" r="9" fill="#8B6CFF" stroke="none"/>
+    <circle cx="150" cy="14" r="14" fill="#63E6BE" stroke="none"/>
+  </g>
+</svg>

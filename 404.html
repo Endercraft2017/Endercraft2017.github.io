@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Off-path — AFK³ Solutions</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#080B12" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="AFK³ Solutions — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__word">AFK<sup class="brand__cube">3</sup></span>
+    </a>
+  </div>
+</header>
+
+<main id="main" class="container">
+  <div class="notfound">
+    <svg viewBox="0 0 260 90" role="img" aria-label="A broken workflow line being reconnected">
+      <line class="nf-line" x1="10" y1="45" x2="110" y2="45" stroke="#36D7FF" stroke-width="3" stroke-linecap="round"/>
+      <line class="nf-gap" x1="110" y1="45" x2="150" y2="45" stroke="#8B6CFF" stroke-width="3" stroke-linecap="round"/>
+      <line class="nf-line" x1="150" y1="45" x2="250" y2="45" stroke="#36D7FF" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="10" cy="45" r="6" fill="#36D7FF"/>
+      <circle cx="250" cy="45" r="6" fill="#63E6BE"/>
+      <g>
+        <rect x="118" y="30" width="24" height="24" rx="7" fill="#151E2C" stroke="#36D7FF" stroke-width="1.5"/>
+        <circle cx="126" cy="42" r="2.4" fill="#36D7FF"/><circle cx="134" cy="42" r="2.4" fill="#36D7FF"/>
+      </g>
+    </svg>
+    <h1>Looks like this workflow went off-path.</h1>
+    <p>The page you're after isn't here. Flow is reconnecting the line.</p>
+    <a class="btn btn--primary" href="index.html">Return to Home <span class="btn__arrow" aria-hidden="true">→</span></a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__bottom">
+    <p>© <span id="year">2026</span> AFK³ Solutions. Automated Flow Kinetics.</p>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
