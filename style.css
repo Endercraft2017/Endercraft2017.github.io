@@ -1263,6 +1263,23 @@ a.scard:focus-visible { outline: 2px solid var(--accent-primary); outline-offset
 @keyframes nfReconnect { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
 
 /* =====================================================================
+   16 LANDING PAGES (small-business.html / students.html)
+   No new visual language — these reuse .why__item, .scard__list, .mvp__points,
+   .chips, .ba, .steps, .strip and .contact/.form wholesale. Only the grid
+   container for 6-item card sections and the 4-step journey layout are new.
+   ===================================================================== */
+.cardgrid { display: grid; gap: 1rem; }
+@media (min-width: 680px) { .cardgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .cardgrid--3 { grid-template-columns: repeat(3, 1fr); } }
+
+/* Student "Project Journey" has 4 steps, not the 6 .steps is tuned for — a
+   2x2 grid reads better at desktop than a 3-up row with one orphan. */
+@media (min-width: 900px) { .steps--journey { grid-template-columns: repeat(2, 1fr); } }
+
+/* Small caption under a hero visual (e.g. the students.html workspace graphic). */
+.hero__visual-note { margin-top: 1rem; text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+
+/* =====================================================================
    REDUCED MOTION
    ===================================================================== */
 @media (prefers-reduced-motion: reduce) {

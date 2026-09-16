@@ -1,9 +1,18 @@
 /**
- * POST /api/contact  — AFK³ Solutions project-inquiry handler (Vercel Serverless Function).
+ * POST /api/contact  — AFK³ Solutions inquiry handler (Vercel Serverless Function).
+ *
+ * Handles two inquiry shapes, selected by a `lead_type` field the form sends
+ * ("business" — the default, used by contact.html and small-business.html —
+ * or "student", used by students.html). Both branches share the same
+ * honeypot, rate limit and Resend send step; they differ in which fields are
+ * required and how the email is written up. `lead_source` (e.g.
+ * "small_business_landing_page", "student_landing_page") is included in the
+ * email when present, for filtering by origin page.
  *
  * Emails the submission via Resend. Optionally adds an AI triage block via the
- * Vercel AI Gateway when configured. Fails open: if AI is unavailable the email
- * still sends; if email isn't configured it returns a clear error.
+ * Vercel AI Gateway when configured (business inquiries only). Fails open: if
+ * AI is unavailable the email still sends; if email isn't configured it
+ * returns a clear error.
  *
  * Environment variables — set in Vercel → Settings → Environment Variables,
  * never in this repo:
@@ -40,6 +49,28 @@ function readBody(req) {
     try { body = JSON.parse(body); } catch (e) { body = {}; }
   }
   return body && typeof body === "object" ? body : {};
+}
+
+/** Sends one inquiry email via the Resend REST API. Returns { ok }. */
+async function sendInquiryEmail(apiKey, { to, from, subject, text, html, replyTo }) {
+  const payload = { from: from, to: [to], subject: subject, text: text, html: html };
+  if (replyTo) payload.reply_to = replyTo;
+  try {
+    const resp = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!resp.ok) {
+      const detail = await resp.text();
+      console.error("Resend error", resp.status, detail);
+      return { ok: false };
+    }
+    return { ok: true };
+  } catch (err) {
+    console.error("contact handler error", err);
+    return { ok: false };
+  }
 }
 
 /**
@@ -113,8 +144,80 @@ export default async function handler(req, res) {
     });
   }
 
+  // lead_type selects the inquiry shape. Defaults to "business" so the
+  // original contact.html — which never sends this field — is unaffected.
+  const leadType = clip(body.lead_type, MAX_SHORT) === "student" ? "student" : "business";
+  const leadSource = clip(body.lead_source, MAX_SHORT);
+
   const name = clip(body.name, MAX_SHORT);
   const email = clip(body.email, MAX_SHORT);
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.INQUIRY_TO || "contact@afkcube.com";
+  const from = process.env.INQUIRY_FROM || "AFK3 Website <onboarding@resend.dev>";
+
+  if (leadType === "student") {
+    const school = clip(body.school, MAX_SHORT);
+    const course = clip(body.course, MAX_SHORT);
+    const projectType = clip(body.project_type, MAX_SHORT);
+    const projectTitle = clip(body.project_title, MAX_SHORT);
+    const projectStage = clip(body.project_stage, MAX_SHORT);
+    const help = clip(body.help, MAX_LONG);
+    const deadline = clip(body.deadline, MAX_SHORT);
+    const description = clip(body.description, MAX_LONG);
+
+    const missing = [];
+    if (!name) missing.push("name");
+    if (!email) missing.push("email");
+    if (!projectType) missing.push("project_type");
+    if (!help) missing.push("help");
+    if (!description) missing.push("description");
+    if (missing.length) {
+      return done(422, { error: "Some required fields are missing.", fields: missing });
+    }
+    if (!apiKey) {
+      return done(500, { error: "Email isn't configured on the server yet." });
+    }
+
+    const rows = [
+      ["Name", name],
+      ["Email / contact", email],
+      ["School / university", school],
+      ["Course / program", course],
+      ["Project type", projectType],
+      ["Project title / idea", projectTitle],
+      ["Current stage", projectStage],
+      ["What help is needed", help],
+      ["Target deadline", deadline],
+      ["Project description", description],
+      ["Lead source", leadSource]
+    ].filter(function (r) { return r[1] && String(r[1]).trim(); });
+
+    const text = rows.map(function (r) { return r[0] + ": " + r[1]; }).join("\n");
+    const html =
+      '<h2 style="font-family:system-ui,sans-serif">New student project inquiry</h2>' +
+      '<table style="font-family:system-ui,sans-serif;font-size:14px;border-collapse:collapse">' +
+      rows.map(function (r) {
+        return '<tr>' +
+          '<td style="padding:4px 14px 4px 0;color:#666;vertical-align:top"><strong>' + escapeHtml(r[0]) + '</strong></td>' +
+          '<td style="padding:4px 0;white-space:pre-wrap">' + escapeHtml(r[1]) + '</td></tr>';
+      }).join("") +
+      '</table>';
+
+    // The "Email / Contact" field may hold a phone number, not an address —
+    // only offer it as a reply-to header when it actually looks like an email.
+    const replyTo = EMAIL_RE.test(email) ? email : undefined;
+
+    const sent = await sendInquiryEmail(apiKey, {
+      to: to, from: from, subject: "Student project inquiry — " + name, text: text, html: html, replyTo: replyTo
+    });
+    if (!sent.ok) {
+      return done(502, { error: "Couldn't send the email right now. Please try again later." });
+    }
+    return done(200, { ok: true });
+  }
+
+  // ---- business inquiry (contact.html, small-business.html) ----
   const company = clip(body.company, MAX_SHORT);
   const problem = clip(body.problem, MAX_LONG);
   const website = clip(body.website, MAX_SHORT);
@@ -133,10 +236,6 @@ export default async function handler(req, res) {
   if (missing.length) {
     return done(422, { error: "Some required fields are missing or invalid.", fields: missing });
   }
-
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.INQUIRY_TO || "contact@afkcube.com";
-  const from = process.env.INQUIRY_FROM || "AFK3 Website <onboarding@resend.dev>";
   if (!apiKey) {
     return done(500, { error: "Email isn't configured on the server yet." });
   }
@@ -157,7 +256,8 @@ export default async function handler(req, res) {
     ["Problem", problem],
     ["How they handle it today", today],
     ["Target timeline", timeline],
-    ["Approximate budget", budget]
+    ["Approximate budget", budget],
+    ["Lead source", leadSource]
   ].filter(function (r) { return r[1] && String(r[1]).trim(); });
 
   let text = rows.map(function (r) { return r[0] + ": " + r[1]; }).join("\n");
@@ -178,31 +278,11 @@ export default async function handler(req, res) {
       escapeHtml(triage) + '</pre>';
   }
 
-  try {
-    const resp = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + apiKey,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        from: from,
-        to: [to],
-        reply_to: email,
-        subject: "Project inquiry — " + company,
-        text: text,
-        html: html
-      })
-    });
-
-    if (!resp.ok) {
-      const detail = await resp.text();
-      console.error("Resend error", resp.status, detail);
-      return done(502, { error: "Couldn't send the email right now. Please try again later." });
-    }
-    return done(200, { ok: true });
-  } catch (err) {
-    console.error("contact handler error", err);
+  const sent = await sendInquiryEmail(apiKey, {
+    to: to, from: from, subject: "Project inquiry — " + company, text: text, html: html, replyTo: email
+  });
+  if (!sent.ok) {
     return done(502, { error: "Couldn't send the email right now. Please try again later." });
   }
+  return done(200, { ok: true });
 }

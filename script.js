@@ -372,7 +372,10 @@
       return true;
     };
 
-    var fields = $$("#f-name, #f-email, #f-company, #f-website, #f-problem", form);
+    /* Any required field, plus email/url fields for format checks — generic so
+       this wires up the business form (contact.html, small-business.html) and
+       the lighter-weight student form (students.html) without per-field IDs. */
+    var fields = $$('input[required], select[required], textarea[required], input[type="email"], input[type="url"]', form);
     fields.forEach(function (f) {
       f.addEventListener("blur", function () { validateField(f); });
       f.addEventListener("input", function () {

@@ -18,9 +18,11 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | `work.html` | Selected work — client work vs. founder/team experience |
 | `about.html` | The people behind the systems, how we operate, technology |
 | `contact.html` | Project inquiry form (posts to `/api/contact`) |
+| `small-business.html` | Landing page for SME traffic (ads, social, outreach) — same inquiry form, tagged `lead_type=business` / `lead_source=small_business_landing_page` |
+| `students.html` | Landing page for student traffic — lightweight inquiry form (no company field), tagged `lead_type=student` / `lead_source=student_landing_page` |
 | `privacy.html` / `terms.html` | Legal starter templates — have these reviewed |
 | `404.html` | "This workflow went off-path" page (Vercel serves it automatically) |
-| `api/contact.js` | Serverless function: rate-limit → validate → AI triage → email via Resend |
+| `api/contact.js` | Serverless function: rate-limit → validate → AI triage → email via Resend. Branches on `lead_type` (`business` default, or `student`) so one function backs all three inquiry forms |
 | `lib/ratelimit.js` | Per-IP rate limiter (Upstash Redis, fail-open) |
 | `scripts/ai-demo.mjs` | `npm run ai:demo` — checks the AI Gateway works |
 | `style.css` / `script.js` | Shared across every page |
