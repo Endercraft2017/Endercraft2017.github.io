@@ -1279,6 +1279,28 @@ a.scard:focus-visible { outline: 2px solid var(--accent-primary); outline-offset
 /* Small caption under a hero visual (e.g. the students.html workspace graphic). */
 .hero__visual-note { margin-top: 1rem; text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
 
+/* Students.html hero visual ("devscene"): the workspace SVG borrowed from
+   about.html's .founder__viz, brought to life on load the same way the
+   homepage flowcard is — driven by .hero.is-ready, so it needs no new JS. */
+.js .devscene__line { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.hero.is-ready .devscene__line { animation: devDraw 900ms var(--ease) 500ms forwards; }
+@keyframes devDraw { to { stroke-dashoffset: 0; } }
+
+.js .devscene__bar { opacity: 0; transform: scaleX(0); transform-box: fill-box; transform-origin: 0% 50%; }
+.hero.is-ready .devscene__bar { animation: devBar 500ms var(--ease) both; animation-delay: calc(700ms + var(--i, 0) * 110ms); }
+@keyframes devBar { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+
+.js .devscene__fill { transform: scaleX(0); transform-box: fill-box; transform-origin: 0% 50%; }
+.hero.is-ready .devscene__fill { animation: devFill 1.1s var(--ease) 1.3s forwards; }
+@keyframes devFill { to { transform: scaleX(0.62); } }
+
+.devscene__dot { transform-box: fill-box; transform-origin: center; }
+.hero.is-ready .devscene__dot { animation: devDot 2.6s var(--ease) 1.8s infinite; }
+@keyframes devDot {
+  0%, 100% { opacity: 1; filter: none; }
+  50% { opacity: 0.55; filter: drop-shadow(0 0 6px rgba(54, 215, 255, 0.8)); }
+}
+
 /* =====================================================================
    REDUCED MOTION
    ===================================================================== */
@@ -1293,6 +1315,9 @@ a.scard:focus-visible { outline: 2px solid var(--accent-primary); outline-offset
   .hero__grid { opacity: 1 !important; }
   .fnode { opacity: 1 !important; transform: none !important; }
   .hero__operator { opacity: 1 !important; }
+  .devscene__line { stroke-dashoffset: 0 !important; }
+  .devscene__bar { opacity: 1 !important; transform: none !important; }
+  .devscene__fill { transform: scaleX(0.62) !important; }
   .rail__track { animation: none !important; }
   .flowcard__packet, .footer__pulse, .footer__trace, .hero__cursor-glow { display: none !important; }
   .probgrid__item { transform: none !important; }

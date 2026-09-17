@@ -29,7 +29,7 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | `assets/` | `afk-mark.svg`, `favicon.svg`, `og-image.svg` |
 | `.env.example` | Shape of every env var, with blank values (safe to commit) |
 
-Nav: **Services · How We Work · Work · About** + a **Discuss a Project** button (→ `contact.html`).
+Nav: **Services · How We Work · Work · About** + a **Discuss a Project** button (→ `/contact`).
 
 ---
 
@@ -73,7 +73,7 @@ After changing env vars, **redeploy** (or `vercel env pull` + restart `vercel de
    `Reply-To`.
 
 The form degrades without JavaScript (plain POST → the function 303-redirects to
-`/contact.html?sent=1`). A hidden honeypot field (`company_url`) silently drops bots.
+`/contact?sent=1`). A hidden honeypot field (`company_url`) silently drops bots.
 
 ## 3. AI triage (optional)
 
@@ -198,6 +198,6 @@ Everything is server-render-free static HTML, so it's crawlable as-is.
 - Everything respects `prefers-reduced-motion: reduce`.
 - Entrance animations are gated behind a `.js` class, so all content stays visible if the script fails to load.
 
-## Optional: prettier URLs
+## Prettier URLs
 
-Add `"cleanUrls": true` to `vercel.json` to serve `/services` instead of `/services.html` (Vercel redirects the `.html` form). If you do, update the internal links to drop `.html`; note that local `python -m http.server` won't resolve extensionless paths.
+`vercel.json` sets `"cleanUrls": true`, so pages serve at `/services` instead of `/services.html` (Vercel 308-redirects any `.html` request to the clean form). Internal links, canonical/og:url tags, structured data, and `sitemap.xml` all use the extensionless paths. Note: local `python -m http.server` won't resolve extensionless paths — use `vercel dev` to preview clean URLs locally.

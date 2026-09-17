@@ -124,7 +124,7 @@ export default async function handler(req, res) {
   const done = (status, payload) => {
     if (wantsJson) return res.status(status).json(payload);
     const ok = status >= 200 && status < 300;
-    res.setHeader("Location", ok ? "/contact.html?sent=1" : "/contact.html?error=1");
+    res.setHeader("Location", ok ? "/contact?sent=1" : "/contact?error=1");
     return res.status(303).end();
   };
 
