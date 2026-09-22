@@ -13,7 +13,10 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | File | Purpose |
 | --- | --- |
 | `index.html` | Home — hero, positioning strip, service overview, why AFK³, CTA |
-| `services.html` | Three service worlds, software/solutions bento, MVP, before/after |
+| `services.html` | Services hub — three service-world cards linking out, FAQ |
+| `custom-software.html` | Custom software service page — capabilities, solutions bento, MVP |
+| `automation-ai.html` | Automation & AI service page — capabilities, before/after, why-automate |
+| `managed-operations.html` | Managed operations service page — capabilities, engagement-model steps |
 | `how-we-work.html` | The growth problem, the AFK³ model, the six-step delivery process |
 | `work.html` | Selected work — client work vs. founder/team experience |
 | `about.html` | The people behind the systems, how we operate, technology |
@@ -26,7 +29,7 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | `lib/ratelimit.js` | Per-IP rate limiter (Upstash Redis, fail-open) |
 | `scripts/ai-demo.mjs` | `npm run ai:demo` — checks the AI Gateway works |
 | `style.css` / `script.js` | Shared across every page |
-| `assets/` | `afk-mark.svg`, `favicon.svg`, `og-image.svg` |
+| `assets/` | `afk-mark.svg`, `favicon.svg`, `og-image.svg` (source), `og-image.png` (rendered, used by `og:image`) |
 | `.env.example` | Shape of every env var, with blank values (safe to commit) |
 
 Nav: **Services · How We Work · Work · About** + a **Discuss a Project** button (→ `/contact`).
@@ -177,20 +180,22 @@ API keys live only in Vercel env vars (or the AI Gateway dashboard). `.env*` fil
 
 1. **Domain** — absolute URLs (canonical, OG, `application/ld+json`, `robots.txt`, `sitemap.xml`) now use `https://afkcube.com`, matching `/CNAME`. If the production domain changes, do a project-wide find/replace of `afkcube.com` and keep `/CNAME` in sync.
 2. **Email address** — `contact@afkcube.com` is used site-wide (footers, `contact.html`, the home-page JSON-LD `contactPoint`, `.env.example`, the function default); confirm that inbox exists and set the `INQUIRY_*` env vars to match.
-3. **Social image** — `assets/og-image.svg` works and is referenced at its real `1200×630` size; export a matching PNG and point `og:image` / `twitter:image` at it for widest crawler support (many platforms don't render SVG previews).
+3. ~~**Social image**~~ — done: `assets/og-image.png` (rendered from `og-image.svg` at its real `1200×630` size) is now what `og:image` / `twitter:image` point at on every page.
 4. **Social profiles** — once the LinkedIn / X / GitHub company profiles exist, add their URLs as `sameAs` in the home-page JSON-LD `Organization` (and to the footer if social links are added).
 5. **Legal** — `privacy.html` / `terms.html` are generic templates; review against Australian Privacy Principles and applicable US state law.
 6. **Work section** — only "AFK³ Client Work" cards imply commercial delivery. Keep "Founder & Team Experience" clearly labelled; never add fake metrics, logos or testimonials.
-7. **Search consoles** — after launch, submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools, and validate a page in the [Rich Results Test](https://search.google.com/test/rich-results).
+7. **Search consoles** — `sitemap.xml` is submitted in Google Search Console (done 2026-09-22). Still to do: submit to Bing Webmaster Tools, and validate a page in the [Rich Results Test](https://search.google.com/test/rich-results).
+8. ~~**Analytics**~~ — done: GA4 `gtag.js` (Measurement ID `G-X6NMH9PFJN`) is wired into every page's `<head>`.
 
 ## SEO
 
 Everything is server-render-free static HTML, so it's crawlable as-is.
 
 - **Per page:** a unique `<title>` and `<meta name="description">`, a self-referential `<link rel="canonical">`, and a `robots` directive allowing `max-image-preview:large`. `404.html` is `noindex`.
-- **Social:** Open Graph + Twitter card tags on every content page (`og:locale` `en_AU`, `og:image` 1200×630 with alt text). `assets/og-image.svg` — swap for a PNG before launch (checklist #3).
-- **Structured data** (`application/ld+json`): `Organization` + `WebSite` on the home page, `BreadcrumbList` on every inner page, an `ItemList` of `Service`s on `services.html`, and `AboutPage` / `ContactPage` nodes. Test with Google's [Rich Results Test](https://search.google.com/test/rich-results).
-- **Crawl:** `robots.txt` allows everything except `/api/` and points at `sitemap.xml`; `sitemap.xml` lists all eight public pages with `<lastmod>` — bump those dates when a page's content changes. `.nojekyll` keeps the host from reprocessing the files.
+- **Social:** Open Graph + Twitter card tags on every content page (`og:locale` `en_AU`, `og:image` 1200×630 with alt text), pointing at the rendered `assets/og-image.png`.
+- **Structured data** (`application/ld+json`): `Organization` + `WebSite` on the home page, `BreadcrumbList` on every inner page, an `ItemList` of `Service`s plus a `FAQPage` on `services.html`, a standalone `Service` node on each of `custom-software.html` / `automation-ai.html` / `managed-operations.html`, and `AboutPage` / `ContactPage` nodes. Test with Google's [Rich Results Test](https://search.google.com/test/rich-results).
+- **Crawl:** `robots.txt` allows everything except `/api/` and points at `sitemap.xml`; `sitemap.xml` lists all public pages with `<lastmod>` — bump those dates when a page's content changes. `.nojekyll` keeps the host from reprocessing the files.
+- **Analytics:** GA4 `gtag.js` snippet on every page, Measurement ID `G-X6NMH9PFJN`.
 
 ## Accessibility & motion
 
