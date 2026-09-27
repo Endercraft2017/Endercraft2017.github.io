@@ -2,11 +2,11 @@
   "name": "afk3-solutions-site",
   "version": "1.0.0",
   "private": true,
-  "description": "AFK³ Solutions marketing site — static HTML/CSS/JS with a Vercel serverless contact endpoint.",
+  "description": "AFK³ Solutions marketing site — static HTML/CSS/JS with a contact endpoint (Vercel function, or server.js on Railway/other Node hosts).",
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "start": "vercel dev",
+    "start": "node server.js",
     "ai:demo": "node --env-file=.env.local scripts/ai-demo.mjs"
   },
   "dependencies": {

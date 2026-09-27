@@ -1,8 +1,8 @@
 # AFK³ Solutions — Website
 
 Marketing site for **AFK³ Solutions — Automated Flow Kinetics**.
-Plain HTML / CSS / JS, plus one Vercel serverless function for the contact form.
-No build step.
+Plain HTML / CSS / JS, plus one serverless-style contact endpoint (`api/contact.js`).
+No build step. Runs on **Vercel** (`vercel.json`) or any Node host such as **Railway** (`server.js`, via `npm start`).
 
 > Helping businesses operate while you're AFK.
 
@@ -13,7 +13,8 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | File | Purpose |
 | --- | --- |
 | `index.html` | Home — hero, positioning strip, service overview, why AFK³, CTA |
-| `services.html` | Services hub — three service-world cards linking out, FAQ |
+| `services.html` | Services hub — three service-world cards linking out, E-Z product promo, FAQ |
+| `products.html` | Products — **E-Z**, AFK³'s project-management SaaS (tasks, manager analytics, internal chat, AI). Tagline "Skip the basic choices." Status: in development; CTAs go to `/contact` for early access |
 | `custom-software.html` | Custom software service page — capabilities, solutions bento, MVP |
 | `automation-ai.html` | Automation & AI service page — capabilities, before/after, why-automate |
 | `managed-operations.html` | Managed operations service page — capabilities, engagement-model steps |
@@ -24,15 +25,16 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | `small-business.html` | Landing page for SME traffic (ads, social, outreach) — same inquiry form, tagged `lead_type=business` / `lead_source=small_business_landing_page` |
 | `students.html` | Landing page for student traffic — lightweight inquiry form (no company field), tagged `lead_type=student` / `lead_source=student_landing_page` |
 | `privacy.html` / `terms.html` | Legal starter templates — have these reviewed |
-| `404.html` | "This workflow went off-path" page (Vercel serves it automatically) |
+| `404.html` | "This workflow went off-path" page (served automatically by Vercel and by `server.js`) |
+| `server.js` | Zero-dependency Node server for non-Vercel hosts (Railway): static files with clean URLs, the `vercel.json` security headers, `/api/contact`, 404 page. Never serves dotfiles, `api/`, `lib/`, `scripts/`, `node_modules/`, `*.md` or package files |
 | `api/contact.js` | Serverless function: rate-limit → validate → AI triage → email via Resend. Branches on `lead_type` (`business` default, or `student`) so one function backs all three inquiry forms |
 | `lib/ratelimit.js` | Per-IP rate limiter (Upstash Redis, fail-open) |
 | `scripts/ai-demo.mjs` | `npm run ai:demo` — checks the AI Gateway works |
 | `style.css` / `script.js` | Shared across every page |
-| `assets/` | `afk-mark.svg`, `favicon.svg`, `og-image.svg` (source), `og-image.png` (rendered, used by `og:image`) |
+| `assets/` | `afk-mark.svg`, `favicon.svg`, `og-image.svg` (source), `og-image.png` (rendered, used by `og:image`), `ez-logo.webp`/`.png` (E-Z logo, cropped + resized from the source PNG) |
 | `.env.example` | Shape of every env var, with blank values (safe to commit) |
 
-Nav: **Services · How We Work · Work · About** + a **Discuss a Project** button (→ `/contact`).
+Nav: **Services · Products · How We Work · Work · About** + a **Discuss a Project** button (→ `/contact`).
 
 ---
 
@@ -58,7 +60,16 @@ Set these in **Vercel → your project → Settings → Environment Variables** 
 
 After changing env vars, **redeploy** (or `vercel env pull` + restart `vercel dev`).
 
-## 1. Deploy to Vercel
+## 1a. Deploy to Railway
+
+`npm start` runs `node server.js`, which listens on Railway's `$PORT`. No build command is
+needed; Railway installs dependencies from `package-lock.json` and runs `npm start`.
+
+1. Railway → **New Project → Deploy from GitHub repo** → pick this repo.
+2. **Variables**: add the same env vars as in the table above (`RESEND_API_KEY`, etc.).
+3. **Settings → Networking → Generate Domain** (or add `afkcube.com` as a custom domain).
+
+## 1b. Deploy to Vercel
 
 1. The repo is already on GitHub.
 2. Vercel → **Add New… → Project → Import** this repo. Framework preset **Other**, no build
@@ -131,7 +142,8 @@ Full site incl. `/api/contact`:
 ```bash
 npm install                         # installs ai + @upstash/* used by the function
 cp .env.example .env.local          # fill in real values (gitignored)
-npm i -g vercel && vercel dev       # http://localhost:3000
+npm start                           # http://localhost:3000 (same server Railway runs)
+# or: npm i -g vercel && vercel dev
 ```
 
 ## 6. Verify
