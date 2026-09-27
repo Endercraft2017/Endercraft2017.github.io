@@ -3,7 +3,7 @@
 ## Inquiry (lead capture)
 
 - **Trigger**: visitor submits a form on `/contact`, `/small-business` or `/students`
-  (E-Z "early access" CTAs on `/products` lead to `/contact`).
+  (E-Z "early access" CTAs on `/products/e-z` lead to `/contact`).
 - **Stages**
   1. Page form (browser): client-side required-field check (`script.js`).
   2. Inquiry intake (`api/contact.js`): method guard → honeypot → rate limit

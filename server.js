@@ -179,6 +179,10 @@ const server = http.createServer(async (req, res) => {
   }
 
   try {
+    // Linux hosts are case-sensitive: send /products/E-Z to /products/e-z.
+    if (pathname !== pathname.toLowerCase() && (await resolveStatic(path.posix.normalize(pathname.toLowerCase())))) {
+      return redirect(res, pathname.toLowerCase() + search);
+    }
     const file = await resolveStatic(path.posix.normalize(pathname));
     if (file) return await sendFile(res, file, 200, req.method);
     return await sendFile(res, "404.html", 404, req.method);

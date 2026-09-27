@@ -14,7 +14,8 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | --- | --- |
 | `index.html` | Home — hero, positioning strip, service overview, why AFK³, CTA |
 | `services.html` | Services hub — three service-world cards linking out, E-Z product promo, FAQ |
-| `products.html` | Products — **E-Z**, AFK³'s project-management SaaS (tasks, manager analytics, internal chat, AI). Tagline "Skip the basic choices." Status: in development; CTAs go to `/contact` for early access |
+| `products.html` | Products hub — one card per AFK³ product, plus a "more on the way" card |
+| `products/e-z.html` | `/products/e-z` — **E-Z**, AFK³'s project-management SaaS (tasks, manager analytics, internal chat, AI). Tagline "Skip the basic choices." Status: in development; CTAs go to `/contact` for early access. `/products/E-Z` redirects here |
 | `custom-software.html` | Custom software service page — capabilities, solutions bento, MVP |
 | `automation-ai.html` | Automation & AI service page — capabilities, before/after, why-automate |
 | `managed-operations.html` | Managed operations service page — capabilities, engagement-model steps |

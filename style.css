@@ -1398,3 +1398,27 @@ a.scard:focus-visible { outline: 2px solid var(--accent-primary); outline-offset
 @media (prefers-reduced-motion: reduce) {
   .ezapp__card, .ezapp__msg { opacity: 1 !important; transform: none !important; }
 }
+
+/* =====================================================================
+   PRODUCTS HUB (products.html). Cards reuse .scard; one card per product.
+   ===================================================================== */
+.products { display: grid; gap: 1.25rem; }
+@media (min-width: 760px) { .products { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .products { grid-template-columns: repeat(3, 1fr); } }
+.product-card { display: flex; flex-direction: column; }
+.product-card .scard__go { margin-top: auto; padding-top: 1.3rem; }
+.product-card__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.product-card__logo { width: 56px; height: auto; }
+.product-card__status { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
+.product-card__tagline { font-family: var(--font-mono); font-size: 0.8rem; color: #F7A21B; margin-bottom: 0.6rem; }
+.product-card--soon {
+  padding: 1.6rem 1.5rem 1.5rem; border: 1px dashed var(--border-strong); border-radius: var(--radius);
+  background: transparent;
+}
+.product-card__plus {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 12px;
+  border: 1px dashed var(--border-strong); color: var(--text-muted); font-family: var(--font-head); font-size: 1.6rem;
+}
+.product-card--soon .scard__go:hover .btn__arrow { transform: translateX(4px); }
+.ez-crumb { color: inherit; text-decoration: none; }
+.ez-crumb:hover, .ez-crumb:focus-visible { text-decoration: underline; }
