@@ -1434,3 +1434,26 @@ a.scard:focus-visible { outline: 2px solid var(--accent-primary); outline-offset
 /* The evaluated chooser gives both buying routes equal visual weight. */
 .hero--chooser .hero__inner{display:block;padding-top:30px;padding-bottom:45px}.hero--chooser .hero__copy{max-width:940px}.hero--chooser .hero__title{font-size:clamp(38px,5.2vw,72px);max-width:900px;line-height:1.08}.hero--chooser .hero__lead{max-width:820px}.hero--chooser .hero__sub{margin-bottom:28px}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1120px;margin-top:30px}.choice-grid .path-card{display:flex;flex-direction:column;min-width:0}.choice-grid .path-card h2{font-size:clamp(24px,2.7vw,34px)}.choice-grid .path-card__go{margin-top:auto;padding-top:18px}.choice-grid .readiness-inline{font-size:12px;color:#d6c794}.chooser-help{font-size:14px;color:#bdc7d8;line-height:1.8;margin-top:22px}.chooser-help a{color:#75ddf6}
 @media(max-width:760px){.choice-grid{grid-template-columns:1fr}.hero--chooser .hero__inner{padding-top:12px}.choice-grid .path-card{padding:23px}}
+
+/* Keep the two-product catalog balanced instead of leaving an empty third column. */
+@media (min-width: 760px) {
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.product-card { min-width: 0; border-top: 2px solid var(--accent-blue); }
+.product-card--otom { border-top-color: var(--accent-primary); }
+.product-card__status { color: var(--text-secondary); }
+.product-card .scard__desc { max-width: 48ch; }
+.product-card .scard__title { max-width: 26ch; }
+/* Strengthen the route affordance without introducing a competing primary action. */
+.choice-grid .path-card { border-color: rgba(54, 215, 255, .34); }
+.choice-grid .path-card:hover,
+.choice-grid .path-card:focus-visible { opacity: 1; background: var(--surface-raised); }
+.hero--chooser { padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+.hero--chooser .hero__inner { padding-bottom: 20px; }
+@media (max-width: 760px) {
+  .hero--chooser .hero__sub { font-size: .8rem; }
+  .choice-grid { gap: 14px; margin-top: 22px; }
+  .choice-grid .path-card { padding: 20px; }
+}
+/* Small labels and consent/contact notes must remain legible on dark surfaces. */
+.scard__num, .form__note, .form__alt { color: var(--text-secondary); }
