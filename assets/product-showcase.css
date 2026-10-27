@@ -1,0 +1,91 @@
+/* Hallmark component guidance · OTOM approved palette · original native 3D carousel.
+ * Scope: product showcase; brand, content, forms and routes preserved. Browser checks reported separately. */
+:root {
+  --showcase-ink: #183c35;
+  --showcase-muted: #50645c;
+  --showcase-accent: #1d5946;
+  --showcase-paper: #ffffff;
+  --showcase-surface: #e7ecdf;
+  --showcase-border: #cbd6c2;
+  --showcase-focus: #527648;
+  --showcase-error: #9b3028;
+  --showcase-shadow: #142e252b;
+  --showcase-easing: cubic-bezier(.22,.72,.18,1);
+  --showcase-duration: 700ms;
+}
+.product-showcase { position: relative; color: var(--showcase-ink); }
+.product-showcase .tour-intro { align-items: end; margin-bottom: 28px; }
+.product-showcase .tour-intro h2 { font-size: clamp(36px,4.3vw,56px); line-height: 1.05; letter-spacing: -.04em; }
+.product-showcase .tour-intro p { max-width: 350px; color: var(--showcase-muted); font-size: 16px; line-height: 1.7; }
+.product-showcase .tour-controls { margin: 23px 0 26px; gap: 30px; }
+.product-showcase .tour-choice-group>span { font-size: 12px; letter-spacing: 0; color: var(--showcase-muted); }
+.product-showcase .tour-controls button { border: 1px solid transparent; padding: 9px 13px; color: var(--showcase-ink); }
+.product-showcase .tour-controls button:hover { background: var(--showcase-surface); }
+.product-showcase .tour-controls button[aria-pressed=true] { background: var(--showcase-accent); color: var(--showcase-paper); }
+.product-showcase .tour-figure { background: transparent; }
+.showcase-transport { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 17px 0; border-block: 1px solid var(--showcase-border); }
+.showcase-playback,.showcase-travel { display: flex; align-items: center; gap: 15px; }
+.showcase-playback>span { font-size: 12px; color: var(--showcase-muted); }
+.showcase-transport button { display: inline-flex; gap: 10px; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 9px 13px; background: transparent; border: 1px solid var(--showcase-border); border-radius: 8px; color: var(--showcase-ink); font: inherit; font-size: 13px; }
+.showcase-transport button:hover { background: var(--showcase-surface); opacity: 1; }
+.showcase-travel>button { font-size: 20px; line-height: 1; }
+.showcase-count { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--showcase-muted); }
+.product-showcase button:focus-visible,.product-showcase a:focus-visible { outline: 3px solid var(--showcase-focus); outline-offset: 4px; }
+.product-showcase button:active { transform: translateY(1px); }
+.product-showcase button:disabled { opacity: .5; cursor: default; transform: none; }
+.product-showcase .showcase-stage { width: 100%; aspect-ratio: 3/2; background: transparent; }
+.product-showcase[data-showcase-ready] .showcase-stage { position: relative; display: block; aspect-ratio: 1.75; perspective: 1500px; isolation: isolate; overflow: clip; touch-action: pan-y pinch-zoom; }
+.showcase-slide { position: absolute; width: 78%; aspect-ratio: 3/2; top: 50%; left: 50%; display: flex; align-items: center; justify-content: center; margin: 0; border: 1px solid var(--showcase-border); border-radius: 10px; background: var(--showcase-paper); box-shadow: 0 18px 35px -12px var(--showcase-shadow); overflow: hidden; backface-visibility: hidden; transition: transform var(--showcase-duration) var(--showcase-easing), opacity var(--showcase-duration) var(--showcase-easing); }
+.showcase-slide img { display: block; width: 100%; height: 100%; min-width: 0; object-fit: contain; pointer-events: none; user-select: none; }
+.showcase-slide[data-device=mobile] img { width: auto; max-width: 100%; height: 100%; }
+.showcase-slide[data-device=mobile] { background: var(--showcase-surface); width: 26%; height: 92%; aspect-ratio: 390/844; }
+.showcase-slide[data-position=active] { transform: translate(-50%,-50%) translateZ(0) rotateY(0); opacity: 1; z-index: 3; }
+.showcase-slide[data-position=previous] { transform: translate(-80%,-50%) translateZ(-180px) rotateY(16deg) scale(.92); opacity: .65; z-index: 2; }
+.showcase-slide[data-position=next] { transform: translate(-20%,-50%) translateZ(-180px) rotateY(-16deg) scale(.92); opacity: .65; z-index: 2; }
+.showcase-slide[data-position=away] { transform: translate(-50%,-50%) translateZ(-270px) scale(.88); opacity: 0; z-index: 0; visibility: hidden; }
+.product-showcase[data-showcase-source=manual] { --showcase-duration: 380ms; }
+.product-showcase[data-showcase-instant=true] .showcase-slide { transition: none; }
+.product-showcase .tour-figure figcaption { padding: 22px 0 19px; border-top: 1px solid var(--showcase-border); min-height: 147px; gap: 25px; }
+.product-showcase .tour-figure h3 { font-size: 25px; max-width: 760px; }
+.product-showcase .tour-figure p { color: var(--showcase-muted); max-width: 660px; }
+.product-showcase .tour-figure .tour-provenance { margin-top: 10px; font-size: 12px; }
+.product-showcase .tour-figure a { color: var(--showcase-ink); }
+.showcase-progress { height: 2px; background: var(--showcase-border); }
+.showcase-progress>span { display: block; width: 100%; height: 100%; background: var(--showcase-accent); transform: scaleX(0); transform-origin: left; }
+.showcase-feedback { padding: 12px 0; font-size: 13px; color: var(--showcase-error); }
+.product-showcase .tour-footer { padding-top: 22px; }
+.product-showcase [hidden] { display: none!important; }
+.product-showcase[data-showcase-motion=reduced] .showcase-stage { perspective: none; }
+.product-showcase[data-showcase-motion=reduced] .showcase-slide { transition: none; }
+.product-showcase[data-showcase-motion=reduced] .showcase-slide:not([data-position=active]) { visibility: hidden; opacity: 0; }
+.product-showcase[data-showcase-motion=reduced] .showcase-slide[data-position=active] { transform: translate(-50%,-50%); }
+@media(max-width:760px) {
+  .product-showcase .tour-intro { display: block; }
+  .product-showcase .tour-intro h2 { font-size: clamp(34px,8.5vw,44px); }
+  .product-showcase .tour-intro p { max-width: 450px; margin-top: 18px; }
+  .showcase-playback>span { max-width: 115px; font-size: 11px; line-height: 1.5; }
+  .showcase-playback,.showcase-travel { gap: 8px; }
+  .product-showcase .tour-controls { gap: 16px; margin-bottom: 13px; }
+  .product-showcase .tour-controls button { padding: 9px 10px; font-size: 12px; }
+  .product-showcase[data-showcase-ready] .showcase-stage { aspect-ratio: .98; perspective: 1100px; }
+  .showcase-slide { width: 94%; border-radius: 7px; }
+  .showcase-slide[data-device=mobile] { width: 44%; height: 92%; }
+  .showcase-slide[data-position=previous] { transform: translate(-61%,-50%) translateZ(-100px) rotateY(7deg) scale(.95); opacity: .35; }
+  .showcase-slide[data-position=next] { transform: translate(-39%,-50%) translateZ(-100px) rotateY(-7deg) scale(.95); opacity: .35; }
+  .product-showcase .tour-media[data-device=mobile] { aspect-ratio: .98; }
+  .product-showcase .tour-media[data-device=mobile] img { width: auto; height: 100%; }
+  .product-showcase .tour-figure figcaption { padding: 20px 0; grid-template-columns: 1fr; gap: 5px; min-height: 220px; }
+  .product-showcase .tour-figure h3 { font-size: 23px; }
+  .product-showcase .tour-figure p { font-size: 14px; }
+  .product-showcase .tour-figure a { justify-self: start; }
+}
+@media(max-width:390px) {
+  .showcase-playback>span { display: none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .product-showcase .showcase-stage { perspective: none; }
+  .showcase-slide { transition: none!important; }
+  .showcase-slide:not([data-position=active]) { opacity: 0; visibility: hidden; }
+  .showcase-slide[data-position=active] { transform: translate(-50%,-50%); }
+  .showcase-progress>span { animation: none!important; }
+}

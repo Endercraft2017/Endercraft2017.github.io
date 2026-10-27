@@ -340,6 +340,20 @@
     if (requestedNeed && !form.querySelector('[name="need"]:checked')) {
       form.querySelectorAll('[name="need"]').forEach(function (input) { if (input.value === requestedNeed) input.checked = true; });
     }
+    // A product showcase may suggest a known workflow. Never replace a restored or edited message.
+    var screenBriefs = {
+      attendance: "I'd like to review OTOM attendance records and corrections using demonstration data.",
+      payroll: "I'd like to review OTOM draft payslips and the checks required before a pilot.",
+      mobile: "I'd like to review OTOM's employee mobile experience and role permissions.",
+      inventory: "I'd like to review OTOM warehouse records, stock movements and transfers.",
+      production: "I'd like to review OTOM production job orders and their inventory handoffs.",
+      sales: "I'd like to discuss OTOM's sales workflow and its current development status."
+    };
+    var requestedScreen = new URLSearchParams(window.location.search).get('screen');
+    var problemField = form.querySelector('#f-problem');
+    if (requestedIntent === 'otom' && Object.hasOwn(screenBriefs, requestedScreen) && problemField && !problemField.value.trim()) {
+      problemField.value = screenBriefs[requestedScreen];
+    }
     function updateLeadContext() {
       var hidden = form.querySelector('[name="lead_source"]');
       if (hidden && form.hasAttribute('data-acquisition-form') && window.AFKLead) {
