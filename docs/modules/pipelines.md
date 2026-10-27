@@ -33,3 +33,10 @@ row. A permitted individual can identify their company as `Independent marketer`
 No public inquiry accepts commission terms, registers a client's consent, creates an
 order or pays commission. Kyle handles the next conversation, exact agreement, scope,
 invoice and bank reconciliation. Provider acceptance does not prove mailbox receipt.
+
+## Progressive marketing motion
+
+Home/services/products content renders fully → optional site-motion.js observes selected
+cards → one finite compositor-friendly entrance per element → animation completes and
+releases. Reduced-motion, keyboard focus and hidden-tab states cancel active animations.
+No animation controls inquiry submission, navigation, product readiness or conversion.

@@ -1,0 +1,55 @@
+/* AFK³ visual hierarchy and authored process illustrations. No interface replicas. */
+.hero-top { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr); align-items:center; gap:clamp(36px,5vw,78px); }
+.hero--chooser .hero__title { font-size:clamp(40px,4.9vw,68px); line-height:1.08; max-width:780px; }
+.hero--chooser .hero__lead { max-width:670px; font-size:clamp(16px,1.45vw,19px); }
+.hero--chooser .hero__sub { font-size:12px; line-height:1.8; color:#aabbd0; max-width:58ch; }
+.hero--chooser .choice-grid { max-width:none; margin-top:34px; }
+.hero--chooser .hero__lines path { animation:none; stroke-dasharray:none; opacity:.35; }
+.hero--chooser .hero__cursor-glow { display:none; }
+.engagement-map { position:relative; min-width:0; padding:28px 30px 22px; border:1px solid #294359; border-radius:20px; background:radial-gradient(ellipse at 100% 0,rgba(54,215,255,.1),transparent 65%),linear-gradient(135deg,#101a26,#0c131e); box-shadow:0 26px 64px -40px #000, inset 0 1px 0 #ffffff08; }
+.engagement-map__label { display:flex; align-items:center; gap:9px; font:10px/1.6 var(--font-mono); letter-spacing:.14em; color:#95b3c9; }
+.engagement-map__signal { width:6px; height:6px; background:#6bd9f8; border-radius:50%; box-shadow:0 0 0 4px #36d7ff12; }
+.engagement-map__title { font-family:var(--font-head); font-size:clamp(23px,2.2vw,30px); color:#f1f6fc; font-weight:700; letter-spacing:-.04em; line-height:1.22; margin:22px 0 25px; }
+.engagement-map__steps { padding:0; margin:0; list-style:none; display:grid; gap:24px; }
+.engagement-map__steps li { display:flex; align-items:center; position:relative; gap:15px; }
+.engagement-map__steps li:not(:last-child)::after { content:""; position:absolute; left:16px; top:33px; height:24px; width:1px; background:linear-gradient(#4fa6c4,#2c4259); }
+.engagement-map__number { position:relative; flex:0 0 34px; height:34px; display:grid; place-items:center; border:1px solid #346078; border-radius:10px; background:#132333; color:#8de5fa; font:11px var(--font-mono); }
+.engagement-map__steps strong { display:block; color:#e5eef8; font:650 14px/1.45 var(--font-head); }
+.engagement-map__steps div>span { display:block; color:#a5b6cb; font-size:11px; line-height:1.65; }
+.engagement-map__footer { display:flex; align-items:center; gap:10px; border-top:1px solid #ffffff10; padding-top:17px; margin-top:25px; font:9px var(--font-mono); letter-spacing:.1em; color:#95b3c9; }
+.engagement-map__footer .brand__mark { width:21px; height:23px; }
+.marketing-polished .choice-grid .path-card { position:relative; border-radius:16px; background:linear-gradient(120deg,#101c29,#0c141e); padding:26px 28px; }
+.marketing-polished .choice-grid .path-card::before { content:""; position:absolute; left:28px; top:0; width:42px; height:2px; background:#73ddf7; }
+.marketing-polished .choice-grid .path-card h2 { font-size:clamp(23px,2.2vw,30px); }
+.marketing-polished .choice-grid .path-card p { font-size:14px; max-width:52ch; }
+.marketing-polished .choice-grid .readiness-inline { font-size:11px; color:#d6c794; }
+.marketing-polished .hero--chooser + .strip .rail__track { animation:none; width:auto; flex-wrap:wrap; justify-content:center; gap:20px 32px; padding:0 24px; }
+.marketing-polished .journey-steps { gap:18px; }
+.marketing-polished .journey-steps li { border:1px solid #283748; border-radius:14px; padding:24px; background:linear-gradient(145deg,#121b28,#0d141f); position:relative; }
+.marketing-polished .journey-steps li>span { width:34px; height:34px; display:grid; place-items:center; border:1px solid #315367; border-radius:50%; font-size:11px; }
+.marketing-polished .journey-steps p { font-size:14px; }
+.marketing-polished .services .scard { padding:28px; border-color:#26364b; background:linear-gradient(150deg,#121d2c,#0d1520); }
+.marketing-polished .scard__viz { height:66px; margin:12px 0 22px; }
+.marketing-polished .scard__viz--ops b, .marketing-polished .scard__viz--ops u::after { animation:none; }
+.marketing-polished .scard__viz--ops u::after { display:none; }
+.marketing-polished .scard:hover .scard__viz--auto i { animation-iteration-count:1; }
+.marketing-polished .product-card { position:relative; padding:30px; min-height:340px; background:linear-gradient(145deg,#131b2a,#0b121c); border-color:#2b3c53; border-top:0; }
+.marketing-polished .product-card--otom { background:radial-gradient(ellipse at 100% 0,#63e6be0c,transparent 70%),linear-gradient(145deg,#111f25,#0c151c); border-color:#2e4e50; }
+.marketing-polished .product-card--ez { background:radial-gradient(ellipse at 100% 0,#f7a21b0c,transparent 70%),linear-gradient(145deg,#1b1c25,#10131e); }
+.product-identity { font:800 29px/1.2 var(--font-head); letter-spacing:-1px; display:inline-flex; align-items:center; gap:10px; color:#e9eef6; }
+.product-identity--otom { color:#92e5ce; }
+.product-identity img { object-fit:contain; width:32px; height:35px; }
+.marketing-polished .product-card__head { min-height:44px; }
+.marketing-polished .product-card__status { padding:5px 9px; border:1px solid #ffffff1a; border-radius:20px; font-size:10px; white-space:nowrap; }
+.product-flow { display:flex; flex-wrap:wrap; align-items:center; gap:8px; border-block:1px solid #ffffff10; margin:23px 0; padding:15px 0; font:10px/1.6 var(--font-mono); color:#b5c6d8; }
+.product-flow span { padding:4px 8px; border-radius:5px; background:#ffffff05; border:1px solid #ffffff0b; }
+.product-flow i { color:#75ddf6; font-style:normal; }
+.marketing-polished .product-card--ez .product-flow i { color:#ebc386; }
+.marketing-polished .product-card .scard__title { margin-top:0; font-size:clamp(23px,2.2vw,29px); line-height:1.2; letter-spacing:-.035em; }
+.marketing-polished .product-card .scard__desc { font-size:14px; line-height:1.8; }
+.marketing-polished .product-card .scard__go { margin-top:auto; padding-top:20px; }
+@media(min-width:901px) { .marketing-polished .journey-steps li:not(:last-child)::after { content:"→"; position:absolute; z-index:1; right:-19px; top:28px; width:20px; text-align:center; color:#75ddf6; background:#0d141f; font-size:15px; } }
+@media(max-width:1050px) { .hero-top { grid-template-columns:minmax(0,1.4fr) minmax(260px,1fr); gap:32px; } .engagement-map {padding:24px;} }
+@media(max-width:900px) { .hero-top { grid-template-columns:1fr; } .engagement-map { display:none; } .marketing-polished .choice-grid .path-card {padding:22px;} .hero--chooser .hero__title {max-width:750px;} }
+@media(max-width:550px) { .marketing-polished .product-card {padding:23px; min-height:0;} .product-flow {gap:5px;font-size:9px;} .product-flow span {padding:4px 6px;} .marketing-polished .hero--chooser + .strip .rail__track {gap:10px 18px;} .marketing-polished .journey-steps li {padding:22px;} }
+@media(prefers-reduced-motion:reduce) { .marketing-polished *, .marketing-polished *::before, .marketing-polished *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }

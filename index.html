@@ -43,6 +43,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="/assets/design-polish.css" />
 
 <script type="application/ld+json">
 {
@@ -82,7 +83,7 @@
 }
 </script>
 </head>
-<body>
+<body class="marketing-polished">
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header" id="siteHeader" data-nav>
@@ -126,12 +127,25 @@
     </div>
 
     <div class="container hero__inner">
+      <div class="hero-top">
       <div class="hero__copy">
         <p class="eyebrow reveal">Software <span class="dot-sep">•</span> Automation <span class="dot-sep">•</span> Operations</p>
         <h1 class="hero__title reveal" id="hero-title">Helping businesses operate while you're <span class="grad">AFK</span>.</h1>
         <p class="hero__lead reveal">Choose the way we can help: adapt a service around your process, or review OTOM’s existing HR software before committing to a setup.</p>
         <p class="hero__sub reveal">A clear scope. Agreed acceptance checks. A handover your team can use.</p>
 
+      </div>
+
+      <aside class="engagement-map" aria-label="Our delivery approach">
+        <div class="engagement-map__label"><span class="engagement-map__signal" aria-hidden="true"></span> HOW WE WORK</div>
+        <p class="engagement-map__title">One process.<br>A clear next step.</p>
+        <ol class="engagement-map__steps">
+          <li><span class="engagement-map__number">01</span><div><strong>Map the work</strong><span>Inputs, people and bottlenecks</span></div></li>
+          <li><span class="engagement-map__number">02</span><div><strong>Build &amp; connect</strong><span>A solution around your process</span></div></li>
+          <li><span class="engagement-map__number">03</span><div><strong>Test &amp; hand over</strong><span>Agreed checks. A usable handover.</span></div></li>
+        </ol>
+        <div class="engagement-map__footer"><span class="brand__mark" aria-hidden="true"></span><span>BUILD · AUTOMATE · SCALE</span></div>
+      </aside>
       </div>
 
       <div class="choice-grid" aria-label="Choose your buying route">
@@ -149,7 +163,6 @@
     </div>
     <div class="rail" id="keywordRail" aria-hidden="true">
       <ul class="rail__track">
-        <li>Custom Software</li><li>MVPs</li><li>Automation</li><li>Integrations</li><li>Internal Tools</li><li>Managed Operations</li>
         <li>Custom Software</li><li>MVPs</li><li>Automation</li><li>Integrations</li><li>Internal Tools</li><li>Managed Operations</li>
       </ul>
     </div>
@@ -198,7 +211,7 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="own-products"><div class="container"><header class="section__head"><p class="eyebrow">Products by AFK³</p><h2 class="section__title" id="own-products">Two products. Different jobs.</h2></header><div class="products"><a class="scard product-card" href="/products/otom"><span class="product-card__status">OTOM · In development</span><h3 class="scard__title">Your HR workflow, under review.</h3><p class="scard__desc">Explore attendance, kiosk setup and draft payslip review with us. Confirm readiness before choosing a subscription.</p><span class="scard__go">Explore OTOM →</span></a><a class="scard product-card" href="/products/e-z"><span class="product-card__status">E-Z · In development</span><h3 class="scard__title">Skip the basic choices.</h3><p class="scard__desc">Our project-management product for tasks and team collaboration. Explore its own product roadmap.</p><span class="scard__go">Meet E-Z →</span></a></div></div></section>
+  <section class="section" aria-labelledby="own-products"><div class="container"><header class="section__head"><p class="eyebrow">Products by AFK³</p><h2 class="section__title" id="own-products">Two products. Different jobs.</h2></header><div class="products"><a class="scard product-card product-card--otom" href="/products/otom"><div class="product-card__head"><span class="product-identity product-identity--otom">OTOM</span><span class="product-card__status">In development</span></div><div class="product-flow" aria-hidden="true"><span>Attendance</span><i>→</i><span>Kiosk</span><i>→</i><span>Draft payslips</span></div><h3 class="scard__title">Your HR workflow, under review.</h3><p class="scard__desc">Explore attendance, kiosk setup and draft payslip review with us. Confirm readiness before choosing a subscription.</p><span class="scard__go">Explore OTOM →</span></a><a class="scard product-card product-card--ez" href="/products/e-z"><div class="product-card__head"><span class="product-identity product-identity--ez"><img src="/assets/ez-logo.webp" width="36" height="39" alt="" loading="lazy">E-Z</span><span class="product-card__status">In development</span></div><div class="product-flow" aria-hidden="true"><span>Plan</span><i>→</i><span>Coordinate</span><i>→</i><span>Review</span></div><h3 class="scard__title">Skip the basic choices.</h3><p class="scard__desc">Our project-management product for tasks and team collaboration. Explore its own product roadmap.</p><span class="scard__go">Meet E-Z →</span></a></div></div></section>
   <!-- WHY AFK³ -->
   <section class="section section--alt" id="why" aria-labelledby="why-title">
     <div class="container">
@@ -277,5 +290,6 @@
 <div class="afk-toast" id="afkToast" role="status" aria-live="polite" hidden>Still moving.</div>
 <script src="/assets/lead-context.js" defer></script>
 <script src="script.js" defer></script>
+<script src="/assets/site-motion.js" defer></script>
 </body>
 </html>

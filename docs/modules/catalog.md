@@ -35,3 +35,23 @@ campaign/referral codes and the first valid source within a session. Contact int
 accepts an explicit inquiry intent and optional acceptance result; structured source
 values are validated before provider use. UI/API tests use synthetic data and a local
 provider stub. Mailbox receipt, hosted visuals and customer comprehension remain pending.
+
+## Visual hierarchy and motion refinement
+
+`assets/design-polish.css` styles the home, services and products pages without changing
+intake contracts. The homepage adds an authored delivery-approach schematic, preserves
+equal buying-route cards, and gives OTOM/E-Z distinct product identities and conceptual
+workflow strips. These diagrams are marketing illustrations, not product screenshots.
+
+`assets/site-motion.js` uses native Web Animations and IntersectionObserver for once-only
+transform/opacity entrances. All content is visible before JavaScript runs. Reduced-motion
+preference changes cancel active animation, focus cancels motion on the focused card,
+and hidden tabs cancel active motion. The homepage capability rail and background paths
+are static instead of continuously moving. No runtime dependency was installed.
+
+Reference review: Motion's inView/performance examples and MDN's Web Animations API,
+IntersectionObserver and prefers-reduced-motion guidance. The implementation is authored
+native browser code rather than vendored animation presets. Local Chromium checks passed
+home/products/services at1440/390 with no axe violations, overflow or JS exceptions;
+mobile navigation, no-JS routes and runtime reduced-motion cancellation were checked.
+These results do not establish Railway-hosted behavior or buyer conversion.
