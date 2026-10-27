@@ -332,6 +332,23 @@
     var messageBox = $("#formMessage");
     var submitBtn = form.querySelector('button[type="submit"]');
     var ENDPOINT = form.getAttribute("action") || "/api/contact";
+    var intent = form.querySelector('[name="intent"]');
+    var requestedIntent = new URLSearchParams(window.location.search).get('intent');
+    if (intent && ['workflow', 'otom', 'referral'].indexOf(requestedIntent) !== -1) intent.value = requestedIntent;
+    var needs = {software:'Custom Software',automation:'Automation / AI',operations:'Managed Operations'};
+    var requestedNeed = needs[new URLSearchParams(window.location.search).get('need')];
+    if (requestedNeed && !form.querySelector('[name="need"]:checked')) {
+      form.querySelectorAll('[name="need"]').forEach(function (input) { if (input.value === requestedNeed) input.checked = true; });
+    }
+    function updateLeadContext() {
+      var hidden = form.querySelector('[name="lead_source"]');
+      if (hidden && form.hasAttribute('data-acquisition-form') && window.AFKLead) {
+        try { hidden.value = window.AFKLead.serialize(intent ? intent.value : 'workflow'); return true; }
+        catch (e) { setMessage(e.message, 'error'); return false; }
+      }
+      return true;
+    }
+
 
     var setMessage = function (text, kind) {
       if (!messageBox) return;
@@ -350,6 +367,9 @@
         if (successBox.focus) successBox.focus();
       }
     };
+
+    if (intent) intent.addEventListener("change", updateLeadContext);
+    updateLeadContext();
 
     /* Came back from a no-JS submit */
     if (/[?&]sent=1(&|$)/.test(window.location.search)) showSuccess();
@@ -395,6 +415,8 @@
         return;
       }
 
+      if (!updateLeadContext()) return;
+
       /* Build the payload — multiple "need" checkboxes collapse into an array. */
       var data = {};
       new FormData(form).forEach(function (v, k) {
@@ -405,7 +427,10 @@
       var original = submitBtn ? submitBtn.innerHTML : "";
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
 
+      var controller = new AbortController();
+      var requestTimer = window.setTimeout(function () { controller.abort(); }, 15000);
       fetch(ENDPOINT, {
+        signal: controller.signal,
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data)
@@ -430,7 +455,7 @@
           if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = original; }
           setMessage("Couldn't reach the server. Please email us directly at contact@afkcube.com.", "error");
           if (window.console) console.error("[AFK³] contact form failed:", err);
-        });
+        }).finally(function () { window.clearTimeout(requestTimer); });
     });
   }
 

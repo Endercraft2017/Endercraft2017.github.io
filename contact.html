@@ -13,7 +13,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="AFK³ Solutions" />
 <meta property="og:title" content="Discuss a Project — AFK³ Solutions" />
-<meta property="og:description" content="What is slowing your business down?" />
+<meta property="og:description" content="What would you like to work on?" />
 <meta property="og:url" content="https://afkcube.com/contact" />
 <meta property="og:locale" content="en_AU" />
 <meta property="og:image" content="https://afkcube.com/assets/og-image.png" />
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Discuss a Project — AFK³ Solutions" />
-<meta name="twitter:description" content="What is slowing your business down?" />
+<meta name="twitter:description" content="What would you like to work on?" />
 <meta name="twitter:image" content="https://afkcube.com/assets/og-image.png" />
 <meta name="twitter:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
 
@@ -97,18 +97,20 @@
   <section class="section" id="contact" aria-labelledby="contact-title">
     <div class="container contact">
       <div class="contact__intro reveal">
-        <p class="eyebrow">Project inquiry</p>
-        <h1 class="section__title" id="contact-title">What is slowing your business down?</h1>
+        <p class="eyebrow">Start a conversation</p>
+        <h1 class="section__title" id="contact-title">What would you like to work on?</h1>
         <p class="section__lead">Tell us how the process works today. We'll help determine what should happen next.</p>
         <div class="contact__aside">
           <span class="status-dot"></span>
-          <p>Typical first reply within one business day. Nothing you send here is shared outside AFK³.</p>
+          <p>We review your workflow, product or referral inquiry before proposing a next step. Please send a description, not private employee, payroll or client records.</p>
         </div>
       </div>
 
       <!-- Posts to the Vercel function at /api/contact, which emails via Resend.
            Without JS it still submits and the function redirects back to ?sent=1. -->
-      <form class="form reveal" id="inquiryForm" action="/api/contact" method="POST" novalidate>
+      <form class="form reveal" id="inquiryForm" action="/api/contact" method="POST" data-acquisition-form novalidate>
+        <input type="hidden" name="lead_source" value="contact_page" />
+        <div class="field"><label for="f-intent">I’m interested in</label><select id="f-intent" name="intent"><option value="workflow">A custom workflow or service</option><option value="otom">An OTOM HR fit review</option><option value="referral">A referral partnership</option></select></div>
         <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
         <input type="text" name="company_url" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -127,8 +129,8 @@
 
         <div class="form__row">
           <div class="field">
-            <label for="f-company">Company <span class="req">*</span></label>
-            <input id="f-company" name="company" type="text" autocomplete="organization" required />
+            <label for="f-company">Company, trading name, or independent marketer <span class="req">*</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Independent marketer, if applicable" required />
             <p class="field__error" data-error-for="f-company"></p>
           </div>
           <div class="field">
@@ -163,11 +165,12 @@
         </fieldset>
 
         <div class="field">
-          <label for="f-problem">Tell us about the problem <span class="req">*</span></label>
-          <textarea id="f-problem" name="problem" rows="4" required></textarea>
+          <label for="f-problem">Your workflow or question <span class="req">*</span></label>
+          <textarea id="f-problem" name="problem" rows="4" maxlength="4000" required></textarea>
           <p class="field__error" data-error-for="f-problem"></p>
         </div>
 
+        <div class="field"><label for="f-result">What result would you like to check? (optional)</label><textarea id="f-result" name="acceptance_result" rows="2" maxlength="500"></textarea></div>
         <div class="field">
           <label for="f-today">How do you handle it today?</label>
           <textarea id="f-today" name="today" rows="3"></textarea>
@@ -197,7 +200,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--full">Submit Project Inquiry <span class="btn__arrow" aria-hidden="true">→</span></button>
+        <button type="submit" class="btn btn--primary btn--full">Send Inquiry <span class="btn__arrow" aria-hidden="true">→</span></button>
         <p class="form__note">By submitting you agree we can contact you about your inquiry.</p>
         <p class="form__message" id="formMessage" role="alert" hidden></p>
         <p class="form__alt">Prefer email? <a href="mailto:contact@afkcube.com">contact@afkcube.com</a> &nbsp;·&nbsp; <a href="tel:+639913257591">+(63) 9913 257 591</a></p>
@@ -214,7 +217,7 @@
               <circle cx="56" cy="24" r="2" fill="#36D7FF"/><circle cx="64" cy="24" r="2" fill="#36D7FF"/>
             </g>
           </svg>
-          <p><strong>Received.</strong> We'll review the problem and determine the right next step.</p>
+          <p><strong>Submission accepted.</strong> We will review your inquiry. If you do not hear from us, please use the direct contact details above.</p>
         </div>
       </form>
     </div>
@@ -255,6 +258,7 @@
       <ul>
         <li><a href="/privacy">Privacy</a></li>
         <li><a href="/terms">Terms</a></li>
+        <li><a href="/referrals">Referral Partners</a></li>
         <li><a href="mailto:contact@afkcube.com">contact@afkcube.com</a></li>
         <li><a href="tel:+639913257591">+(63) 9913 257 591</a></li>
       </ul>
@@ -267,6 +271,7 @@
 </footer>
 
 <div class="afk-toast" id="afkToast" role="status" aria-live="polite" hidden>Still moving.</div>
+<script src="/assets/lead-context.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

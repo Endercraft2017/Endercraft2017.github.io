@@ -23,3 +23,13 @@
 - **Today**: routed through the Inquiry pipeline above, with no product-specific tagging.
 - **Planned**: a dedicated `lead_source` (e.g. `ez_products_page`) or waitlist form that
   enters stage 2 of the Inquiry pipeline rather than bypassing it.
+
+## Workflow product and referral qualification
+
+Marketing page → services acceptance brief, OTOM readiness, or proposed referral terms
+→ contact intent selector → existing inquiry validation/provider adapter. Campaign codes
+are bounded and carried in `lead_source`; the optional result is sent as its own email
+row. A permitted individual can identify their company as `Independent marketer`.
+No public inquiry accepts commission terms, registers a client's consent, creates an
+order or pays commission. Kyle handles the next conversation, exact agreement, scope,
+invoice and bank reconciliation. Provider acceptance does not prove mailbox receipt.

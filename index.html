@@ -114,7 +114,7 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero hero--chooser" aria-labelledby="hero-title">
     <div class="hero__bg" aria-hidden="true">
       <div class="hero__grid"></div>
       <div class="hero__radial"></div>
@@ -129,47 +129,16 @@
       <div class="hero__copy">
         <p class="eyebrow reveal">Software <span class="dot-sep">•</span> Automation <span class="dot-sep">•</span> Operations</p>
         <h1 class="hero__title reveal" id="hero-title">Helping businesses operate while you're <span class="grad">AFK</span>.</h1>
-        <p class="hero__lead reveal">AFK³ Solutions builds custom software, automates repetitive workflows, and helps growing businesses operate with the right combination of technology and people.</p>
-        <p class="hero__sub reveal">Build better systems. Automate repetitive work. Keep operations moving.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary" href="/contact">Discuss Your Project <span class="btn__arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="/services">Explore Services</a>
-        </div>
+        <p class="hero__lead reveal">Choose the way we can help: adapt a service around your process, or review OTOM’s existing HR software before committing to a setup.</p>
+        <p class="hero__sub reveal">A clear scope. Agreed acceptance checks. A handover your team can use.</p>
+
       </div>
 
-      <div class="hero__visual reveal" aria-hidden="true">
-        <div class="flowcard" id="flowcard">
-          <div class="flowcard__head">
-            <span class="status-dot"></span>
-            <span class="flowcard__label">Workflow Active</span>
-            <span class="flowcard__pid">AFK-FLOW-01</span>
-          </div>
-          <div class="flowcard__body">
-            <span class="flowcard__packet" id="heroPacket"></span>
-            <div class="fnode fnode--in" data-step="1"><span class="fnode__tag">New request</span></div>
-            <div class="fline"></div>
-            <div class="fnode" data-step="2"><span class="fnode__title">Intake</span><span class="fnode__meta">Captured &amp; sorted</span></div>
-            <div class="fline"></div>
-            <div class="fnode" data-step="3">
-              <span class="fnode__title">Workflow</span>
-              <div class="fbranch"><span class="chip chip--ai">AI</span><span class="chip chip--human">Human</span></div>
-            </div>
-            <div class="fline"></div>
-            <div class="fnode fnode--done" data-step="4"><span class="fnode__title">Completed <span class="check">✓</span></span><span class="fnode__meta">Logged to system</span></div>
-          </div>
-        </div>
-        <div class="hero__operator">
-          <svg viewBox="0 0 120 120" class="operator" role="img" aria-label="An operator working beside a workflow">
-            <ellipse cx="60" cy="108" rx="34" ry="6" fill="rgba(54,215,255,0.12)"/>
-            <rect x="26" y="70" width="68" height="30" rx="6" fill="#151E2C" stroke="rgba(255,255,255,0.1)"/>
-            <rect x="34" y="58" width="24" height="16" rx="3" fill="#0D121C" stroke="#36D7FF" stroke-width="1.5"/>
-            <circle cx="74" cy="44" r="12" fill="#E7C9A0"/>
-            <path d="M62 46c0-9 24-9 24 0v10H62z" fill="#4D7CFE"/>
-            <path d="M62 56c-6 2-10 8-10 14h8" fill="none" stroke="#4D7CFE" stroke-width="4" stroke-linecap="round"/>
-            <g class="operator__spark"><circle cx="96" cy="34" r="3" fill="#63E6BE"/></g>
-          </svg>
-        </div>
+      <div class="choice-grid" aria-label="Choose your buying route">
+        <a class="path-card" href="/services#acceptance-brief"><span class="path-card__index">CUSTOM SERVICES</span><h2>Build around my process.</h2><p>Your workflow needs software, automation or operational support adapted around it.</p><span class="path-card__go">Describe your workflow <span aria-hidden="true">↗</span></span></a>
+        <a class="path-card" href="/products/otom#readiness"><span class="path-card__index">OTOM SOFTWARE</span><h2>Review existing software.</h2><p>You want HR software and can evaluate attendance and draft payslips before committing.</p><p class="readiness-inline">Live workflow verification pending.</p><span class="path-card__go">Review OTOM fit <span aria-hidden="true">↗</span></span></a>
       </div>
+      <p class="chooser-help">Unsure? <a href="/contact">Describe the problem.</a> We can help identify the next step.</p>
     </div>
   </section>
 
@@ -186,6 +155,7 @@
     </div>
   </section>
 
+  <section class="section section--alt" aria-labelledby="before-proposal"><div class="container"><header class="section__head"><p class="eyebrow">Before a proposal</p><h2 class="section__title" id="before-proposal">Make the next step concrete.</h2></header><ol class="journey-steps"><li><span>01</span><h3>Describe the process</h3><p>Who does the work, what comes in, and where does it get stuck?</p></li><li><span>02</span><h3>Review the evidence</h3><p>Inspect a relevant example or product task. Identify what still needs to be tested.</p></li><li><span>03</span><h3>Agree on the scope</h3><p>Confirm deliverables, exclusions, acceptance checks, price and payment milestones in writing.</p></li></ol><a class="text-link" href="/services#acceptance-brief">See what goes into a brief <span aria-hidden="true">→</span></a></div></section>
   <!-- SERVICES OVERVIEW -->
   <section class="section" id="services" aria-labelledby="services-title">
     <div class="container">
@@ -228,6 +198,7 @@
     </div>
   </section>
 
+  <section class="section" aria-labelledby="own-products"><div class="container"><header class="section__head"><p class="eyebrow">Products by AFK³</p><h2 class="section__title" id="own-products">Two products. Different jobs.</h2></header><div class="products"><a class="scard product-card" href="/products/otom"><span class="product-card__status">OTOM · In development</span><h3 class="scard__title">Your HR workflow, under review.</h3><p class="scard__desc">Explore attendance, kiosk setup and draft payslip review with us. Confirm readiness before choosing a subscription.</p><span class="scard__go">Explore OTOM →</span></a><a class="scard product-card" href="/products/e-z"><span class="product-card__status">E-Z · In development</span><h3 class="scard__title">Skip the basic choices.</h3><p class="scard__desc">Our project-management product for tasks and team collaboration. Explore its own product roadmap.</p><span class="scard__go">Meet E-Z →</span></a></div></div></section>
   <!-- WHY AFK³ -->
   <section class="section section--alt" id="why" aria-labelledby="why-title">
     <div class="container">
@@ -291,6 +262,7 @@
       <ul>
         <li><a href="/privacy">Privacy</a></li>
         <li><a href="/terms">Terms</a></li>
+        <li><a href="/referrals">Referral Partners</a></li>
         <li><a href="mailto:contact@afkcube.com">contact@afkcube.com</a></li>
         <li><a href="tel:+639913257591">+(63) 9913 257 591</a></li>
       </ul>
@@ -303,6 +275,7 @@
 </footer>
 
 <div class="afk-toast" id="afkToast" role="status" aria-live="polite" hidden>Still moving.</div>
+<script src="/assets/lead-context.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

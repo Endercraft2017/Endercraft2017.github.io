@@ -25,3 +25,13 @@ not a refactor plan.
   page exists (e.g. `/products/E-Z` → `/products/e-z`); `vercel.json` has the same redirect.
 - **Hosting adapter → Inquiry intake**: direct call to the default export with Vercel-style
   `req.body` / `res.status().json()` shims. The handler is unchanged across hosts.
+
+## Acquisition update October 2026
+
+Product showcase now includes `/products/otom` alongside the unchanged E-Z identity.
+The new `/referrals` page describes a proposed optional referral route, with no signed
+terms or employment offer. `assets/lead-context.js` handles bounded, non-personal
+campaign/referral codes and the first valid source within a session. Contact intake
+accepts an explicit inquiry intent and optional acceptance result; structured source
+values are validated before provider use. UI/API tests use synthetic data and a local
+provider stub. Mailbox receipt, hosted visuals and customer comprehension remain pending.

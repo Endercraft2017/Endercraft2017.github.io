@@ -58,6 +58,7 @@ async function sendInquiryEmail(apiKey, { to, from, subject, text, html, replyTo
   try {
     const resp = await fetch("https://api.resend.com/emails", {
       method: "POST",
+      signal: AbortSignal.timeout(10000),
       headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
@@ -147,7 +148,28 @@ export default async function handler(req, res) {
   // lead_type selects the inquiry shape. Defaults to "business" so the
   // original contact.html — which never sends this field — is unaffected.
   const leadType = clip(body.lead_type, MAX_SHORT) === "student" ? "student" : "business";
-  const leadSource = clip(body.lead_source, MAX_SHORT);
+  let rawLeadSource = String(body.lead_source || '').trim();
+  // A normal no-JS form still carries source codes in its same-origin Referer.
+  if (rawLeadSource === 'contact_page' && req.headers.referer) {
+    try {
+      const referer = new URL(req.headers.referer);
+      if (referer.origin === 'https://afkcube.com') {
+        const source = {};
+        for (const [key, short] of Object.entries({utm_source:'s',utm_medium:'m',utm_campaign:'c',ref:'r'})) {
+          if (referer.searchParams.has(key)) source[short] = referer.searchParams.get(key);
+        }
+        if (Object.keys(source).length) { source.i = ['workflow','otom','referral'].includes(body.intent) ? body.intent : 'workflow'; rawLeadSource = JSON.stringify(source); }
+      }
+    } catch (_) { /* Keep the form's own source when no trusted page is available. */ }
+  }
+  if (rawLeadSource.length > MAX_SHORT) return done(422, { error: "Campaign details are too long." });
+  if (rawLeadSource.startsWith('{')) {
+    try {
+      const source = JSON.parse(rawLeadSource);
+      if (!source || Array.isArray(source) || typeof source !== 'object' || Object.keys(source).some(k => !['s','m','c','r','i'].includes(k) || typeof source[k] !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(source[k]))) throw new Error();
+    } catch (_) { return done(422, { error: "Campaign details are invalid. Please check the source link." }); }
+  }
+  const leadSource = rawLeadSource;
 
   const name = clip(body.name, MAX_SHORT);
   const email = clip(body.email, MAX_SHORT);
@@ -218,6 +240,11 @@ export default async function handler(req, res) {
   }
 
   // ---- business inquiry (contact.html, small-business.html) ----
+  const intent = ['workflow','otom','referral'].includes(body.intent) ? body.intent : 'workflow';
+  if (String(body.acceptance_result || '').length > 500 || String(body.problem || '').length > MAX_LONG) {
+    return done(422, { error: "The result or problem description is too long. Your message has not been sent." });
+  }
+  const acceptanceResult = clip(body.acceptance_result, 500);
   const company = clip(body.company, MAX_SHORT);
   const problem = clip(body.problem, MAX_LONG);
   const website = clip(body.website, MAX_SHORT);
@@ -250,6 +277,8 @@ export default async function handler(req, res) {
     ["Name", name],
     ["Business email", email],
     ["Company", company],
+    ["Inquiry type", intent],
+    ["Acceptance result", acceptanceResult],
     ["Website", website],
     ["Country", country],
     ["Needs", need.join(", ")],
