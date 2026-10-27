@@ -28,7 +28,7 @@ Built to the brief in [`AFK3_Website_Design_and_Build_Spec_V1.md`](AFK3_Website_
 | `privacy.html` / `terms.html` | Legal starter templates — have these reviewed |
 | `404.html` | "This workflow went off-path" page (served automatically by Vercel and by `server.js`) |
 | `server.js` | Zero-dependency Node server for non-Vercel hosts (Railway): static files with clean URLs, the `vercel.json` security headers, `/api/contact`, 404 page. Never serves dotfiles, `api/`, `lib/`, `scripts/`, `node_modules/`, `*.md` or package files |
-| `api/contact.js` | Serverless function: rate-limit → validate → AI triage → email via Resend. Branches on `lead_type` (`business` default, or `student`) so one function backs all three inquiry forms |
+| `api/contact.js` | Serverless function: rate-limit → validate → AI triage → email via SendFox. Branches on `lead_type` (`business` default, or `student`) so one function backs all three inquiry forms |
 | `lib/ratelimit.js` | Per-IP rate limiter (Upstash Redis, fail-open) |
 | `scripts/ai-demo.mjs` | `npm run ai:demo` — checks the AI Gateway works |
 | `style.css` / `script.js` | Shared across every page |
@@ -47,14 +47,14 @@ until you add the environment variables below. Each variable unlocks one feature
 
 ## Environment variables
 
-Set these in **Vercel → your project → Settings → Environment Variables** (and, for
+Set these in **Railway → existing AFK3 service → Variables** (and, for
 `vercel dev`, in a local `.env.local` — gitignored). Never commit real values.
 
 | Variable | Unlocks | Priority | Where it comes from |
 | --- | --- | --- | --- |
-| `RESEND_API_KEY` | Sending the inquiry email | **Required** — form is inert without it | [resend.com](https://resend.com) → API Keys |
+| `SENDFOX_API_KEY` | Sending the inquiry email | **Required** — form is inert without it | [sendfox.com](https://sendfox.com) → API Keys |
 | `INQUIRY_TO` | Which inbox receives inquiries | Recommended (default `contact@afkcube.com`) | your address |
-| `INQUIRY_FROM` | The `From:` line | Recommended | must sit on a domain **verified in Resend**; use `onboarding@resend.dev` to start |
+| `INQUIRY_FROM` | The `From:` line | Recommended | must sit on a domain **verified in SendFox**; use `onboarding@sendfoxmail.com` to start |
 | `AI_GATEWAY_API_KEY` | AI triage block appended to the email | Optional | Vercel → **AI Gateway → API Keys** |
 | `AI_MODEL` | Which model triages | Optional (default `openai/gpt-4o-mini`) | any slug from the AI Gateway model list |
 | `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` | Per-IP rate limiting on the form | Recommended for production | Vercel Marketplace → **Upstash for Redis** (auto-adds them) |
@@ -67,7 +67,7 @@ After changing env vars, **redeploy** (or `vercel env pull` + restart `vercel de
 needed; Railway installs dependencies from `package-lock.json` and runs `npm start`.
 
 1. Railway → **New Project → Deploy from GitHub repo** → pick this repo.
-2. **Variables**: add the same env vars as in the table above (`RESEND_API_KEY`, etc.).
+2. **Variables**: add the same env vars as in the table above (`SENDFOX_API_KEY`, etc.).
 3. **Settings → Networking → Generate Domain** (or add `afkcube.com` as a custom domain).
 
 ## 1b. Deploy to Vercel
@@ -77,15 +77,19 @@ needed; Railway installs dependencies from `package-lock.json` and runs `npm sta
    command, output directory = repo root. Deploy.
 3. Every push to the default branch redeploys automatically. Your code stays on GitHub.
 
-## 2. Email — Resend (required)
+## 2. Email — SendFox (required)
 
-1. Create a [Resend](https://resend.com) account.
-2. **Domains** → add `afkcube.com` and complete the DNS records it gives you. This is what
-   makes mail actually land in inboxes. (Skip for now by sending from `onboarding@resend.dev`.)
-3. **API Keys** → create one (`re_…`).
-4. Set `RESEND_API_KEY`, `INQUIRY_TO`, `INQUIRY_FROM` (see the table). Redeploy.
-5. Submit the form on `/contact` — you should get the email, with the visitor's address as
-   `Reply-To`.
+1. Use the existing SendFox account. Request transactional access under **More → Transactional**; account approval is required.
+2. Add `afkcube.com` under **Settings → Email domains**, install the exact DNS records SendFox provides, and verify the domain. Authentication does not guarantee inbox placement.
+3. Create a SendFox API token under **Settings → API tokens**. Keep it server-side.
+4. Set `SENDFOX_API_KEY`, `INQUIRY_TO`, and a verified-domain `INQUIRY_FROM` on the existing Railway service. Redeploy after reviewing the release.
+5. Submit one clearly labeled internal inquiry. Confirm the provider delivery status and the actual receiving inbox, including source/referral fields and Reply-To. API acceptance alone is not receipt.
+
+The handler uses `POST https://api.sendfox.com/transactional/emails` directly, with no Resend SDK or runtime dependency. It requires a queued message ID before acknowledging submission. Missing credentials, quota rejection, malformed responses and provider errors do not show success. There is no legacy-provider fallback or automatic retry.
+
+Free includes 3,000 sends monthly shared with campaigns/automations (official documentation checked 27 October 2026). Transactional access is beta and must be approved for the account. The sandbox sender `onboarding@sendfoxmail.com` reaches only the account email and documented test addresses: set `INQUIRY_TO` accordingly for a sandbox test. Live inquiries need the verified domain. Never subscribe form submitters to marketing automatically. Outreach is a separate reviewed process, not transactional traffic.
+
+Official references: https://sendfox.com/developer/docs/ and https://help.sendfox.com/article/1100-send-transactional-email-from-your-app
 
 The form degrades without JavaScript (plain POST → the function 303-redirects to
 `/contact?sent=1`). A hidden honeypot field (`company_url`) silently drops bots.
@@ -187,7 +191,7 @@ and I'll add a `Lead score:` line to the triage block.
 
 ## Secrets — never in the repo
 
-API keys live only in Vercel env vars (or the AI Gateway dashboard). `.env*` files are gitignored; `.env.example` shows the shape with blank values. If a key is ever pasted into a chat, commit, screenshot or log, **rotate it immediately** (Vercel: Account → Tokens; Resend / OpenAI: their API-keys page).
+Production API keys live only in Railway service variables (or the relevant provider dashboard). `.env*` files are gitignored; `.env.example` shows the shape with blank values. If a key is ever pasted into a chat, commit, screenshot or log, **rotate it immediately** (Vercel: Account → Tokens; SendFox / OpenAI: their API-keys page).
 
 ## Before launch — checklist
 

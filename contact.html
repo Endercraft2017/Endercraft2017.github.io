@@ -106,7 +106,7 @@
         </div>
       </div>
 
-      <!-- Posts to the Vercel function at /api/contact, which emails via Resend.
+      <!-- Posts to /api/contact on the existing Node host, which queues email via SendFox.
            Without JS it still submits and the function redirects back to ?sent=1. -->
       <form class="form reveal" id="inquiryForm" action="/api/contact" method="POST" data-acquisition-form novalidate>
         <input type="hidden" name="lead_source" value="contact_page" />

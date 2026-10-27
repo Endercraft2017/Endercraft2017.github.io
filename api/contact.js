@@ -4,22 +4,22 @@
  * Handles two inquiry shapes, selected by a `lead_type` field the form sends
  * ("business" — the default, used by contact.html and small-business.html —
  * or "student", used by students.html). Both branches share the same
- * honeypot, rate limit and Resend send step; they differ in which fields are
+ * honeypot, rate limit and SendFox send step; they differ in which fields are
  * required and how the email is written up. `lead_source` (e.g.
  * "small_business_landing_page", "student_landing_page") is included in the
  * email when present, for filtering by origin page.
  *
- * Emails the submission via Resend. Optionally adds an AI triage block via the
+ * Emails the submission via SendFox. Optionally adds an AI triage block via the
  * Vercel AI Gateway when configured (business inquiries only). Fails open: if
  * AI is unavailable the email still sends; if email isn't configured it
  * returns a clear error.
  *
- * Environment variables — set in Vercel → Settings → Environment Variables,
+ * Environment variables — set on the existing Railway service,
  * never in this repo:
- *   RESEND_API_KEY              Resend API key (https://resend.com/api-keys)          [required]
+ *   SENDFOX_API_KEY              SendFox API key (https://sendfox.com/developer/docs/)          [required]
  *   INQUIRY_TO                  Where inquiries land       e.g. contact@afkcube.com   [optional]
  *   INQUIRY_FROM                Verified sender e.g. "AFK3 Website <inbox@afkcube.com>"
- *                               (use "onboarding@resend.dev" until a domain is verified) [optional]
+ *                               (use "onboarding@sendfoxmail.com" until a domain is verified) [optional]
  *   AI_GATEWAY_API_KEY          Vercel AI Gateway key — enables the AI triage block   [optional]
  *   AI_MODEL                    Gateway model slug (default "openai/gpt-4o-mini")     [optional]
  *   UPSTASH_REDIS_REST_URL  + UPSTASH_REDIS_REST_TOKEN                                [recommended]
@@ -51,25 +51,26 @@ function readBody(req) {
   return body && typeof body === "object" ? body : {};
 }
 
-/** Sends one inquiry email via the Resend REST API. Returns { ok }. */
+/** Sends one inquiry email via the SendFox REST API. Returns { ok }. */
 async function sendInquiryEmail(apiKey, { to, from, subject, text, html, replyTo }) {
   const payload = { from: from, to: [to], subject: subject, text: text, html: html };
   if (replyTo) payload.reply_to = replyTo;
   try {
-    const resp = await fetch("https://api.resend.com/emails", {
+    const resp = await fetch("https://api.sendfox.com/transactional/emails", {
       method: "POST",
       signal: AbortSignal.timeout(10000),
       headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
     if (!resp.ok) {
-      const detail = await resp.text();
-      console.error("Resend error", resp.status, detail);
+      // Do not log provider response bodies: they may contain inquiry data.
+      console.error("SendFox request rejected", resp.status);
       return { ok: false };
     }
-    return { ok: true };
+    const queued = await resp.json();
+    return { ok: typeof queued.id === "string" && queued.id.length > 0 && queued.status === "queued" };
   } catch (err) {
-    console.error("contact handler error", err);
+    console.error("Contact email request failed");
     return { ok: false };
   }
 }
@@ -134,7 +135,7 @@ export default async function handler(req, res) {
   if (body.company_url) return done(200, { ok: true });
 
   // Per-IP rate limit (fail-open if Upstash Redis isn't configured). Guards both
-  // the AI call and the Resend send below.
+  // the AI call and the SendFox send below.
   const rl = await checkRateLimit(req, "contact");
   if (!rl.ok) {
     if (rl.reset) {
@@ -174,9 +175,9 @@ export default async function handler(req, res) {
   const name = clip(body.name, MAX_SHORT);
   const email = clip(body.email, MAX_SHORT);
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.SENDFOX_API_KEY;
   const to = process.env.INQUIRY_TO || "contact@afkcube.com";
-  const from = process.env.INQUIRY_FROM || "AFK3 Website <onboarding@resend.dev>";
+  const from = process.env.INQUIRY_FROM || "AFK3 Website <onboarding@sendfoxmail.com>";
 
   if (leadType === "student") {
     const school = clip(body.school, MAX_SHORT);
