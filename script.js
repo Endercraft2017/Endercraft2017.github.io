@@ -354,6 +354,10 @@
     if (requestedIntent === 'otom' && Object.hasOwn(screenBriefs, requestedScreen) && problemField && !problemField.value.trim()) {
       problemField.value = screenBriefs[requestedScreen];
     }
+    // Only this exact service token supplies a starting brief; never replace user text.
+    if (new URLSearchParams(window.location.search).get('service') === 'ai-app-review' && problemField && !problemField.value.trim()) {
+      problemField.value = "I'd like an AI App Review & Repair fit discussion. My app's purpose, platform/stack, broken workflow and intended deadline are: ";
+    }
     function updateLeadContext() {
       var hidden = form.querySelector('[name="lead_source"]');
       if (hidden && form.hasAttribute('data-acquisition-form') && window.AFKLead) {

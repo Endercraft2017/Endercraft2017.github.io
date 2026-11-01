@@ -55,3 +55,7 @@ native browser code rather than vendored animation presets. Local Chromium check
 home/products/services at1440/390 with no axe violations, overflow or JS exceptions;
 mobile navigation, no-JS routes and runtime reduced-motion cancellation were checked.
 These results do not establish Railway-hosted behavior or buyer conversion.
+
+## AI app review and repair November 2026
+
+AI App Review & Repair: `/ai-app-review-repair` describes paid diagnosis, scoped repair and optional support. Home, services and custom-software link to the service. This is an offered service, not a completed client case or certification.
