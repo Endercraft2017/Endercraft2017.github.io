@@ -40,3 +40,7 @@ Home/services/products content renders fully → optional site-motion.js observe
 cards → one finite compositor-friendly entrance per element → animation completes and
 releases. Reduced-motion, keyboard focus and hidden-tab states cancel active animations.
 No animation controls inquiry submission, navigation, product readiness or conversion.
+
+## AI app review and repair November 2026
+
+AI-built app service → `/contact?intent=workflow&need=software&service=ai-app-review` → existing workflow inquiry. The exact service token prefills an editable brief only when empty; no new API intent, payment, access grant or project commitment is created. Fit → written paid diagnosis → optional separately scoped repair → acceptance/handoff → optional support.
