@@ -2,5 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# Update to your real domain before launch:
+# Search discovery is permitted. Training permissions can be managed independently.
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+
 Sitemap: https://afkcube.com/sitemap.xml

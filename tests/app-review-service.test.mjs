@@ -19,3 +19,15 @@ test('service is discoverable with matching metadata and real inquiry route',asy
  for(const file of ['services.html','ai-app-review-repair.html']){const d=new JSDOM(await readFile(new URL('../'+file,import.meta.url),'utf8'));for(const s of d.window.document.querySelectorAll('script[type="application/ld+json"]'))JSON.parse(s.textContent);d.window.close()}
  assert.match(await readFile(new URL('../sitemap.xml',import.meta.url),'utf8'),/https:\/\/afkcube.com\/ai-app-review-repair/);
 });
+
+test('referenceable offer keeps visible answers, evidence and truthful limits in static HTML',async()=>{
+ const d=new JSDOM(await readFile(new URL('../ai-app-review-repair.html',import.meta.url),'utf8'));const doc=d.window.document;
+ assert.equal(doc.querySelectorAll('#questions-title').length,1);
+ assert.equal(doc.querySelector('[aria-labelledby="questions-title"]').querySelectorAll('h3').length,6);
+ assert.match(doc.querySelector('[aria-labelledby="internal-case-title"]').textContent,/internal AFK³ website repair/);
+ assert.match(doc.querySelector('[aria-labelledby="internal-case-title"]').textContent,/Email delivery is mocked/);
+ assert.equal(doc.querySelector('meta[name=robots]').content.includes('noindex'),false);
+ const graph=JSON.parse(doc.querySelector('script[type="application/ld+json"]').textContent)['@graph'];
+ assert.equal(graph.find(x=>x['@type']==='Service').url,doc.querySelector('link[rel=canonical]').href);
+ assert.equal(doc.querySelectorAll('script[src*="lead-context"]').length,1);d.window.close();
+});
