@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "created": "2026-11-02",
+  "timezone": "Asia/Manila",
+  "prompts": [
+    {
+      "id": "P01",
+      "kind": "branded",
+      "prompt": "What services does AFK³ Solutions offer, and what evidence supports its app repair service?"
+    },
+    {
+      "id": "P02",
+      "kind": "recommendation",
+      "prompt": "Who can help a small agency diagnose and fix one broken workflow in an AI-built web app?"
+    },
+    {
+      "id": "P03",
+      "kind": "recommendation",
+      "prompt": "Recommend a developer who can repair an AI-built app without automatically rebuilding it."
+    },
+    {
+      "id": "P04",
+      "kind": "recommendation",
+      "prompt": "Find an AI app review and repair provider in the Philippines that works remotely."
+    },
+    {
+      "id": "P05",
+      "kind": "recommendation",
+      "prompt": "Who offers paid diagnosis before quoting repairs for a vibe-coded app?"
+    },
+    {
+      "id": "P06",
+      "kind": "citation",
+      "prompt": "How should I hand over an AI-built web app to a developer for repair?"
+    },
+    {
+      "id": "P07",
+      "kind": "citation",
+      "prompt": "Should I repair or rebuild an AI-built app with broken workflows?"
+    },
+    {
+      "id": "P08",
+      "kind": "citation",
+      "prompt": "Can campaign tracking parameters break a website contact form?"
+    }
+  ]
+}

@@ -50,13 +50,13 @@
   </url>
   <url>
     <loc>https://afkcube.com/work</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://afkcube.com/about</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -92,4 +92,7 @@
 <url><loc>https://afkcube.com/products/otom</loc></url>
 <url><loc>https://afkcube.com/referrals</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://afkcube.com/ai-app-review-repair</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://afkcube.com/work/inquiry-attribution-repair</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://afkcube.com/ai-app-handover-checklist</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://afkcube.com/repair-or-rebuild</loc><lastmod>2026-11-02</lastmod></url>
 </urlset>

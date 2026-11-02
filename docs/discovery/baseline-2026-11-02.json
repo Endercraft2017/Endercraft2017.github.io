@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-02",
+  "timezone": "Asia/Manila",
+  "test_type": "web-search retrieval proxy; not direct independent AI platform recommendation tests",
+  "batches": [
+    {
+      "engine": "system2",
+      "queries": [
+        "\"AFK³ Solutions\" \"app\"",
+        "\"afkcube.com\"",
+        "who can fix AI built web app paid diagnosis developer Philippines",
+        "vibe coding rescue agency paid diagnosis repair app"
+      ],
+      "afk_in_returned_results": false,
+      "sample_other_domains": [
+        "vibecode.repair",
+        "rescueengineers.ai",
+        "fixedlaunch.com"
+      ],
+      "limitation": "Combined returned results; no exhaustive ranking or query-level denominator inferred."
+    },
+    {
+      "engine": "system1",
+      "queries": [
+        "\"afkcube.com\"",
+        "\"AFK³ Solutions\"",
+        "who can help repair one broken workflow in an AI built web app",
+        "how to hand over an AI built app to a developer for repair"
+      ],
+      "afk_in_returned_results": false,
+      "sample_other_domains": [
+        "apprescuedesk.com",
+        "vibecode.repair",
+        "plutonapps.com"
+      ],
+      "limitation": "Combined returned results; no exhaustive ranking or query-level denominator inferred."
+    }
+  ],
+  "verified_settings": {
+    "google_search_generative_ai": "Include observed in Search Console settings",
+    "google_service_url_indexing": "URL indexed, verified earlier on 2026-11-02",
+    "bing_site": "ownership verified and sitemap submitted earlier on 2026-11-02; processing at last observation"
+  },
+  "direct_ai_tests": {
+    "ChatGPT_fresh_chat": "not tested",
+    "Claude": "not tested",
+    "Perplexity": "not tested",
+    "Copilot": "not tested"
+  },
+  "interpretation": "No AFK result observed in these returned search batches. This does not prove absence from every index or AI answer.",
+  "next_review": "Use prompt-set.json and measurement-protocol.md. Repeat weekly for four weeks, preserving platform and personalization limits."
+}
