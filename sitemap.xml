@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<!-- Replace https://afkcube.com with your real domain before launch. Bump <lastmod> when a page's content changes. -->
+<!-- Use canonical URLs and dates of significant page updates. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://afkcube.com/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <loc>https://afkcube.com/</loc><lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://afkcube.com/services</loc>
-    <lastmod>2026-09-27</lastmod>
+    <loc>https://afkcube.com/services</loc><lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -63,8 +61,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://afkcube.com/contact</loc>
-    <lastmod>2026-09-17</lastmod>
+    <loc>https://afkcube.com/contact</loc><lastmod>2026-11-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -93,6 +90,6 @@
     <priority>0.3</priority>
   </url>
 <url><loc>https://afkcube.com/products/otom</loc></url>
-<url><loc>https://afkcube.com/referrals</loc></url>
+<url><loc>https://afkcube.com/referrals</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://afkcube.com/ai-app-review-repair</loc><lastmod>2026-11-02</lastmod></url>
 </urlset>
