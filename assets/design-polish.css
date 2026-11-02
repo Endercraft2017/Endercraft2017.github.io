@@ -94,3 +94,6 @@
 .engagement-map:has(.engagement-map__detail) .engagement-map__footer {margin-top:16px;}
 
 .engagement-map__step-copy>span {display:block;color:var(--process-text);font-size:11px;line-height:1.65;}
+
+/* Three clear buying routes, stacked on narrow screens. */
+@media (min-width: 761px) { .hero--chooser .choice-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
