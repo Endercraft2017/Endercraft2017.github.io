@@ -167,7 +167,15 @@ export default async function handler(req, res) {
   if (rawLeadSource.startsWith('{')) {
     try {
       const source = JSON.parse(rawLeadSource);
-      if (!source || Array.isArray(source) || typeof source !== 'object' || Object.keys(source).some(k => !['s','m','c','r','i'].includes(k) || typeof source[k] !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(source[k]))) throw new Error();
+      if (!source || Array.isArray(source) || typeof source !== 'object' || Object.keys(source).some(k => !['s','m','c','r','i'].includes(k) || typeof source[k] !== 'string')) throw new Error();
+      // Optional campaign/referral tags must never prevent an otherwise valid inquiry.
+      // Referral codes keep their existing format; domain-style UTM sources are valid.
+      for (const key of ['s','m','c','r']) {
+        const allowed = key === 'r' ? /^[A-Za-z0-9_-]{1,40}$/ : /^[A-Za-z0-9_.-]{1,40}$/;
+        if (key in source && !allowed.test(source[key])) delete source[key];
+      }
+      if ('i' in source && !/^[A-Za-z0-9_-]{1,40}$/.test(source.i)) throw new Error();
+      rawLeadSource = JSON.stringify(source);
     } catch (_) { return done(422, { error: "Campaign details are invalid. Please check the source link." }); }
   }
   const leadSource = rawLeadSource;

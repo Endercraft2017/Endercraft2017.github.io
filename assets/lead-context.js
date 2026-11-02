@@ -3,6 +3,8 @@
   'use strict';
   var KEYS = {utm_source:'s',utm_medium:'m',utm_campaign:'c',ref:'r'};
   var ALLOWED = /^[A-Za-z0-9_-]{1,40}$/;
+  var CAMPAIGN = /^[A-Za-z0-9_.-]{1,40}$/;
+  function valid(key, value) { return (key === 'ref' ? ALLOWED : CAMPAIGN).test(value); }
   var STORAGE = 'afk3_acquisition_v1';
   var params = new URLSearchParams(window.location.search), context = {}, errors = [];
   var stored = {};
@@ -10,9 +12,9 @@
   if (!stored || Array.isArray(stored) || typeof stored !== 'object') stored = {};
   Object.keys(KEYS).forEach(function (key) {
     var k = KEYS[key], incoming = params.get(key);
-    if (typeof stored[k] === 'string' && ALLOWED.test(stored[k])) context[k] = stored[k];
+    if (typeof stored[k] === 'string' && valid(key, stored[k])) context[k] = stored[k];
     if (incoming !== null) {
-      if (!ALLOWED.test(incoming)) errors.push(key + ' must contain 1–40 letters, digits, underscores or hyphens.');
+      if (!valid(key, incoming)) errors.push('The ' + key + ' tag was not applied. You can still send your inquiry. Mention any referral correction in your message.');
       else if (!context[k]) context[k] = incoming;
     }
   });
@@ -22,7 +24,6 @@
     if (!ALLOWED.test(data.i)) throw new Error('Invalid inquiry type.');
     var json = JSON.stringify(data);
     if (json.length > 236) throw new Error('Campaign details exceed the supported limit.');
-    if (errors.length) throw new Error(errors.join(' '));
     return json;
   }
   function decorate() {
@@ -34,7 +35,6 @@
       var marketing = /^(afkcube\.com|otom\.afkcube\.com)$/.test(url.hostname);
       if ((!own && !marketing) || !/^https?:$/.test(url.protocol)) return;
       if (/^\/(api|site|sandbox|_platform|m)(\/|$)/.test(url.pathname)) return;
-      if (errors.length) return;
       Object.keys(KEYS).forEach(function (key) { if (context[KEYS[key]]) url.searchParams.set(key,context[KEYS[key]]); });
       // Relative on-site URLs remain portable to the local preview.
       a.href = own ? url.pathname + url.search + url.hash : url.href;
