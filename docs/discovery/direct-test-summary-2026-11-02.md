@@ -22,3 +22,7 @@ The controlled saved-ticket demonstration has been published at https://afkcube.
 The directory request and proposed diagnosis offer are reviewable drafts. No external directory request was sent, no paid listing was purchased and no public starting price was published.
 
 Is our website, webapp, or service referenceable? The offer and engineering evidence are inspectable; independent recommendations, customer proof and attributable sales remain unproven.
+
+## Separate branded diagnostic control
+
+See [brand-discovery-2026-11-02.md](brand-discovery-2026-11-02.md) for the one-session branded discovery failure followed by successful supplied-URL reading, production HTTP corroboration and the subsequent identity intervention. These are separate from the four unbranded recommendation runs and must not be added to their denominator.

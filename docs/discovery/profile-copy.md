@@ -4,7 +4,7 @@ Prepared 2 November 2026. Website About page and verified LinkedIn sameAs link i
 
 ## Company description
 
-AFK³ Solutions (Automated Flow Kinetics) helps businesses operate while they are AFK. We build custom software, connect business workflows and develop OTOM. For founders and small agencies with an AI-built web app, App Review & Repair starts with a paid diagnosis of one agreed workflow, followed by separately scoped repairs and optional support.
+AFK³ Solutions (AFKCube; Automated Flow Kinetics) helps businesses operate while they are AFK. We build custom software, connect business workflows and develop OTOM. For founders and small agencies with an AI-built web app, App Review & Repair starts with a paid diagnosis of one agreed workflow, followed by separately scoped repairs and optional support.
 
 Explore our services, internal engineering examples and current product readiness at https://afkcube.com.
 

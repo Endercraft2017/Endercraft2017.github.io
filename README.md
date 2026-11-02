@@ -1,4 +1,17 @@
-# AFK³ Solutions — Website
+# AFK³ Solutions (AFKCube)
+
+**AFK³ Solutions**, written **AFK3 Solutions** in plain text, is **Automated Flow Kinetics**. Our official website is [afkcube.com](https://afkcube.com/), and our LinkedIn company profile uses [AFKCube](https://www.linkedin.com/company/afkcube).
+
+We build custom software, automate business workflows and offer [AI App Review & Repair](https://afkcube.com/ai-app-review-repair) for founders, businesses and small agencies with an AI-built web app. Start with paid diagnosis of one agreed workflow; implementation and optional support are scoped separately.
+
+Public engineering evidence:
+
+- [Inquiry-attribution repair](https://afkcube.com/work/inquiry-attribution-repair): an internal website defect, reproduction, patch and regression checks. Email is mocked in automated tests; production delivery and sales effects are not established.
+- [Saved-ticket repair demonstration](https://afkcube.com/work/saved-ticket-repair-demo): a deliberately broken save workflow and a repaired version using synthetic data. This is a controlled demonstration, not customer work or production certification.
+
+For scope and access, [describe the workflow that needs fixing](https://afkcube.com/contact?intent=workflow&need=software&service=ai-app-review). Do not send passwords or private customer records.
+
+## Website source
 
 Marketing site for **AFK³ Solutions — Automated Flow Kinetics**.
 Plain HTML / CSS / JS, plus one serverless-style contact endpoint (`api/contact.js`).
