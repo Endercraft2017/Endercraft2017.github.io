@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The app says saved, but the ticket disappears | AFK³ Solutions</title>
+<meta name="description" content="A controlled AFK³ repair demonstration: inspect a false save acknowledgement, compare the repaired workflow and verify persistence and failure handling." />
+<meta name="theme-color" content="#080B12" />
+<link rel="canonical" href="https://afkcube.com/work/saved-ticket-repair-demo" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<script>document.documentElement.classList.add('js');</script>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AFK³ Solutions" />
+<meta property="og:title" content="The app says saved, but the ticket disappears | AFK³ Solutions" />
+<meta property="og:description" content="A controlled AFK³ repair demonstration: inspect a false save acknowledgement, compare the repaired workflow and verify persistence and failure handling." />
+<meta property="og:url" content="https://afkcube.com/work/saved-ticket-repair-demo" />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:image" content="https://afkcube.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The app says saved, but the ticket disappears | AFK³ Solutions" />
+<meta name="twitter:description" content="A controlled AFK³ repair demonstration: inspect a false save acknowledgement, compare the repaired workflow and verify persistence and failure handling." />
+<meta name="twitter:image" content="https://afkcube.com/assets/og-image.png" />
+<meta name="twitter:image:alt" content="AFK³ Solutions — Automated Flow Kinetics" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6NMH9PFJN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6NMH9PFJN');
+</script>
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/assets/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="/style.css" />
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The app says saved, but the ticket disappears",
+      "description": "A controlled AFK³ repair demonstration: inspect a false save acknowledgement, compare the repaired workflow and verify persistence and failure handling.",
+      "url": "https://afkcube.com/work/saved-ticket-repair-demo",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@type": "Organization",
+        "name": "AFK³ Solutions",
+        "url": "https://afkcube.com/about"
+      },
+      "publisher": {
+        "@id": "https://afkcube.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://afkcube.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI App Review & Repair",
+          "item": "https://afkcube.com/ai-app-review-repair"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The app says saved, but the ticket disappears",
+          "item": "https://afkcube.com/work/saved-ticket-repair-demo"
+        }
+      ]
+    }
+  ]
+}</script>
+<link rel="stylesheet" href="/assets/repair-guides.css" />
+<link rel="stylesheet" href="/assets/demos/ticket-demo.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader" data-nav>
+  <div class="container nav-inner">
+    <a class="brand" href="/" aria-label="AFK³ Solutions — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__word">AFK<sup class="brand__cube" tabindex="0" role="img" aria-label="cubed">3
+        <span class="brand__nodes" aria-hidden="true"><i></i><i></i><i></i></span>
+      </sup></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services" aria-current="page">Services</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/how-we-work">How We Work</a></li>
+        <li><a href="/work">Work</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="nav__cta-item"><a class="btn btn--primary btn--sm" href="/contact?intent=workflow&amp;need=software&amp;service=ai-app-review">Discuss an App Review <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main"><section class="pagehead"><div class="pagehead__bg" aria-hidden="true"><div class="hero__grid"></div><div class="hero__radial"></div></div><div class="container"><p class="eyebrow">Controlled demonstration / AFK³ Solutions</p><h1 class="pagehead__title">The app says saved,<br>but the ticket disappears.</h1><p class="pagehead__lead">A synthetic service-ticket workflow with a deliberately introduced persistence defect. Inspect the diagnosis, try the behavior and compare the repair.</p><p>Prepared by AFK³ Solutions · 2 November 2026 · Demonstration, not customer work</p></div></section>
+<section class="section" aria-labelledby="demo-scope"><div class="container reading-width"><p class="eyebrow">What this demonstrates</p><h2 class="section__title" id="demo-scope">A success message is not proof of a saved record.</h2><p>A service coordinator creates ticket DEMO-001. The broken save method returns success after placing the ticket in temporary memory. The record list reads the durable repository, which never received that write.</p><p>The cause in this demonstration is a missing persistence step. The repair waits for the repository write before acknowledging success and propagates write failures. A real app can show the same symptom for different reasons, so this is an example of an investigation, not a universal fix.</p><p><strong>All records are synthetic. No customer incident, delivery-time claim or business result is implied.</strong></p></div></section>
+<section class="section section--alt" aria-labelledby="try-demo"><div class="container reading-width"><p class="eyebrow">Try the workflow</p><h2 class="section__title" id="try-demo">Compare the broken and repaired behavior.</h2><p>This interactive version runs in your browser. It uses browser storage, makes no ticket-network requests and accepts no customer information. The same workflow functions are exercised against a file-backed repository in separate Node tests.</p><div class="ticket-demo"><label for="demo-mode">Version to inspect</label><select id="demo-mode"><option value="broken">Before repair</option><option value="repaired">After repair</option></select><p><label><input type="checkbox" id="demo-fail"> Simulate a storage-write failure</label></p><div class="ticket-demo__actions"><button class="btn btn--primary" type="button" id="demo-save">Save synthetic ticket</button><button class="btn btn--outline" type="button" id="demo-reload">Reopen workflow</button><button class="btn btn--outline" type="button" id="demo-reset">Reset demo records</button></div><p id="demo-status" role="status" aria-live="polite">Enable JavaScript to use the interactive demonstration. The diagnosis and checks below remain readable.</p><h3>Saved records</h3><pre id="demo-records">Interactive records appear here.</pre></div><ol><li>Reset the demo. Choose Before repair, save the ticket and reopen the workflow. No record is stored.</li><li>Choose After repair, save and reopen. DEMO-001 remains in the saved list. A browser refresh also reads the same browser-stored record.</li><li>Reset, choose After repair, enable the write failure and save. The error is reported without acknowledging success.</li></ol><p>The reset affects only this demonstration’s browser-storage key. If your browser blocks storage, the simulation reports that limit.</p></div></section>
+<section class="section" aria-labelledby="diagnosis-report"><div class="container reading-width"><p class="eyebrow">Sample diagnosis</p><h2 class="section__title" id="diagnosis-report">What we found and how we checked it.</h2><div class="table-scroll"><table class="readiness-table"><caption>Controlled reproduction and acceptance checks</caption><thead><tr><th scope="col">Check</th><th scope="col">Before</th><th scope="col">After</th></tr></thead><tbody><tr><th scope="row">Save and open a fresh workflow instance</th><td>Success returned; repository empty</td><td>Stored ticket returned</td></tr><tr><th scope="row">Save the same ticket ID again, sequentially</th><td>No durable record</td><td>Existing record updated; one ticket retained</td></tr><tr><th scope="row">Repository rejects a write</th><td>Missing write hides the failure</td><td>Error propagated; no success acknowledgement</td></tr></tbody></table></div><p>The Node regression checks use a temporary directory and a real file repository. They recreate the workflow and adapter after saving, so the persistence assertion does not rely on an in-memory copy. The temporary files are removed after each test.</p><h3>Limits of this evidence</h3><p>This is a small, single-process demonstration. It does not establish production database durability, concurrent-writer behavior, authorization, tenant isolation, migration safety, backups, email delivery or deployment readiness. Browser-storage checks and file-repository checks are distinct. A production repair needs checks appropriate to its actual stack and environment.</p><p><a class="text-link" href="https://github.com/Endercraft2017/Endercraft2017.github.io/blob/main/assets/demos/ticket-workflow.js">Inspect the workflow code →</a><br><a class="text-link" href="https://github.com/Endercraft2017/Endercraft2017.github.io/blob/main/scripts/repair-demo/file-repository.mjs">Inspect the file adapter →</a><br><a class="text-link" href="https://github.com/Endercraft2017/Endercraft2017.github.io/blob/main/tests/repair-demo.test.mjs">Inspect the regression checks →</a></p></div></section>
+<section class="section section--alt" aria-labelledby="demo-next"><div class="container reading-width"><p class="eyebrow">Your app, your workflow</p><h2 class="section__title" id="demo-next">Bring the behavior you need to verify.</h2><p>Tell us which task fails, the expected and actual results, the stack and the business impact. We agree on one workflow, the investigation budget and deliverables before paid diagnosis. Repairs and support are scoped separately.</p><a class="btn btn--primary" href="/contact?intent=workflow&amp;need=software&amp;service=ai-app-review">Discuss an App Review →</a><p><a class="text-link" href="/ai-app-handover-checklist">Prepare your handover brief →</a></p></div></section></main>
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="brand" href="/" aria-label="AFK³ Solutions — home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__word">AFK<sup class="brand__cube">3</sup></span>
+      </a>
+      <p class="footer__legal">AFK³ Solutions — Automated Flow Kinetics</p>
+      <p class="footer__tag">Helping businesses operate while you're AFK.</p>
+      <svg class="footer__line" viewBox="0 0 220 12" aria-hidden="true">
+        <line x1="6" y1="6" x2="214" y2="6" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+        <line class="footer__trace" x1="6" y1="6" x2="214" y2="6"/>
+        <circle cx="6" cy="6" r="4" fill="#36D7FF"/><circle cx="110" cy="6" r="4" fill="#36D7FF"/><circle cx="214" cy="6" r="4" fill="#36D7FF"/>
+        <circle class="footer__pulse" cx="6" cy="6" r="4" fill="#63E6BE"/>
+      </svg>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/custom-software#solutions">Solutions</a></li>
+        <li><a href="/how-we-work">How We Work</a></li>
+        <li><a href="/work">Work</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact?intent=workflow&amp;need=software">Contact</a></li>
+      </ul>
+    </nav>
+    <nav class="footer__nav" aria-label="Legal &amp; contact">
+      <h2>More</h2>
+      <ul>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/referrals">Referral Partners</a></li>
+        <li><a href="mailto:contact@afkcube.com">contact@afkcube.com</a></li>
+        <li><a href="tel:+639913257591">+(63) 9913 257 591</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year">2026</span> AFK³ Solutions. All rights reserved.</p>
+    <button type="button" class="afk-toggle" id="afkToggle">Go AFK</button>
+  </div>
+</footer>
+
+<div class="afk-toast" id="afkToast" role="status" aria-live="polite" hidden>Still moving.</div>
+<script src="/assets/lead-context.js" defer></script>
+<script src="/script.js" defer></script>
+<script type="module" src="/assets/demos/ticket-demo.js"></script>
+</body>
+</html>
