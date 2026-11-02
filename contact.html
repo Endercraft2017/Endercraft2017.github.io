@@ -99,10 +99,10 @@
       <div class="contact__intro reveal">
         <p class="eyebrow">Start a conversation</p>
         <h1 class="section__title" id="contact-title">What would you like to work on?</h1>
-        <p class="section__lead">Tell us how the process works today. We'll help determine what should happen next.</p>
+        <p class="section__lead">Tell us what is broken or how the process works today. For an app review, include the stack, failing step, business impact, deadline and approximate diagnosis budget.</p>
         <div class="contact__aside">
           <span class="status-dot"></span>
-          <p>We review your workflow, product or referral inquiry before proposing a next step. Please send a description, not private employee, payroll or client records.</p>
+          <p>We review your workflow, product or referral inquiry before proposing a next step. Please send a description, not passwords, API keys or private employee, payroll or client records.</p>
         </div>
       </div>
 
@@ -110,7 +110,7 @@
            Without JS it still submits and the function redirects back to ?sent=1. -->
       <form class="form reveal" id="inquiryForm" action="/api/contact" method="POST" data-acquisition-form novalidate>
         <input type="hidden" name="lead_source" value="contact_page" />
-        <div class="field"><label for="f-intent">I’m interested in</label><select id="f-intent" name="intent"><option value="workflow">A custom workflow or service</option><option value="otom">An OTOM HR fit review</option><option value="referral">A referral partnership</option></select></div>
+        <div class="field"><label for="f-intent">I’m interested in</label><select id="f-intent" name="intent"><option value="workflow">App review, custom workflow or service</option><option value="otom">An OTOM HR fit review</option><option value="referral">A referral partnership</option></select></div>
         <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
         <input type="text" name="company_url" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
