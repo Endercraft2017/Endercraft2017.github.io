@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-02",
+  "timezone": "Asia/Manila",
+  "platform": "ChatGPT consumer web UI",
+  "displayed_model_label": "Medium; underlying model version not exposed",
+  "method": "Fresh temporary chats; Unpersonalized selected, explicitly ignoring memory, plugins and custom instructions; Web search selected; no AFK brand or URL supplied in buyer prompts.",
+  "valid_completed_runs": 4,
+  "results": [
+    {
+      "prompt_id": "P02",
+      "repeat": 1,
+      "afk_mentioned": false,
+      "afk_recommended": false,
+      "providers_named": [
+        "Md. Al M. on Upwork",
+        "Golam R. on Upwork",
+        "inahei.pro",
+        "Kayvandra"
+      ],
+      "evidence": "Completed answer observed directly in unpersonalized temporary ChatGPT chat, web search selected."
+    },
+    {
+      "prompt_id": "P02",
+      "repeat": 2,
+      "afk_mentioned": false,
+      "afk_recommended": false,
+      "providers_named": [
+        "FixedLaunch",
+        "Samuel on Upwork",
+        "DevDec Rescue",
+        "Halil Aydin on Contra",
+        "Husnu on Fiverr"
+      ],
+      "evidence": "Completed answer observed directly in unpersonalized temporary ChatGPT chat, web search selected."
+    },
+    {
+      "prompt_id": "P02",
+      "repeat": 3,
+      "afk_mentioned": false,
+      "afk_recommended": false,
+      "providers_named": [
+        "FixedLaunch",
+        "Ayokunle A. on Upwork",
+        "Samuel on Upwork",
+        "DevDec Rescue",
+        "Ahmad on Upwork",
+        "Alexi S. on Upwork"
+      ],
+      "evidence": "Completed answer observed directly; full accessibility snapshot captured."
+    },
+    {
+      "prompt_id": "P03",
+      "repeat": 1,
+      "afk_mentioned": false,
+      "afk_recommended": false,
+      "visible_links": [
+        {
+          "label": "Ibrahim Y. — Upwork",
+          "url": "https://www.upwork.com/services/product/development-it-a-focused-rescue-sprint-to-fix-or-finish-your-ai-built-app-2105282148288612450?utm_source=chatgpt.com"
+        },
+        {
+          "label": "Yasir Rehman — Fiverr",
+          "url": "https://www.fiverr.com/dynamic_tech/build-fix-and-improve-your-ai-or-vibe-coded-app?utm_source=chatgpt.com"
+        },
+        {
+          "label": "Kayvandra — AI App Rescue",
+          "url": "https://kayvandra.com/services/vibe-coding-rescue?utm_source=chatgpt.com"
+        },
+        {
+          "label": "DevDec Rescue — Fixed-scope repairs",
+          "url": "https://devdec.ca/rescue?utm_source=chatgpt.com"
+        }
+      ],
+      "evidence": "Completed answer observed directly; full accessibility snapshot captured."
+    }
+  ],
+  "summary": {
+    "P02": "0 AFK mentions or recommendations in 3 completed repeats",
+    "P03": "0 AFK mentions or recommendations in 1 completed run"
+  },
+  "excluded_attempts": [
+    {
+      "platform": "ChatGPT",
+      "reason": "One prompt was split by search-chip insertion; excluded as a changed prompt."
+    },
+    {
+      "platform": "ChatGPT",
+      "reason": "Additional attempts could not be read reliably because browser calls timed out. No positive or negative result inferred."
+    },
+    {
+      "platform": "Perplexity",
+      "reason": "Prompt submitted; answer required sign-up. Cloud-browser sign-in is unsupported. Excluded, not a negative result."
+    },
+    {
+      "platform": "Copilot",
+      "reason": "Public page requires sign-in; no completed answer. Excluded, not a negative result."
+    }
+  ],
+  "not_tested": [
+    "Claude",
+    "P01 branded control",
+    "P06–P08 informational prompts"
+  ],
+  "limitations": [
+    "One date and one browser/account environment; not a representative market estimate.",
+    "Three P02 repeats and one P03 result do not establish persistent absence across platforms.",
+    "Country/location and user history at the platform level were not independently controlled; unpersonalized temporary mode was visibly confirmed.",
+    "Provider claims, quoted prices and quality in generated answers are unverified and not endorsed.",
+    "Incomplete runs must not be included in a recommendation-rate denominator."
+  ],
+  "next_step": "Repeat the missing buyer prompts when direct browser access is reliable; compare actual cited providers and sources. Do not label website deployment as discoverability success."
+}

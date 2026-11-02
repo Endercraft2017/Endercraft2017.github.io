@@ -26,3 +26,18 @@ test('repaired demonstration propagates persistence failures instead of acknowle
  await assert.rejects(async()=>{await workflow.save(ticket);acknowledged=true;},/Controlled write failure/);
  assert.equal(acknowledged,false);
 });
+
+import {JSDOM} from 'jsdom';
+import {readFile} from 'node:fs/promises';
+const demoHTML=await readFile(new URL('../work/saved-ticket-repair-demo.html',import.meta.url),'utf8');
+const demoScript=(await readFile(new URL('../assets/demos/ticket-demo.js',import.meta.url),'utf8')).replace(/^import .*?;\n/,'');
+const tick=()=>new Promise(resolve=>setTimeout(resolve,10));
+function browserDemo(saved={}){const d=new JSDOM(demoHTML,{url:'https://afkcube.com/work/saved-ticket-repair-demo',runScripts:'outside-only'});for(const[k,v]of Object.entries(saved))d.window.localStorage.setItem(k,v);d.window.createWorkflow=createWorkflow;d.window.eval(demoScript);return d;}
+test('browser demo keeps the repaired selection and record across a fresh page instance',async()=>{
+ const d=browserDemo();const w=d.window;const mode=w.document.getElementById('demo-mode');mode.value='repaired';mode.dispatchEvent(new w.Event('change'));w.document.getElementById('demo-save').click();await tick();
+ const saved=Object.fromEntries(Array.from({length:w.localStorage.length},(_,i)=>w.localStorage.key(i)).map(k=>[k,w.localStorage.getItem(k)]));
+ const fresh=browserDemo(saved);await tick();assert.equal(fresh.window.document.getElementById('demo-mode').value,'repaired');assert.match(fresh.window.document.getElementById('demo-records').textContent,/DEMO-001/);d.window.close();fresh.window.close();
+});
+test('switching to the broken version does not borrow repaired-version records',async()=>{
+ const d=browserDemo();const w=d.window;const mode=w.document.getElementById('demo-mode');mode.value='repaired';mode.dispatchEvent(new w.Event('change'));w.document.getElementById('demo-save').click();await tick();mode.value='broken';mode.dispatchEvent(new w.Event('change'));await tick();assert.equal(w.document.getElementById('demo-records').textContent,'No saved tickets.');w.document.getElementById('demo-save').click();await tick();assert.match(w.document.getElementById('demo-status').textContent,/Saved/);assert.equal(w.document.getElementById('demo-records').textContent,'No saved tickets.');d.window.close();
+});
