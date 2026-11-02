@@ -59,3 +59,15 @@ Use the already scheduled weekly discovery checks. Record last-crawl and reporti
 Unresolved: AI search coverage/ranking, reliable unprompted recommendations, independent customer proof, attributable leads and sales. External social profile copy is prepared but profile editing is not exposed by current tools. No directory request has been sent.
 
 Is our website, webapp, or service referenceable? The site and evidence were read successfully when supplied directly. Consistent identity is now the intervention under test; organic discovery and recommendations remain unproven.
+
+
+## Observed publication and immediate retest
+
+- Website release: 954bf4f1b61367bd9cfb05b91e3fc6a7510b9d03. Railway deployment 5e47f026-7d45-40bb-b682-f11c17129542 reached SUCCESS. The changed About page was read and visually inspected on afkcube.com.
+- Validation: all 47 existing automated checks passed; identity fields and JSON-LD were also parsed and checked on the three changed HTML pages. These checks establish implementation, not AI visibility.
+- IndexNow accepted the homepage, About and repair page update submission with HTTP 200. Acceptance is not indexing or a citation.
+- Immediate post-release control: one new temporary, Unpersonalized ChatGPT chat, displayed model Medium, received the exact initial branded prompt above without any URL. The completed answer still failed to find the official site and cited unrelated similarly named entities. This is one negative branded discovery observation, separate from unbranded recommendation tests. No improvement is established.
+- Google Search Console continued to show the service URL as indexed. A new homepage inspection was initiated, but its result was not captured before interruption. No new Google indexing request is confirmed.
+- A separate command-line request to the live domain returned HTTP 403 while the browser loaded the updated About page. This is a client-specific verification limit; its cause is unestablished and it does not prove an AI crawler block.
+
+The intervention is deployed and measurable. Its discovery hypothesis remains unproven and the immediate retest was negative. Use the scheduled checkpoints and crawl freshness before deciding whether it helped.
