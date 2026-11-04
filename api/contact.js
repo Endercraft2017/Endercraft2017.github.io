@@ -27,6 +27,7 @@
  */
 
 import { checkRateLimit } from "../lib/ratelimit.js";
+import { forwardPennyInquiry } from "../lib/penny-forward.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_SHORT = 300;   // single-line fields
@@ -239,6 +240,9 @@ export default async function handler(req, res) {
     // only offer it as a reply-to header when it actually looks like an email.
     const replyTo = EMAIL_RE.test(email) ? email : undefined;
 
+    const penny = await forwardPennyInquiry({name,email,company:projectTitle||school,leadType:'student',problem:description,today:help,timeline:deadline,leadSource});
+    if(penny.state!=='disabled')console.info('Penny website intake: '+penny.state);
+
     const sent = await sendInquiryEmail(apiKey, {
       to: to, from: from, subject: "Student project inquiry — " + name, text: text, html: html, replyTo: replyTo
     });
@@ -276,8 +280,13 @@ export default async function handler(req, res) {
     return done(500, { error: "Email isn't configured on the server yet." });
   }
 
+  const penny = await forwardPennyInquiry({name,email,company,intent,problem,today,timeline,budget,country,website,need,acceptanceResult,leadSource,leadType:'business'});
+  if(penny.state!=='disabled')console.info('Penny website intake: '+penny.state);
+
   // Hard ceiling: never let AI delay the email past ~6s, whatever the SDK does.
-  const triage = await Promise.race([
+  // Penny owns this acquisition path when enabled. Do not duplicate its work
+  // through the inherited gateway outside the shared server-side AI ledger.
+  const triage = process.env.PENNY_WEBSITE_FORWARD_ENABLED === '1' ? null : await Promise.race([
     aiTriage({ company, country, need, problem, today, timeline, budget }),
     new Promise(function (resolve) { setTimeout(function () { resolve(null); }, 6000); })
   ]).catch(function () { return null; });
